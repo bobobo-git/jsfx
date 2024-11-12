@@ -2,7 +2,7 @@
 <index version="1" name="bobobo's JSFX" generated-by="https://www.npmjs.com/package/reapack">
 <metadata>
 <description>{\rtf1\ansi\fs24{\fs48\b bobobo's JSFX repository\b}\line\line This is a collection of stuff\line\line
-  add the repository: https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/index.xml\line\line }</description>
+  add the repository: https://bobobo-git.github.io/jsfx/repack/index.xml\line\line }</description>
 <link rel="website">https://bobobo.de/reaper/JSFX/</link>
 </metadata>
 <category name="Synth">
@@ -15,10 +15,10 @@
       
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-12T15:05:54.592Z">
-      <source file="ownsynth.jsfx">https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/synth/ownsynth.jsfx</source>
+      <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
     </version>
     <version name="1.0.1" author="bobobo" time="2024-11-12T20:05:54.592Z">
-      <source file="ownsynth.jsfx">https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/synth/ownsynth.jsfx</source>
+      <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
     </version>
   </reapack>
 </category>
