@@ -1,4 +1,22 @@
 desc:ownsynth (simple synth bobobo)
+author: bobobo
+version: 1.0
+changelog:
+  initial version
+
+about:
+  # ownsynth   
+a simple synth in JSFX    
+sine, saw, square and triangluar waves  
+sub (lower octaves)  
+sup (upper octaves)  
+attack and release  
+hipass and lowpass filters with resonance  
+clipper (boost and Limitwall)  
+no gui
+tags: synth, instrument
+
+
 // bobobo , as usual standing on shoulders of giants
 
 // bobobo made a very simple synth with the help of the fabulous stuff from Geraint Luff, Schwa and  Thomas Scott Stillwell
