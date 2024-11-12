@@ -4,7 +4,7 @@
 <link rel="website">https://geraintluff.github.io/jsfx/</link>
 </metadata>
 <category name="synth">
-<reapack name="PadSynth" type="effect">
+<reapack name="ownsynth" type="effect">
 <metadata>
 <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK "https://geraintluff.github.io/jsfx/audio-demos/padsynth-takeoff.mp3"}}{\fldrslt audio demo}} / {\field{\*\fldinst{HYPERLINK "https://geraintluff.github.io/jsfx/audio-demos/padsynth.mp3"}}{\fldrslt audio demo}} / {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=hgSqq-SgSjs&list=PLflIiXZOocKqgKexrkTxxtl6igGUWnpXK"}}{\fldrslt YouTube}}\line\line {\fs48\b PadSynth\b}\line\line This is a synth that specialises in smooth and thick sounds, with a bank of effects and assignable modulators that are calculated per-note. ({\field{\*\fldinst{HYPERLINK "https://geraintluff.github.io/jsfx/audio-demos/padsynth.mp3"}}{\fldrslt audio demo}}, {\field{\*\fldinst{HYPERLINK "https://soundcloud.com/geraintluff/sets/padsynth-demo-tracks-2/s-xUWj6"}}{\fldrslt additional audio demos}})\line\line You can find more information and demos for this synth on its {\field{\*\fldinst{HYPERLINK "https://github.com/geraintluff/jsfx-pad-synth"}}{\fldrslt main project page}}.\line\line {\field{\*\fldinst{HYPERLINK "https://geraintluff.github.io/jsfx/doc/images/PadSynth.png"}}{\fldrslt screenshot}}\line\line The per-note effects can re-ordered and renamed, and the modulators can modulate any later effect in the chain, including other modulators.\line\line {\field{\*\fldinst{HYPERLINK "https://geraintluff.github.io/jsfx/doc/images/PadSynth2.png"}}{\fldrslt screenshot}}\line\line }</description>
 <link rel="youtube">https://www.youtube.com/watch?v=hgSqq-SgSjs&list=PLflIiXZOocKqgKexrkTxxtl6igGUWnpXK</link>
