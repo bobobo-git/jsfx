@@ -1,9 +1,12 @@
 desc:ownsynth (simple synth bobobo)
 author: bobobo
-version: 1.0
+version: 1.0.1
 changelog:
-  initial version
-
+  sine saw square tri
+  hipass lopass
+  sub und sup
+  clipper
+  faders in sqr and log
 about:
   # ownsynth   
 a simple synth in JSFX    
