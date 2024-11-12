@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="bobobo JSFX" >
+  <category name="ownsynth">
+    <reapack name="ownsynth.jsfx" type="synth" desc="ownsynth , a simple synth with waves and filter and clipper">
+      <metadata>
+        <description></description>
+      </metadata>
+      <version name="1.0" author="bobobo" time="2024-11-12T00:00:00Z">
+        <changelog><![CDATA[Beta 1]]></changelog>
+        <source>https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/synth/ownsynth.jsfx</source>
+      </version>
+    </reapack>
+  </category>
+</index>
