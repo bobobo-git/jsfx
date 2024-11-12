@@ -14,7 +14,7 @@
       <link rel="audio">https://geraintluff.github.io/jsfx/audio-demos/padsynth-takeoff.mp3</link>
       <link rel="audio">https://geraintluff.github.io/jsfx/audio-demos/padsynth.mp3</link>
     </metadata>
-    <version name="1.0.0" author="bobobo" time="2017-01-12T15:05:54.592Z">
+    <version name="1.0.0" author="bobobo" time="2022-11-12T15:05:54.592Z">
       <source file="ownsynth.jsfx">https://geraintluff.github.io/jsfx/releases/PadSynth/1.0.0/PadSynth/pad-synth.jsfx</source>
     </version>
   </reapack>
