@@ -8,5 +8,6 @@
       <version name="1.0" author="bobobo" time="2024-11-12T00:00:00Z">
         <changelog><![CDATA[Beta 1]]></changelog>
         <source>https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/synth/ownsynth.jsfx</source>
+      </version>
   </category>
 </index>        
