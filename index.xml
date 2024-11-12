@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index version="1" name="bobobo's JSFX" generated-by="https://www.npmjs.com/package/reapack">
 <metadata>
-<description>{\rtf1\ansi\fs24{\fs48\b Geraint's JSFX repository\b}\line\line This is a collection of audio effects I have written in REAPER's JSFX language.\line\line Download them from {\field{\*\fldinst{HYPERLINK "https://github.com/geraintluff/jsfx"}}{\fldrslt GitHub}}, or (link_ref)as a ZIP file(https://signalsmith-audio.co.uk/tmp/Geraint's%20JSFX.zip), or on {\field{\*\fldinst{HYPERLINK "https://reapack.com/"}}{\fldrslt ReaPack}} by adding the repository: https://geraintluff.github.io/jsfx/index.xml\line\line There's also a growing set of {\field{\*\fldinst{HYPERLINK "https://www.youtube.com/playlist?list=PLflIiXZOocKqgKexrkTxxtl6igGUWnpXK"}}{\fldrslt video demos/tutorials}}, although not all effects are covered (yet).\line\line }</description>
-<link rel="website">https://geraintluff.github.io/jsfx/</link>
+<description>{\rtf1\ansi\fs24{\fs48\b bobobo's JSFX repository\b}\line\line This is a collection of stuff\line\line
+  add the repository: https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/index.xml\line\line }</description>
+<link rel="website">https://bobobo.de/reaper/JSFX/</link>
 </metadata>
 <category name="Synth">
   <reapack name="OwnSynth" type="effect">
     <metadata>
-      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://geraintluff.github.io/jsfx/audio-demos/padsynth-takeoff.mp3&quot;}}{\fldrslt audio demo}} / {\field{\*\fldinst{HYPERLINK &quot;https://geraintluff.github.io/jsfx/audio-demos/padsynth.mp3&quot;}}{\fldrslt audio demo}} / {\field{\*\fldinst{HYPERLINK &quot;https://www.youtube.com/watch?v=hgSqq-SgSjs&amp;list=PLflIiXZOocKqgKexrkTxxtl6igGUWnpXK&quot;}}{\fldrslt YouTube}}\line\line {\fs48\b PadSynth\b}\line\line This is a synth that specialises in smooth and thick sounds, with a bank of effects and assignable modulators that are calculated per-note. ({\field{\*\fldinst{HYPERLINK &quot;https://geraintluff.github.io/jsfx/audio-demos/padsynth.mp3&quot;}}{\fldrslt audio demo}}, {\field{\*\fldinst{HYPERLINK &quot;https://soundcloud.com/geraintluff/sets/padsynth-demo-tracks-2/s-xUWj6&quot;}}{\fldrslt additional audio demos}})\line\line You can find more information and demos for this synth on its {\field{\*\fldinst{HYPERLINK &quot;https://github.com/geraintluff/jsfx-pad-synth&quot;}}{\fldrslt main project page}}.\line\line {\field{\*\fldinst{HYPERLINK &quot;https://geraintluff.github.io/jsfx/doc/images/PadSynth.png&quot;}}{\fldrslt screenshot}}\line\line The per-note effects can re-ordered and renamed, and the modulators can modulate any later effect in the chain, including other modulators.\line\line {\field{\*\fldinst{HYPERLINK &quot;https://geraintluff.github.io/jsfx/doc/images/PadSynth2.png&quot;}}{\fldrslt screenshot}}\line\line }</description>
-      <link rel="youtube">https://www.youtube.com/watch?v=hgSqq-SgSjs&amp;list=PLflIiXZOocKqgKexrkTxxtl6igGUWnpXK</link>
-      <link rel="screenshot">https://geraintluff.github.io/jsfx/doc/images/PadSynth.png</link>
-      <link rel="screenshot">https://geraintluff.github.io/jsfx/doc/images/PadSynth2.png</link>
-      <link rel="audio">https://geraintluff.github.io/jsfx/audio-demos/padsynth-takeoff.mp3</link>
-      <link rel="audio">https://geraintluff.github.io/jsfx/audio-demos/padsynth.mp3</link>
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/JSFX/&quot;}}
+        {\fldrslt website}} / \line\line {\fs48\b OwnSynth\b}\line\line This is a simple synth using sine saw square and triangle waves (created from sine waves)
+        with hipass and lowpass filters with resonance , a sub (oct down) and aub (oct up) and a clipper. Mainly made to get 
+        a synth done n JSFX}</description>
+      
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-12T15:05:54.592Z">
       <source file="ownsynth.jsfx">https://raw.githubusercontent.com/bobobo-git/jsfx/refs/heads/main/synth/ownsynth.jsfx</source>
