@@ -1,6 +1,6 @@
 # jsfx
 
-## a simple synth made with JSFX
+## ownsynth , a simple synth made with JSFX
 - multiple wave forms created from sine waves
 - hipass and lowpass filter with resonance
 - sub octaves (lower)  
