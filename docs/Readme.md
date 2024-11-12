@@ -8,6 +8,6 @@
 ### clipper 
 ### faders uses sqr or log scalings
 get it with reapack
-from
+from [here](https://bobobo-git.github.io/jsfx/reapack/index.xml)
 
 [license](LICENSE.html)
