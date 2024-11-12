@@ -11,7 +11,6 @@ desc:ownsynth (simple synth bobobo)
 // and to get arround soundissues i applied the RBJ Highpass/Lowpass Filters
 // i tried to make a nice gui but as this would increase cpu cycles (not much but measureable) i stopped this for now
 
-
 slider1:attack=0.01<0,5,0.001:sqr=2>attack
 
 //slider2:sustains=0.05<0,2,0.001>sustain Seconds
