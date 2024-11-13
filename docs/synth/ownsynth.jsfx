@@ -1,6 +1,6 @@
 desc:ownsynth (simple synth bobobo)
 author: bobobo
-version: 1.0.6
+version: 1.0.7
 changelog:
   sine saw square tri
   hipass lopass
@@ -428,13 +428,13 @@ while (note > 0) (
   );
    //sine
   (nsineV >0) |( spl0 +=sin(phase)*amp*nsineV*1.2);
-  (nsubV >0) |( sub0 += sin((phase)/setsub)*amp*nsineV*1.2*nsubV) ;
-  (nsupV >0) |( sup0 += sin((phase)*setsup)*amp*nsineV*1.2*nsupV) ;
+  (nsubV >0) |( spl0 += sin((phase)/setsub)*amp*nsineV*1.2*nsubV) ;
+  (nsupV >0) |( spl0 += sin((phase)*setsup)*amp*nsineV*1.2*nsupV) ;
   
   // sawtooth
   (nsawV >0)| (spl0 += atan(tan(phase/2))*amp*nsawV*0.9);
-  (nsubV >0)| (sub0 += atan(tan(phase/2/setsub))*amp*nsawV*0.9*nsubV);
-  (nsupV >0)| (sup0 += atan(tan(phase/2*setsup ))*amp*nsawV*0.9*nsupV);
+  (nsubV >0)| (spl0 += atan(tan(phase/2/setsub))*amp*nsawV*0.9*nsubV);
+  (nsupV >0)| (spl0 += atan(tan(phase/2*setsup ))*amp*nsawV*0.9*nsupV);
   
   //Squarewave-ish
   (nsquareV>0)|(
@@ -450,7 +450,7 @@ while (note > 0) (
     m=1;
     rr=24;
     while (m<rr)(
-      sub0 += sin(phase*m/setsub)*amp*(rr/m)*nsquareV*nsubV*0.05;           
+      spl0 += sin(phase*m/setsub)*amp*(rr/m)*nsquareV*nsubV*0.05;           
       m+=2;
       );
     );
@@ -458,7 +458,7 @@ while (note > 0) (
     m=1;
     rr=24;
     while (m<rr)(
-      sup0 += sin(phase*m*setsup)*amp*(rr/m)*nsquareV*nsupV*0.05;           
+      spl0 += sin(phase*m*setsup)*amp*(rr/m)*nsquareV*nsupV*0.05;           
       m+=2;
       );
     );   
@@ -475,19 +475,19 @@ while (note > 0) (
     );
   
   (nsubV>0)|(
-    sub0 += sin(phase/setsub)*amp*ntriV*nsubV;                
-    sub0 += sin(phase*3/setsub)*amp*ntriV*-0.1*nsubV;           
-    sub0 += sin(phase*5/setsub)*amp*ntriV*+0.05*nsubV;             
-    sub0 += sin(phase*7/setsub)*amp*ntriV*-0.025*nsubV;           
-    sub0 += sin(phase*9/setsub)*amp*ntriV*+0.0125*nsubV;           
+    spl0 += sin(phase/setsub)*amp*ntriV*nsubV;                
+    spl0 += sin(phase*3/setsub)*amp*ntriV*-0.1*nsubV;           
+    spl0 += sin(phase*5/setsub)*amp*ntriV*+0.05*nsubV;             
+    spl0 += sin(phase*7/setsub)*amp*ntriV*-0.025*nsubV;           
+    spl0 += sin(phase*9/setsub)*amp*ntriV*+0.0125*nsubV;           
     //sub0 *=0.5;
     );
-  (nsupV>0)|(
-    sup0 += sin(phase*setsup)*amp*ntriV*nsubV;                
-    sup0 += sin(phase*3*setsup)*amp*ntriV*-0.1*nsupV;           
-    sup0 += sin(phase*5*setsup)*amp*ntriV*+0.05*nsupV;             
-    sup0 += sin(phase*7*setsup)*amp*ntriV*-0.025*nsupV;           
-    sup0 += sin(phase*9*setsup)*amp*ntriV*+0.0125*nsupV;           
+  (nsupV>0)|( 
+    spl0 += sin(phase*setsup)*amp*ntriV*nsubV;                
+    spl0 += sin(phase*3*setsup)*amp*ntriV*-0.1*nsupV;           
+    spl0 += sin(phase*5*setsup)*amp*ntriV*+0.05*nsupV;             
+    spl0 += sin(phase*7*setsup)*amp*ntriV*-0.025*nsupV;           
+    spl0 += sin(phase*9*setsup)*amp*ntriV*+0.0125*nsupV;           
     // sup0 *=0.5;
     );
   
@@ -500,8 +500,8 @@ while (note > 0) (
   note = synth_note_next(note);
 );
 //hpf
-spl0+=sup0; //add sup
-spl0+=sub0; //add sub
+//spl0+=sup0; //add sup
+//spl0+=sub0; //add sub
 hpf_inA=spl0;
 hpf_hpA = hpf_inA - hpf_buf0A;
 hpf_bpA = hpf_buf0A - hpf_buf1A;
