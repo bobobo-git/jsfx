@@ -13,7 +13,8 @@ add the repository: https://bobobo-git.github.io/jsfx/repack/index.xml\line\line
         sine saw square and triangle waves (created from sine waves)\line
         with hipass and lowpass filters with resonance,\line
         a sub (oct down) and aub (oct up)\line
-        and a clipper.\line\line
+        and a clipper.\line
+        and mon to 16 voices\line\line
         Mainly made to get a synth done n JSFX}</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-12T15:05:54.592Z">
@@ -22,7 +23,7 @@ add the repository: https://bobobo-git.github.io/jsfx/repack/index.xml\line\line
     <version name="1.0.1" author="bobobo" time="2024-11-12T20:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
     </version>
-    <version name="1.0.4" author="bobobo" time="2024-11-13T20:05:54.592Z">
+    <version name="1.0.5" author="bobobo" time="2024-11-13T20:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
       <source file="ownsynth.jsfx.rpl">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx.rpl</source>
     </version>
