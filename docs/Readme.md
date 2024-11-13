@@ -1,4 +1,4 @@
-## jsfx
+### jsfx
 ### ownsynth , a simple synth made with JSFX  
 - using additive synthese creating a mix of sine, saw, square and triangle wave  
 - hipass and lowpass filter with resonance   
