@@ -1,6 +1,6 @@
 desc:ownsynth (simple synth bobobo)
 author: bobobo
-version: 1.0.5
+version: 1.0.6
 changelog:
   sine saw square tri
   hipass lopass
@@ -470,7 +470,7 @@ while (note > 0) (
     spl0 += sin(phase*5)*amp*ntriV*+0.05;           
     spl0 += sin(phase*7)*amp*ntriV*-0.025;           
     spl0 += sin(phase*9)*amp*ntriV*+0.0125;           
-    spl0 *=0.8;
+    //spl0 *=0.8;
     
     );
   
@@ -480,7 +480,7 @@ while (note > 0) (
     sub0 += sin(phase*5/setsub)*amp*ntriV*+0.05*nsubV;             
     sub0 += sin(phase*7/setsub)*amp*ntriV*-0.025*nsubV;           
     sub0 += sin(phase*9/setsub)*amp*ntriV*+0.0125*nsubV;           
-    sub0 *=0.5;
+    //sub0 *=0.5;
     );
   (nsupV>0)|(
     sup0 += sin(phase*setsup)*amp*ntriV*nsubV;                
@@ -488,7 +488,7 @@ while (note > 0) (
     sup0 += sin(phase*5*setsup)*amp*ntriV*+0.05*nsupV;             
     sup0 += sin(phase*7*setsup)*amp*ntriV*-0.025*nsupV;           
     sup0 += sin(phase*9*setsup)*amp*ntriV*+0.0125*nsupV;           
-    sup0 *=0.5;
+    // sup0 *=0.5;
     );
   
   
