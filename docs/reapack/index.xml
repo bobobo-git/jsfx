@@ -22,9 +22,9 @@ add the repository: https://bobobo-git.github.io/jsfx/repack/index.xml\line\line
     <version name="1.0.1" author="bobobo" time="2024-11-12T20:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
     </version>
-    <version name="1.0.2" author="bobobo" time="2024-11-13T20:05:54.592Z">
+    <version name="1.0.3" author="bobobo" time="2024-11-13T20:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
-      <source file="ownsynth.RPL">https://bobobo-git.github.io/jsfx/synth/ownsynth.RPL</source>
+      <source file="ownsynth.RPL">https://bobobo-git.github.io/jsfx/synth/ownsynth.rpl</source>
     </version>
   </reapack>
 </category>
