@@ -24,7 +24,7 @@ add the repository: https://bobobo-git.github.io/jsfx/repack/index.xml\line\line
     </version>
     <version name="1.0.4" author="bobobo" time="2024-11-13T20:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
-      <source file="ownsynth.RPL">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx.rpl</source>
+      <source file="ownsynth.jsfx.rpl">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx.rpl</source>
     </version>
   </reapack>
 </category>
