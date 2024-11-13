@@ -1,6 +1,6 @@
 desc:ownsynth (simple synth bobobo)
 author: bobobo
-version: 1.0.3
+version: 1.0.4
 changelog:
   sine saw square tri
   hipass lopass
