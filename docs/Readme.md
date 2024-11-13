@@ -8,7 +8,9 @@ ownsynth , a simple synth made with JSFX
 - sup octaves (higher)  
 - clipper  
 - faders uses sqr or log scalings  
+- 1 to 16 channels  
 all diable  
+more info [here](https://www.bobobo.de/reaper/JSFX/)  
 
 get it with reapack  
 from [here](https://bobobo-git.github.io/jsfx/reapack/index.xml)  
