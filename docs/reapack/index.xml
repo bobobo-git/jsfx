@@ -14,8 +14,10 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         with hipass and lowpass filters with resonance,\line
         a sub (oct down) and aub (oct up)\line
         and a clipper.\line
-        and mon to 16 voices\line\line
-        Mainly made to get a synth done n JSFX}</description>
+        and mono to 16 voices\line
+        it is not realy polyphone, you got one osc per note in time\line\line
+        
+        Mainly made to get a simple synth done n JSFX}</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-12T15:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
