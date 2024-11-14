@@ -39,7 +39,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
-      <source file="ownchourus_I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_I.jsfx</source>
+      <source file="ownchorus_I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_I.jsfx</source>
     </version>
   </reapack>
   <reapack name="OwnChorus II" type="effect">
