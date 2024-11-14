@@ -31,4 +31,26 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category>
+<category name="Chorus">
+  <reapack name="OwnChorus I" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
+        a chorus with fixed values\line
+        }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
+      <source file="ownchourus_I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_I.jsfx</source>
+    </version>
+  </reapack>
+  <reapack name="OwnChorus II" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
+        a chorus with fixed values\line
+        }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
+      <source file="ownchorus_II.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_II.jsfx</source>
+    </version>
+  </reapack>
+</category>    
 </index>

@@ -12,6 +12,12 @@ ownsynth , a simple synth made with JSFX
 all diable  
 more info [here](https://www.bobobo.de/reaper/JSFX/)  
 
+
+ownchorus I and ownchorus II  
+two fixed value choruses as JSFX effects   
+
+
+
 get it with reapack  
 from [here](https://bobobo-git.github.io/jsfx/reapack/index.xml)  
 [license](LICENSE.html)  
