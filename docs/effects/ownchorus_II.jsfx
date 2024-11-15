@@ -3,7 +3,7 @@
 
 desc:ownchorus II
 author: bobobo  
-version: 1.0.0
+version: 1.0.1
 changelog:
   a chorus
 //author: Cockos .. bobobo had his fingers at it
@@ -19,20 +19,13 @@ bpos=0;
 
 choruslen=10 *srate*0.001;
 
-//i=0;
-//loop(numvoices, 
-//  i[0]=(i+1)/numvoices*$pi; 
-//  i+=1; 
-//);
-
 bufofs=4096;
 
-csize=choruslen/1 * 0.7;
+csize=choruslen/1 * 0.1;
 
-rateadj=0.9*2*$pi/srate;
+rateadj=1.8*2*$pi/srate;
 wetmix = 2 ^ (-6/6);
 drymix = 2 ^ (-6/6);
-
 
 @sample
 

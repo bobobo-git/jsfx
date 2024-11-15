@@ -49,7 +49,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         a chorus with fixed values\line
         }</description>
     </metadata>
-    <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
+    <version name="1.0.1" author="bobobo" time="2024-11-14T10:00:00.000Z">
       <source file="ownchorus_II.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_II.jsfx</source>
     </version>
   </reapack>
