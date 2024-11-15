@@ -9,7 +9,10 @@ ownsynth , a simple synth made with JSFX
 - clipper  
 - faders uses sqr or log scalings  
 - 1 to 16 channels  
-all diable  
+all diable 
+
+ownsynth II , same as above but with a diabnle chorus  
+
 more info [here](https://www.bobobo.de/reaper/JSFX/)  
 
 
