@@ -13,6 +13,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         sine saw square and triangle waves (created from sine waves)\line
         with hipass and lowpass filters with resonance,\line
         a sub (oct down) and aub (oct up)\line
+        diable pitchrange settings\line
         and a clipper.\line
         and mono to 16 voices\line
         it is not realy polyphone, you got one osc per note in time\line\line
@@ -32,8 +33,10 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         sine saw square and triangle waves (created from sine waves)\line
         with hipass and lowpass filters with resonance,\line
         a sub (oct down) and aub (oct up)\line
+        diable pitchrange settings\line
         and a clipper.\line
         and mono to 16 voices\line
+        and this one has a diable chorus\line
         it is not realy polyphone, you got one osc per note in time\line\line
         
         Mainly made to get a simple synth done n JSFX}
