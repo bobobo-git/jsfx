@@ -11,7 +11,8 @@ ownsynth , a simple synth made with JSFX
 - 1 to 16 channels  
 all diable 
 
-ownsynth II , same as above but with a diabnle chorus  
+ownsynth II , same as above but with a diable chorus  
+
 
 more info [here](https://www.bobobo.de/reaper/JSFX/)  
 
