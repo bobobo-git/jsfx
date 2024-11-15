@@ -20,15 +20,28 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         Mainly made to get a simple synth done n JSFX}
     </description>
     </metadata>
-    <version name="1.0.0" author="bobobo" time="2024-11-12T15:05:54.592Z">
-      <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
-    </version>
-    <version name="1.0.1" author="bobobo" time="2024-11-12T20:05:54.592Z">
-      <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
-    </version>
-    <version name="1.0.7" author="bobobo" time="2024-11-13T20:05:54.592Z">
+    <version name="1.0.8" author="bobobo" time="2024-11-13T20:05:54.592Z">
       <source file="ownsynth.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx</source>
       <source file="ownsynth.jsfx.rpl">https://bobobo-git.github.io/jsfx/synth/ownsynth.jsfx.rpl</source>
+    </version>
+  </reapack>
+  <reapack name="OwnSynth II" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/JSFX/&quot;}}
+        {\fldrslt website}} / \line\line {\fs48\b OwnSynth\b}\line\line This is a simple synth using\line
+        sine saw square and triangle waves (created from sine waves)\line
+        with hipass and lowpass filters with resonance,\line
+        a sub (oct down) and aub (oct up)\line
+        and a clipper.\line
+        and mono to 16 voices\line
+        it is not realy polyphone, you got one osc per note in time\line\line
+        
+        Mainly made to get a simple synth done n JSFX}
+    </description>
+    </metadata>
+    <version name="1.0.1" author="bobobo" time="2024-11-12T20:05:54.592Z">
+      <source file="ownsynth_II.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth_II.jsfx</source>
+      <source file="ownsynth_II.jsfx.rpl">https://bobobo-git.github.io/jsfx/synth/ownsynth_II.jsfx.rpl</source>
     </version>
   </reapack>
 </category>
