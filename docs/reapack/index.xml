@@ -69,5 +69,17 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
       <source file="ownchorus_II.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_II.jsfx</source>
     </version>
   </reapack>
-</category>    
+</category> 
+<category name="Filter">
+  <reapack name="OwnHiLo" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b OwnHiLo I\b}\line\line
+        filter hipass and lowpass wthg chorus and a clipper\line
+        }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
+      <source file="ownhilo.jsfx">https://bobobo-git.github.io/jsfx/effects/ownhilo.jsfx</source>
+    </version>
+  </reapack>
+</category> 
 </index>
