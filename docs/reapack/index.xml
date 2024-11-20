@@ -17,7 +17,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         and a clipper.\line
         and mono to 16 voices\line
         it is not realy polyphone, you got one osc per note in time\line\line
-        
+        THIS STUFF IS MONO\line\line
         Mainly made to get a simple synth done n JSFX}
     </description>
     </metadata>
@@ -38,7 +38,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         and mono to 16 voices\line
         and this one has a diable chorus\line
         it is not realy polyphone, you got one osc per note in time\line\line
-        
+        THIS STUFF IS MONO\line\line
         Mainly made to get a simple synth done n JSFX}
     </description>
     </metadata>
@@ -53,7 +53,8 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
         a chorus with fixed values\line
-        }</description>
+        THIS STUFF IS MONO\line\line
+      }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
       <source file="ownchorus_I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_I.jsfx</source>
@@ -75,6 +76,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b OwnHiLo I\b}\line\line
         filter hipass and lowpass wthg chorus and a clipper\line
+        THIS STUFF IS MONO\line\line
         }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-14T10:00:00.000Z">
