@@ -134,7 +134,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-21T10:00:00.000Z">
-      <source file="ownhilo I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownhilo_I.jsfx</source>
+      <source file="ownhilo_I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownhilo_I.jsfx</source>
     </version>
   </reapack>
 </category> 
