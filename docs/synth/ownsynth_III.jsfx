@@ -1,6 +1,6 @@
 desc:ownsynth III (simple synth bobobo)
 author: bobobo
-version: 1.0.0
+version: 1.0.1
 changelog:
   - sine saw square tri
   - hipass lopass
@@ -339,14 +339,21 @@ baseline_threshold_dB = -9.0;
 cl_a = 1.017;
 cl_b = -0.025;
 //chorus
+ch_choruslen=12*srate*0.001;
 
-ch_bpos=0;
-ch_choruslen=10*srate*0.001;
-ch_bufofs=4096;
-ch_csize=ch_choruslen/1 * 0.7;
-ch_rateadj=0.5*2*$pi/srate;
-ch_wetmix = 2 ^ (-1/6);
-ch_drymix = 2 ^ (-1/6);
+ch_bpos0=0;
+ch_bufofs0=4096;
+ch_csize0=ch_choruslen/1 * 0.7;
+ch_rateadj0=0.5*2*$pi/srate;
+ch_wetmix0 = 2 ^ (-1/6);
+ch_drymix0 = 2 ^ (-1/6);
+ch_bpos0=0;
+
+ch_bufofs1=4096;
+ch_csize1=ch_choruslen/1 * 0.7;
+ch_rateadj1=0.5*2*$pi/srate;
+ch_wetmix1 = 2 ^ (-1/6);
+ch_drymix1 = 2 ^ (-1/6);
 @slider
 npan=pan;
 nattack=attack;
@@ -542,36 +549,50 @@ dB0 = amp_dB * log(abs(spl0)) + boost_dB;
 spl0 = exp(dB0 / amp_dB) * sign(spl0);
 
 
-
-//chorus
-//chorus
 spl1=spl0;
+//chorus
+
+
 (nchorus>0)?(
-ch_bpos >= ch_choruslen ? (
-  ch_bpos=0;
-);
+  ch_bpos0 >= ch_choruslen ? (
+    ch_bpos0=0;
+  );
+  ch_bpos1 >= ch_choruslen ? (
+    ch_bpos1=0;
+  );
 ch_os0=spl0;
-spl0=spl0*ch_drymix;
-ch_vol=ch_wetmix/1;
-ch_i=0;
+ch_os1=spl1;
+spl0=spl0*ch_drymix0;
+spl1=spl1*ch_drymix1;
+ch_vol0=ch_wetmix0/1;
+ch_vol1=ch_wetmix1/1;
+ch_i0=0;
+ch_i1=0;
 loop(1,
-   ch_tpos = ch_bpos - (0.5+0.49*sin( ch_i[0] += ch_rateadj)) * (ch_i+1) * ch_csize;
-   ch_tpos < 0 ? ch_tpos += ch_choruslen;
-   ch_frac=ch_tpos-(0|ch_tpos); 
-   ch_ntpos=ch_tpos>=(ch_choruslen-1)?0:ch_tpos+1;
-   spl0 +=nchorus*(ch_bufofs[ch_tpos]*(1-ch_frac) + ch_bufofs[ch_ntpos]*ch_frac ) * ch_vol;
-   spl1 -=nchorus*(ch_bufofs[ch_tpos]*(1-ch_frac) + ch_bufofs[ch_ntpos]*ch_frac ) * ch_vol;
-   ch_i+=1;
+   ch_tpos0 = ch_bpos0 - (0.5+0.49*sin( ch_i0[0] += ch_rateadj0)) * (ch_i0+1) * ch_csize0;
+   ch_tpos1 = ch_bpos1 - (0.5+0.49*sin( ch_i1[0] += ch_rateadj1)) * (ch_i1+1) * ch_csize1;
+   ch_tpos0 < 0 ? ch_tpos0 += ch_choruslen;
+   ch_tpos1 < 0 ? ch_tpos1 += ch_choruslen;
+   ch_frac0=ch_tpos0-(0|ch_tpos0); 
+   ch_frac1=ch_tpos1-(0|ch_tpos1); 
+   ch_ntpos0=ch_tpos0>=(ch_choruslen-1)?0:ch_tpos0+1;
+   ch_ntpos1=ch_tpos1>=(ch_choruslen-1)?0:ch_tpos1+1;
+   spl0 +=nchorus*(ch_bufofs0[ch_tpos0]*(1-ch_frac0) + ch_bufofs0[ch_ntpos0]*ch_frac0) * ch_vol0;
+   spl1 +=nchorus*(ch_bufofs1[ch_tpos1]*(1-ch_frac1) + ch_bufofs1[ch_ntpos1]*ch_frac1) * ch_vol1;
+   ch_i0+=1;
+   ch_i1+=1;
 );
 
-ch_bufofs[ch_bpos]=ch_os0;
-ch_bpos+=1;
+ch_bufofs0[ch_bpos0]=ch_os0;
+ch_bufofs1[ch_bpos1]=ch_os1;
+ch_bpos0+=1;
+ch_bpos1+=1;
 );
     // fill the other side 
   //pan;
 //spl1=spl0;
-spl0*=1-npan;
-spl1*=npan;
+spl0*=(1-npan);
+spl1*=(npan);
 @gfx 1000 20
 bg=gfx_getsyscol();
 gfx_clear=bg;
