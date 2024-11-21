@@ -1,6 +1,6 @@
 desc:ownhilo I (hipass and lowpass filter bobobo)
 author: bobobo
-version: 1.0.1
+version: 1.0.0
 changelog:
  - taken from the ownsynth
  - NOW WITH PAN
