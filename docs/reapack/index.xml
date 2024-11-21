@@ -47,6 +47,27 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
       <source file="ownsynth_II.jsfx.rpl">https://bobobo-git.github.io/jsfx/synth/ownsynth_II.jsfx.rpl</source>
     </version>
   </reapack>
+  <reapack name="OwnSynth III" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/JSFX/&quot;}}
+        {\fldrslt website}} / \line\line {\fs48\b OwnSynth\b}\line\line This is a simple synth using\line
+        sine saw square and triangle waves (created from sine waves)\line
+        with hipass and lowpass filters with resonance,\line
+        a sub (oct down) and aub (oct up)\line
+        diable pitchrange settings\line
+        and a clipper.\line
+        and mono to 16 voices\line
+        and this one has a diable chorus\line
+        it is not realy polyphone, you got one osc per note in time\line\line
+        THIS STUFF IS NOT MONO\line\line
+        Mainly made to get a simple synth done n JSFX}
+    </description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2024-11-21T00:00:00.000Z">
+      <source file="ownsynth_III.jsfx">https://bobobo-git.github.io/jsfx/synth/ownsynth_III.jsfx</source>
+      <source file="ownsynth_III.jsfx.rpl">https://bobobo-git.github.io/jsfx/synth/ownsynth_III.jsfx.rpl</source>
+    </version>
+  </reapack>
 </category>
 <category name="Chorus">
   <reapack name="OwnChorus I" type="effect">
@@ -68,6 +89,28 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </metadata>
     <version name="1.0.1" author="bobobo" time="2024-11-14T10:00:00.000Z">
       <source file="ownchorus_II.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_II.jsfx</source>
+    </version>
+  </reapack>
+  <reapack name="OwnChorus Is" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
+        another stereo chorus with fixed values\line
+        THIS STUFF IS NOT MONO\line\line
+      }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2024-11-21T10:00:00.000Z">
+      <source file="ownchorus_Is.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_Is.jsfx</source>
+    </version>
+  </reapack>
+  <reapack name="OwnChorus IIs" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
+        another stereo chorus with fixed values\line
+        THIS STUFF IS NOT MONO\line\line
+      }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2024-11-21T10:00:00.000Z">
+      <source file="ownchorus_IIs.jsfx">https://bobobo-git.github.io/jsfx/effects/ownchorus_IIs.jsfx</source>
     </version>
   </reapack>
 </category> 
