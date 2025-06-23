@@ -138,7 +138,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category> 
-  <category name="Generatorr">
+  <category name="Generator">
   <reapack name="_tone_var_generator" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b variable ToneGenerator\b}\line\line
