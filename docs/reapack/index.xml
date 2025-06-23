@@ -146,7 +146,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         \line\line
         }</description>
     </metadata>
-    <version name="1.0.2" author="bobobo" time="2025-06-23T10:00:00.000Z">
+    <version name="1.0.3" author="bobobo" time="2025-06-23T10:00:00.000Z">
       <source file="tone_var_generator.jsfx">https://bobobo-git.github.io/jsfx/effects/tone_var_generator.jsfx</source>
     </version>
   </reapack>
