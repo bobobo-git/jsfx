@@ -5,7 +5,7 @@ desc: tone_variable_generator
 slider1:440<440,10560,440>Fundamental Frequency (Hz)
 slider2:-12<-120,0,1>F1 Volume (dB)
 slider3:12<1,24,1>divider
-slider4:12<0,24,1>tone
+slider4:12<0,24,1>counts
 in_pin:left input
 in_pin:right input
 out_pin:left output
