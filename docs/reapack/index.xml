@@ -138,4 +138,17 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category> 
+  <category name="Generatorr">
+  <reapack name="_tone_var_generator" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b variable ToneGenerator\b}\line\line
+        to generate tones with variable subdivisions\line
+        \line\line
+        }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2025-06-23T10:00:00.000Z">
+      <source file="_tone_var_generator.txt">https://bobobo-git.github.io/jsfx/effects/_tone_var_generator.txt</source>
+    </version>
+  </reapack>
+</category> 
 </index>
