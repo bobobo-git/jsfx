@@ -1,4 +1,16 @@
-// License: GPL - http://www.gnu.org/licenses/gpl-3.0.html
+desc:tone_var_generator - synth (simple synth bobobo)
+author: bobobo
+version: 1.0.0
+changelog:
+  
+  
+about:
+# tone_var_generator
+a jsfx tonegenerator as synth for diable evenly spaced octave steps
+sine
+no real gui
+
+tags: synth, instrument// License: GPL - http://www.gnu.org/licenses/gpl-3.0.html
 desc: tone_variable_generator
 //tags: sine generator synthesis
 //author: bobobo , from code by Drake Andersen
