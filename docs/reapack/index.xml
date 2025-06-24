@@ -79,7 +79,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }
     </description>
     </metadata>
-    <version name="1.0.0" author="bobobo" time="2025-06-24T00:00:00.000Z">
+    <version name="1.0.1" author="bobobo" time="2025-06-24T00:00:00.000Z">
       <source file="tone_var_generator_synth.jsfx">https://bobobo-git.github.io/jsfx/synth/tone_var_generator_synth.jsfx</source>
     </version>
   </reapack>
