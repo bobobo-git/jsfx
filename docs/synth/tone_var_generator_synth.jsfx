@@ -1,6 +1,6 @@
- desc: TVG_synth
+desc: TVG_synth
 author: bobobo
-version: 1.0.4
+version: 1.0.5
 changelog:
   midi notes
   infofield
