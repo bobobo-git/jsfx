@@ -1,25 +1,19 @@
 desc: TVG_synth
 author: bobobo
-version: 1.0.2
+version: 1.0.3
 changelog:
   midi notes
   infofield
   renaming and tagging
 about:
-# tone_var_generator
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
 saw
 no real gui
-
-provides:
- 
-
-
 tags: synth, instrument
-// License: GPL - http://www.gnu.org/licenses/gpl-3.0.html
-desc: TVG_synth
 
-//tags: sine generator synthesis
+
+// License: GPL - http://www.gnu.org/licenses/gpl-3.0.html
+
 //author: bobobo , from code by Drake Andersen
 
 slider1:440<0,880,27.5>Fundamental Frequency (Hz)
@@ -80,4 +74,3 @@ those parts can be played from MIDINote36 upwards.
 (you can edit the maximal divider to a higher value creating an
 even more divided noteset)
 ");
-
