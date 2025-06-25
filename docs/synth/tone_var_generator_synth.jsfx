@@ -1,11 +1,12 @@
 desc: TVG_synth
 author: bobobo
-version: 1.0.6
+version: 1.0.7
 changelog:
   midi notes
   infofield
   renaming and tagging
   waveformselection
+  tuned
 about:
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
 saw
@@ -18,9 +19,10 @@ tags: synth, instrument
 //author: bobobo , from code by Drake Andersen
 
 slider1:440<0,880,27.5>Fundamental Frequency (Hz)
-slider2:-12<-120,0,1>F1 Volume (dB)
-slider3:12<1,24,1>divider
-slider4:0<0,3,1>wave (0:sin,1:saw \,2:saw /,3:tri)
+slider2:57<0,127,1>BaseNote
+slider3:-12<-120,0,1>F1 Volume (dB)
+slider4:12<1,24,1>divider
+slider5:0<0,3,1>wave (0:sin,1:saw \,2:saw /,3:tri)
 
 in_pin:left input
 in_pin:right input
@@ -31,12 +33,12 @@ out_pin:right output
 @init
 
 @slider
-vol1=2 ^ (slider2/6);
+vol1=2 ^ (slider3/6);
 
-
+div=slider4;
 f0=slider1;
-
-wave=slider4;
+basenote=slider2;
+wave=slider5;
 @block
 
 while (midirecv(offset, msg1, note, vel)) (
@@ -44,7 +46,7 @@ while (midirecv(offset, msg1, note, vel)) (
   channel = msg1 & 0x0F;
   // note on
   event == 0x90  ? (
-   fn = f0 * pow(2,((note-36)/slider3)); adj1 = 2.0*$pi*(fn)/srate; fire=1; );
+   fn = f0 * pow(2,((note-basenote)/div)); adj1 = 2.0*$pi*(fn)/srate; fire=1; );
     // note off
     event == 0x80 ? ( fire=0; fn=0;pos1=0;);
   midisend(offset, msg1, note, vel);
