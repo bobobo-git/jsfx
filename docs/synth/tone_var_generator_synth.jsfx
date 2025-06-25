@@ -1,10 +1,10 @@
-desc:tone_var_generator_synth (simple synth bobobo)
+desc: TVG_synth
 author: bobobo
-version: 1.0.1
+version: 1.0.2
 changelog:
   midi notes
   infofield
-  
+  renaming and tagging
 about:
 # tone_var_generator
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
@@ -15,8 +15,10 @@ provides:
  
 
 
-tags: synth, instrument// License: GPL - http://www.gnu.org/licenses/gpl-3.0.html
-desc: tone_variable_generator_synth
+tags: synth, instrument
+// License: GPL - http://www.gnu.org/licenses/gpl-3.0.html
+desc: TVG_synth
+
 //tags: sine generator synthesis
 //author: bobobo , from code by Drake Andersen
 
