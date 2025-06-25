@@ -1,6 +1,6 @@
 desc: TVG_synth
 author: bobobo
-version: 1.0.5
+version: 1.0.6
 changelog:
   midi notes
   infofield
@@ -20,7 +20,7 @@ tags: synth, instrument
 slider1:440<0,880,27.5>Fundamental Frequency (Hz)
 slider2:-12<-120,0,1>F1 Volume (dB)
 slider3:12<1,24,1>divider
-slider4:0<0,2,1>wave (0:sin,1:saw,2:tri)
+slider4:0<0,3,1>wave (0:sin,1:saw \,2:saw /,3:tri)
 
 in_pin:left input
 in_pin:right input
@@ -52,12 +52,14 @@ while (midirecv(offset, msg1, note, vel)) (
 
 
 @sample
-//sine
+//sine ~
 (wave==0)? (tone1 = Cos(pos1););
-//saw
+//saw1 |\
 (wave==1)? (tone1 = 1.0-pos1/$pi;);
-//tri
-(wave==2)?(tone1 = 2.0*pos1/$pi-1.0;
+//saw2 /|
+(wave==2)? (tone1 = pos1/$pi -1.0;);
+//tri /\/\
+(wave==3)?(tone1 = 2.0*pos1/$pi-1.0;
    (tone1 > 1.0) ? tone1 = 2.0-tone1;
   );
 tone1 *= vol1;
