@@ -1,12 +1,12 @@
 desc: TVG_synth
 author: bobobo
-version: 1.0.7
+version: 1.0.8
 changelog:
   midi notes
   infofield
   renaming and tagging
   waveformselection
-  tuned
+  retuned 
 about:
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
 saw
@@ -77,12 +77,13 @@ gfx_r=gfx_g=gfx_b=0.9;
 gfx_b=0;
 gfx_x=gfx_y=0;
 gfx_setfont(1,"Verdana",14);
-gfx_drawstr("A simple mono saw-wave synth (no adsr) WATCH THE VOLUMES !
+gfx_drawstr("A simple mono sin,saw,tri-wave synth (no adsr) WATCH THE VOLUMES !
 The divider splits an ovtave with the Fundamental Frequency as base in even parts.
-those parts can be played from MIDINote36 upwards.
-- divider at 12 for a usual octave
+those parts can be played from MIDINote 57 upwards.
+- divider at 12 for a usual octave (usage as normal synth)
 -- lower values create an evenspaced macro-tuning
 -- higher values create an evenspaced microtuning
 (you can edit the maximal divider to a higher value creating an
 even more divided noteset)
+havoc if parameters are touched :)
 ");
