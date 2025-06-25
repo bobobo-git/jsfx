@@ -1,10 +1,11 @@
-desc: TVG_synth
+ desc: TVG_synth
 author: bobobo
-version: 1.0.3
+version: 1.0.4
 changelog:
   midi notes
   infofield
   renaming and tagging
+  waveformselection
 about:
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
 saw
@@ -19,6 +20,7 @@ tags: synth, instrument
 slider1:440<0,880,27.5>Fundamental Frequency (Hz)
 slider2:-12<-120,0,1>F1 Volume (dB)
 slider3:12<1,24,1>divider
+slider4:0<0,2,1>wave (0:sin,1:saw,2:tri)
 
 in_pin:left input
 in_pin:right input
@@ -34,7 +36,7 @@ vol1=2 ^ (slider2/6);
 
 f0=slider1;
 
-
+wave=slider4;
 @block
 
 while (midirecv(offset, msg1, note, vel)) (
@@ -50,8 +52,14 @@ while (midirecv(offset, msg1, note, vel)) (
 
 
 @sample
-//tone1 = Cos(pos1);
-tone1 = 1.0-pos1/$pi;
+//sine
+(wave==0)? (tone1 = Cos(pos1););
+//saw
+(wave==1)? (tone1 = 1.0-pos1/$pi;);
+//tri
+(wave==2)?(tone1 = 2.0*pos1/$pi-1.0;
+   (tone1 > 1.0) ? tone1 = 2.0-tone1;
+  );
 tone1 *= vol1;
 spl0 = tone1*fire;
 spl1 = tone1*fire;;
