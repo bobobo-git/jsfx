@@ -1,12 +1,13 @@
 desc: TVG_synth
 author: bobobo
-version: 1.0.9
+version: 1.0.10
 changelog:
   midi notes
   infofield
   renaming and tagging
   waveformselection
   tuned
+  fn min max
 about:
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
 saw
@@ -50,8 +51,11 @@ while (midirecv(offset, msg1, note, vel)) (
   channel = msg1 & 0x0F;
   // note on
   event == 0x90  ? (
-   fn = freq * pow(2,((note-basenote)/div)); adj1 = 2.0*$pi*(fn)/srate; fire=1; );
- 
+   fn = freq * pow(2,((note-basenote)/div)); 
+ (fn<1)?fn=1;
+ (fn>20000)?(fn=20000);
+   adj1 = 2.0*$pi*(fn)/srate; fire=1; );
+   
     // note off
     event == 0x80 ? ( fire=0; fn=0;pos1=0;);
   midisend(offset, msg1, note, vel);
