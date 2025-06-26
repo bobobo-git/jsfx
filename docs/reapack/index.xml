@@ -70,9 +70,9 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
   </reapack>
   <reapack name="tone_var_generator_synth" type="effect">
     <metadata>
-      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/JSFX/&quot;}}
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/notes_and_tunings/&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b OwnSynth\b}\line\line This is a simple synth using\line
-        sine to play  diable variable evenly spaced octave steps.\line
+        waveforms to play diable variable evenly spaced octave steps. more info on the website\line
         \line
         \line
         THIS STUFF IS MONO\line\line
