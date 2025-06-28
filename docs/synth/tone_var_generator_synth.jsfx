@@ -1,6 +1,6 @@
 desc: TVG_synth
 author: bobobo
-version: 1.0.10
+version: 1.0.11
 changelog:
   midi notes
   infofield
@@ -8,6 +8,7 @@ changelog:
   waveformselection
   tuned
   fn min max
+  hopefully nice picture
 about:
 a jsfx tonegenerator as synth for diable evenly spaced octave steps
 saw
@@ -32,7 +33,7 @@ in_pin:left input
 in_pin:right input
 out_pin:left output
 out_pin:right output
-
+filename:0,tone_var_generator_synth.png
 
 @init
 
@@ -84,6 +85,7 @@ pos1 += adj1;
 //bg=gfx_getsyscol();
 //gfx_clear=bg;
 gfx_clear;
+
 gfx_r=gfx_g=gfx_b=0.9;
 gfx_b=0;
 gfx_x=gfx_y=0;
@@ -91,8 +93,15 @@ gfx_setfont(1,"Verdana",14);
 gfx_drawnumber(freq,3);
 gfx_drawstr(" Frequenzy of MIDI note ");
 gfx_drawnumber(basenote,0);
+
+gfx_y=46;
+gfx_x=400;
+gfx_blit(0,1,0);
+
 gfx_y=14;
 gfx_x=0;
+
+
 gfx_drawstr("A simple mono sin,saw,tri-wave synth (no adsr) WATCH THE VOLUMES !
 The divider splits an ovtave with the Frequncy of the MIDI Note in even parts.
 those parts can be played from this MIDI Note upwards and downwards.
