@@ -155,6 +155,20 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category> 
+  
+<category name="Filter">
+  <reapack name="StemSplitter" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b Stemsplitter argumenmt thrower I\b}\line\line
+        if you are in uurge to need some arguments\line
+        }</description>
+    </metadata>
+    <version name="0.0.5" author="bobobo" time="2025-07-14T10:00:00.000Z">
+      <source file="stemsplitter">https://bobobo-git.github.io/jsfx/effects/stemsplitter</source>
+    </version>
+  </reapack>
+</category> 
+  
   <category name="Generator">
   <reapack name="_tone_var_generator" type="effect">
     <metadata>
