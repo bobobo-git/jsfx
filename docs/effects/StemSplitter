@@ -1,0 +1,114 @@
+desc:stem splitter  (bobobo)
+author: bobobo
+version: 0.0.5
+changelog:
+  - change is neat
+about:
+  # stem splitter arguments
+if you need arguments against or want to use stem splitters
+no gui
+
+tags: effects
+
+slider1:arg=0<0,10,1,1>arguments ?
+
+@init
+arg1="Degradation of Audio Quality/Introduction of Artifacts:
+Stem splitting, while impressive, is not perfect. The algorithms
+often introduce unwanted sonic artifacts, phase issues, and a
+general degradation of the original audio's fidelity, especially
+in complex or heavily processed mixes. This can manifest as
+metallic sounds, watery effects, or a loss of punch.";
+
+arg2="Loss of Original Intent/Artistic Vision:
+When you split a mixed track, you're essentially
+reverse-engineering the producer's and mixing
+engineer's decisions. The balance, panning, and
+effects applied to individual elements were done
+with the full mix in mind. Separating them disrupts
+this carefully crafted balance and can distort the
+original artistic intent.";
+
+arg3="Inaccurate Separation (Bleed/Crosstalk):
+Even the best stem splitters struggle with perfect
+isolation. You often end up with \"bleed\" from other
+instruments in the supposedly isolated stem (e.g., drums
+leaking into the vocal track, or bass in the kick drum).
+This makes it difficult to process the individual
+stems cleanly.";
+
+arg4="Limited Creative Control (Post-Split):
+While you gain \"access\" to individual elements, your
+ability to creatively re-mix or process them is hampered
+by the artifacts and inaccuracies of the split. You're
+working with imperfect data, which limits the effectiveness
+of further EQ, compression, or effects.";
+
+arg5="Time-Consuming Cleanup:
+After splitting, you often have to spend a significant
+amount of time trying to clean up the individual stems,
+removing artifacts, and addressing the bleed. This can
+negate any perceived time-saving benefits of the
+splitting process itself.";
+
+arg6="Reliance on Imperfect Technology:
+Over-reliance on stem splitters can hinder the
+development of traditional mixing and mastering skills.
+It encourages a shortcut approach rather than
+understanding the nuances of how individual tracks
+interact within a full mix.";
+
+arg7="Copyright and Licensing Concerns (for certain uses):
+If you're splitting commercial tracks for remixing or sampling,
+there are significant legal and ethical considerations regarding
+copyright and licensing, even if the technology allows it.
+Using un-cleared stems can lead to legal issues.";
+
+arg8="Lack of Dynamic Range and Depth:
+The process of splitting often flattens the perceived
+dynamic range and depth of the original recording. The
+intricate interplay of instruments and their natural
+reverberations within a well-mixed track can be lost or
+severely diminished.";
+
+arg9="Not a Substitute for Proper Multi-track Sessions:
+Stem splitting should never be seen as an equivalent to
+working with the original multi-track session. A multi-track
+provides individual, unprocessed recordings of each instrument,
+offering maximum flexibility and control for mixing and mastering.";
+
+arg10="Ethical Considerations in Collaborative Workflows:
+In professional settings, using stem splitters on a track
+someone else mixed (without their explicit permission and
+understanding) could be seen as disrespectful to their work
+and can lead to misunderstandings or ethical conflicts
+within a collaborative project.";
+
+arg11="Yes. I'm to stupid to check this trigger thing.
+You would have some nice buttoins instead of this slider.";
+
+@slider
+(arg == 0) ? (text=arg1;);
+(arg == 1) ? (text=arg2;);
+(arg == 2) ? (text=arg3;);
+(arg == 3) ? (text=arg4;);
+(arg == 4) ? (text=arg5;);
+(arg == 5) ? (text=arg6;);
+(arg == 6) ? (text=arg7;);
+(arg == 7) ? (text=arg8;);
+(arg == 8) ? (text=arg9;);
+(arg == 9) ? (text=arg10;);
+(arg == 10) ? (text=arg11;);
+
+@block
+
+
+@sample
+@gfx 700 100
+gfx_setfont(1, "Arial", 21); // Font slot 1 with custom font and size
+gfx_r=gfx_g=gfx_b=1;
+gfx_x=gfx_y=0;
+gfx_printf(text);
+
+
+
