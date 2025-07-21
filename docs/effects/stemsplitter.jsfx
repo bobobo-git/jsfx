@@ -1,14 +1,12 @@
 desc: stemsplitter (bobobo)
-
-author: bobobo
-version: 1.0.0
-changelog:
-  - change is neat
-about:
-  # stem splitter arguments
-if you need arguments against or want to use stem splitters
-
-tags: effects
+//author: bobobo
+//version: 1.0.0
+//changelog:
+//  - change is neat
+//about:
+//  # stem splitter arguments
+//if you need arguments against or want to use stem splitters
+//tags: effects
 
 slider1:arg=0<0,10,1,1>arguments ?
 
