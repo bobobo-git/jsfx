@@ -158,13 +158,12 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
   <reapack name="sat_an_S" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b Saturations\b}\line\line
-        tw0 sat filters \line
-        \line\line
+        diable in and output\line
         }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-21T10:00:00.000Z">
-      <source file="sat_atan_with input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_atan_with input_output.jsfx</source>
-      <!--<source file="sat_with input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_with input_output.jsfx</source>-->
+      <source file="sat_atan_with_input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_atan_with_input_output.jsfx</source>
+      <source file="sat_with_input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_with_input_output.jsfx</source>
     </version>
   </reapack>
 </category> 
