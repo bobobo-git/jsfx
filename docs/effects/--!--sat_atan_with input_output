@@ -1,0 +1,65 @@
+desc: --!--sat_atan_with input_output
+
+slider1:0<-24,24,1>Input (dB)
+slider2:666<0,1000,1>Amount (%)
+slider3:-12<-24,24,1>Output (dB)
+
+@init
+gfx_clear = 0;
+
+@slider
+foo=slider2/200*$pi;
+bar=atan(slider2/200*$pi);
+
+gainA = 10^(slider1/20);
+gainB = 10^(slider3/20);
+
+@sample
+spl0*=gainA;
+spl1*=gainA;
+
+slider2 ? (
+spl0 = min(max( atan(max(min(spl0,1),-1)*foo)/bar ,-1) ,1);
+spl1 = min(max( atan(max(min(spl1,1),-1)*foo)/bar ,-1) ,1);
+);
+
+spl0*=gainB;
+spl1*=gainB;
+
+@gfx 0 402
+gfxSize = min(gfx_w,gfx_h);
+
+gfx_r=gfx_g=gfx_b=0; gfx_a=1;
+gfx_x=gfx_y=0; 
+gfx_rectto(gfx_w,gfx_h);
+
+gfx_r=gfx_g=gfx_b=0.8; gfx_a=1;
+gfx_x=gfxSize/2; gfx_y=0;
+gfx_lineto(gfxSize/2,gfxSize,0);
+gfx_x=0; gfx_y=gfxSize/2;
+gfx_lineto(gfxSize,gfxSize/2,0);
+
+gfx_x = gfxSize-20; gfx_y = gfxSize/2;
+gfx_drawchar($'I');
+gfx_drawchar($'N');
+
+gfx_x = gfxSize/2+2; gfx_y = 0;
+gfx_drawchar($'O');
+gfx_drawchar($'U');
+gfx_drawchar($'T');
+
+slider2 ? (
+gfx_r=1; gfx_g=0.5; gfx_b=0.5; gfx_a=1;
+gfx_x=0; gfx_y=gfxSize;
+x = -1;
+while(
+y = -atan(x*foo)/bar;
+gfx_lineto(x*gfxSize/2+gfxSize/2,y*gfxSize/2+gfxSize/2,1);
+(x+=0.1) <= 1;
+);
+gfx_lineto(gfxSize,0,1);
+):(
+gfx_r=0.5; gfx_g=1; gfx_b=0; gfx_a=1;
+gfx_x=0; gfx_y=gfxSize;
+gfx_lineto(gfxSize,0,1);
+);
