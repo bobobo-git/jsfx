@@ -6,7 +6,6 @@ changelog:
 about:
   # stem splitter arguments
 if you need arguments against or want to use stem splitters
-no gui
 
 tags: effects
 
