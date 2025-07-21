@@ -159,7 +159,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
 <category name="Filter">
   <reapack name="StemSplitter" type="effect">
     <metadata>
-      <description>{\rtf1\ansi\fs24   {\fs48\b Stemsplitter argumenmt thrower I\b}\line\line
+      <description>{\rtf1\ansi\fs24   {\fs48\b Stemsplitter argument thrower I\b}\line\line
         if you are in uurge to need some arguments\line
         }</description>
     </metadata>
