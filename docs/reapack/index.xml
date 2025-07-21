@@ -164,7 +164,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }</description>
     </metadata>
     <version name="0.0.5" author="bobobo" time="2025-07-14T10:00:00.000Z">
-      <source file="stemsplitter">https://bobobo-git.github.io/jsfx/effects/stemsplitter</source>
+      <source file="StemSplitter">https://bobobo-git.github.io/jsfx/effects/StemSplitter</source>
     </version>
   </reapack>
 </category> 
