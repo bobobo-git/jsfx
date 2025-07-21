@@ -104,7 +104,7 @@ You would have some nice buttoins instead of this slider.";
 
 
 @sample
-@gfx 700 100
+@gfx 700 150
 gfx_setfont(1, "Arial", 21); // Font slot 1 with custom font and size
 gfx_r=gfx_g=gfx_b=1;
 gfx_x=gfx_y=0;
