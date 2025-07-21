@@ -1,4 +1,8 @@
 desc: --!--sat_with input_output
+author: bobobo
+version: 1.0.0
+changelog:
+  a saturation
 
 slider1:0<-24,24,1>Input (dB)
 slider2:0<0,100,1>Amount (%)
