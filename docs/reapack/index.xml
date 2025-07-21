@@ -155,7 +155,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
       <source file="ownhilo_I.jsfx">https://bobobo-git.github.io/jsfx/effects/ownhilo_I.jsfx</source>
     </version>
   </reapack>
-  <reapack name="--[sat]an" type="effect">
+  <reapack name="sat_an" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b Saturations\b}\line\line
         tw0 sat filters \line
