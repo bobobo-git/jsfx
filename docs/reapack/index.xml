@@ -168,7 +168,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category> 
-  <category name="Generator">
+  <category name="Info">
   <reapack name="stemsplitter" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b stemsplitter Arguments\r\b}\line\line
