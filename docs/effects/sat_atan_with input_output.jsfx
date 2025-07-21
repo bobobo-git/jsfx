@@ -1,4 +1,9 @@
 desc: --!--sat_atan_with input_output
+author: bobobo
+version: 1.0.0
+changelog:
+  a saturation
+
 
 slider1:0<-24,24,1>Input (dB)
 slider2:666<0,1000,1>Amount (%)
