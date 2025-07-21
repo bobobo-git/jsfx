@@ -155,19 +155,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category> 
-<category name="Filter">
-  <reapack name="StemSplitter" type="effect">
-    <metadata>
-      <description>{\rtf1\ansi\fs24   {\fs48\b Stemsplitter argument thrower I\b}\line\line
-        if you are in uurge to need some arguments\line
-        }</description>
-    </metadata>
-    <version name="0.0.1" author="bobobo" time="2025-07-14T10:00:00.000Z">
-      <source file="StemSplitter.jsfx">https://bobobo-git.github.io/jsfx/effects/StemSplitter.jsfx</source>
-    </version>
-  </reapack>
-</category> 
-  <category name="Generator">
+<category name="Generator">
   <reapack name="_tone_var_generator" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b variable ToneGenerator\b}\line\line
@@ -177,6 +165,18 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </metadata>
     <version name="1.0.3" author="bobobo" time="2025-06-23T10:00:00.000Z">
       <source file="tone_var_generator.jsfx">https://bobobo-git.github.io/jsfx/effects/tone_var_generator.jsfx</source>
+    </version>
+  </reapack>
+</category> 
+<category name="Filter">
+  <reapack name="StemSplitter" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b Stemsplitter argument thrower I\b}\line\line
+        if you are in uurge to need some arguments\line
+        }</description>
+    </metadata>
+    <version name="0.0.1" author="bobobo" time="2025-07-14T10:00:00.000Z">
+      <source file="StemSplitter.jsfx">https://bobobo-git.github.io/jsfx/effects/StemSplitter.jsfx</source>
     </version>
   </reapack>
 </category> 
