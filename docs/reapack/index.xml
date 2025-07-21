@@ -8,7 +8,8 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
 <category name="Synth">
   <reapack name="OwnSynth" type="effect">
     <metadata>
-      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/JSFX/&quot;}}
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/J--sat
+        SFX/&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b OwnSynth\b}\line\line This is a simple synth using\line
         sine saw square and triangle waves (created from sine waves)\line
         with hipass and lowpass filters with resonance,\line
@@ -162,8 +163,8 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-21T10:00:00.000Z">
-      <source file="--!--sat_atan_with input_output">https://bobobo-git.github.io/jsfx/effects/--!--sat_atan_with input_output</source>
-      <source file="--!--sat_with input_output">https://bobobo-git.github.io/jsfx/effects/--!--sat_with input_output</source>
+      <source file="--!--sat_atan_with input_output">https://bobobo-git.github.io/jsfx/effects/sat_atan_with input_output</source>
+      <source file="--!--sat_with input_output">https://bobobo-git.github.io/jsfx/effects/sat_with input_output</source>
     </version>
   </reapack>
 </category> 
