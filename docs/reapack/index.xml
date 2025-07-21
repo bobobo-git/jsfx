@@ -155,7 +155,6 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </version>
   </reapack>
 </category> 
-  
 <category name="Filter">
   <reapack name="StemSplitter" type="effect">
     <metadata>
@@ -163,12 +162,11 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         if you are in uurge to need some arguments\line
         }</description>
     </metadata>
-    <version name="0.0.5" author="bobobo" time="2025-07-14T10:00:00.000Z">
+    <version name="0.0.1" author="bobobo" time="2025-07-14T10:00:00.000Z">
       <source file="StemSplitter">https://bobobo-git.github.io/jsfx/effects/StemSplitter</source>
     </version>
   </reapack>
 </category> 
-  
   <category name="Generator">
   <reapack name="_tone_var_generator" type="effect">
     <metadata>
