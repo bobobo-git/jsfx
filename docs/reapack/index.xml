@@ -163,8 +163,8 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2024-11-21T10:00:00.000Z">
-      <source file="--!--sat_atan_with input_output">https://bobobo-git.github.io/jsfx/effects/sat_atan_with input_output</source>
-      <source file="--!--sat_with input_output">https://bobobo-git.github.io/jsfx/effects/sat_with input_output</source>
+      <source file="--!--sat_atan_with input_output">https://bobobo-git.github.io/jsfx/effects/sat_atan_with input_output.jsfx</source>
+      <source file="--!--sat_with input_output">https://bobobo-git.github.io/jsfx/effects/sat_with input_output.jsfx</source>
     </version>
   </reapack>
 </category> 
