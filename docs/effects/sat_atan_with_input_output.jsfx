@@ -7,8 +7,8 @@ changelog:
 
 slider1:0<-24,24,1>Input (dB)
 slider2:666<0,1000,1>Amount (%)
-slider3:-12<-24,24,1>Output (dB)
-slider4:1<0,1,1> (auto output)
+slider3:-6<-9,0,0.25>Output (dB)
+//slider4:1<0,1,1> (auto output)
 
 @init
 gfx_clear = 0;
@@ -16,9 +16,9 @@ gfx_clear = 0;
 @slider
 foo=slider2/200*$pi;
 bar=atan(slider2/200*$pi);
-slider4 ==1 ?(
+//slider4 ==1 ?(
 slider3=-(slider2/666*6 );
-):
+//):
 gainA = 10^(slider1/20);
 gainB = 10^(slider3/20);
 
