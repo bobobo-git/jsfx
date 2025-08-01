@@ -1,13 +1,14 @@
 desc: --!--sat_atan_with input_output (bobobo)
 author: bobobo
-version: 1.0.0
+version: 1.0.1
 changelog:
   a saturation
-
+  auto output, couples Amount with output 
 
 slider1:0<-24,24,1>Input (dB)
 slider2:666<0,1000,1>Amount (%)
 slider3:-12<-24,24,1>Output (dB)
+slider4:1<0,1,1> (auto output)
 
 @init
 gfx_clear = 0;
@@ -15,7 +16,9 @@ gfx_clear = 0;
 @slider
 foo=slider2/200*$pi;
 bar=atan(slider2/200*$pi);
-
+slider4 ==1 ?(
+slider3=-(slider2/666*6 );
+):
 gainA = 10^(slider1/20);
 gainB = 10^(slider3/20);
 
