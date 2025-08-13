@@ -172,7 +172,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         \line
         }</description>
     </metadata>
-    <version name="1.0.0" author="bobobo" time="2025-08-13T10:00:00.000Z">
+    <version name="1.0.1" author="bobobo" time="2025-08-13T10:00:00.000Z">
       <source file="fadeouter.jsfx">https://bobobo-git.github.io/jsfx/effects/fadeouter.jsfx</source>
     </version>
   </reapack>
