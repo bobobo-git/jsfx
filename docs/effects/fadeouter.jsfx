@@ -23,6 +23,12 @@
 //THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 desc:FadeOuter [Stillwell and bobobo]
+
+author: bobobo
+version: 1.0.0
+changelog:
+  a chorus
+
 tags: filter
 //author: Stillwell , bobobo tuned it to a fadeout, lowpass only
 
@@ -176,4 +182,5 @@ out_pin:right output
   );
   
   
+
 
