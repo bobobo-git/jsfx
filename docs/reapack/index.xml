@@ -166,6 +166,16 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
       <source file="sat_with_input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_with_input_output.jsfx</source>
     </version>
   </reapack>
+  <reapack name="fadeouter" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b Fadeout using a lowpass\b}\line\line
+        \line
+        }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2025-08-13T10:00:00.000Z">
+      <source file="fadeouter.jsfx">https://bobobo-git.github.io/jsfx/effects/fadeouter.jsfx</source>
+    </version>
+  </reapack>
 </category> 
 <category name="Generator">
   <reapack name="_tone_var_generator" type="effect">
