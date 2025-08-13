@@ -26,13 +26,13 @@ desc:FadeOuter [Stillwell and bobobo]
 
 author: bobobo
 version: 1.0.0
-changelog:
+changelog: 
   a chorus
 
 tags: filter
-//author: Stillwell , bobobo tuned it to a fadeout, lowpass only
+//author: Stillwell , bob obo tuned it to a fadeout, lowpass only
 
-slider1:0<0,10000,1>-HPF-Volume
+slider1:0<0,440,1>-HPF-Volume
 slider2:22000<0,22000,1:log=333>LPF-Volume
 slider3:0<-20000,20,0.1>-sGain
 
@@ -100,7 +100,7 @@ out_pin:right output
   slider1 == 0 ? hpf = 0 : hpf = 1;
   slider2 == 22000 ? lpf = 0 : lpf = 1;
 
-
+  slider1 = (22000-slider2)/50;  
   a1 = 1;
   s1 = 1;
   q1 = 1 / (sqrt((a1 + 1/a1)*(1/s1 - 1) + 2));
