@@ -22,19 +22,19 @@
 //STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF 
 //THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-desc:FadeOuter [Stillwell and bobobo]
+desc:FadeOutr
 
-author: bobobo
-version: 1.0.2
+author: bobobo took a lowpass from stillwell (rbj high low pass)
+version: 1.0.3
 changelog: 
-  a chorus
+
 
 tags: filter
-//author: Stillwell , bob obo tuned it to a fadeout, lowpass only
 
-//slider1:0<0,440,1>-HPF
-slider2:22000<0,22000,1:log=333>LPF-Volume
 
+slider1:0<0,1000,10>-HPF
+slider2:22000<0,22000,1:log=333>LPF
+slider3:0<-20,20,0.1>-Gain
 
 in_pin:left input
 in_pin:right input
@@ -45,7 +45,7 @@ out_pin:right output
   ext_tail_size = -1;
   hpf = 0;
   gain1 = 0;
-  freq1 = 0;
+  freq1 = slider1;
   a1 = 1;
   s1 = 1;
   q1 = 1 / (sqrt((a1 + 1/a1)*(1/s1 - 1) + 2));
@@ -92,15 +92,13 @@ out_pin:right output
   gain = 1;
 
 @slider
-  //freq1 = slider1;
+  freq1 = slider1;
   freq3 = slider2;
-  
-  gain = 10^(20/20);
+  gain = 10^(slider3/20);
 
-  //slider1 == 0 ? hpf = 0 : hpf = 1;
-  freq1== 22000 ? lpf = 0 : lpf = 1;
+  slider1 == 0 ? hpf = 0 : hpf = 1;
+  slider2 == 22000 ? lpf = 0 : lpf = 1;
 
-  freq1 = (22000-slider2)/50;  
   a1 = 1;
   s1 = 1;
   q1 = 1 / (sqrt((a1 + 1/a1)*(1/s1 - 1) + 2));
@@ -174,13 +172,13 @@ out_pin:right output
   yr23 = yr13;
   yr13 = spl1;
   );
+
   spl0 *= gain;
   spl1 *= gain;
   freq3 == 0 ?(
   spl0 =0;
   spl1 =0;
   );
-  
 @gfx 500 20
   //bg=gfx_getsyscol();
   //gfx_clear=bg;
@@ -191,5 +189,3 @@ out_pin:right output
   gfx_x=gfx_y=0;
   gfx_setfont(1,"Verdana",14);
   gfx_drawnumber(freq3,3);
-
-
