@@ -25,7 +25,7 @@
 desc:FadeOuter
 
 author: bobobo took a lowpass from stillwell (rbj high low pass)
-version: 1.0.5
+version: 1.0.6
 changelog: 
 
 
@@ -95,7 +95,7 @@ out_pin:right output
   
   freq3 = slider2;
   gain = 1;
-  freq1 =1000-freq3;
+  freq1 =666-freq3;
   freq1 < 0 ? freq1=0;
 
 //  slider1 == 0 ? hpf = 0 : hpf = 1;
