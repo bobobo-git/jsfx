@@ -25,7 +25,7 @@
 desc:FadeOuter
 
 author: bobobo took a lowpass from stillwell (rbj high low pass)
-version: 1.0.6
+version: 1.0.7
 changelog: 
 
 
@@ -192,3 +192,4 @@ freq1==0 ? hpf=0: hpf=1;
   
   //gfx_setfont(1,"Verdana",14);
   gfx_drawnumber(freq3,3);
+
