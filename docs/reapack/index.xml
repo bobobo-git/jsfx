@@ -173,6 +173,12 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         }</description>
     </metadata>
     <version name="1.0.9" author="bobobo" time="2025-08-26T10:00:00.000Z">
+              <changelog><![CDATA[+ hipass values below 1000 raisea a lowpassfilter 
+                                  + samplevalues goes from -0.99 to 0.99 (very hard limiter)
+                                  + 
+                                  + a bunch more things
+                          ]]>
+              </changelog>
       <source file="fadeouter.jsfx">https://bobobo-git.github.io/jsfx/effects/fadeouter.jsfx</source>
     </version>
   </reapack>
