@@ -3,7 +3,7 @@
 -- @version 1.0.0
 -- @provides
 -- @changelog
---   + initial . a little knob field for tesdting purpose
+--   + initial . a little knob field for testing purpose
 
 
 gfx_init("d - shft d",100,100,0,20,20);
