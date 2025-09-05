@@ -1,3 +1,11 @@
+-- @description bobobo knobs
+-- @author bobobo
+-- @version 1.0.0
+-- @provides
+-- @changelog
+--   + initial . a little knob field for tesdting purpose
+
+
 gfx_init("d - shft d",100,100,0,20,20);
 gfx_clear=128+255*256+255*65536;
 gfx_clear = 0x141414;
