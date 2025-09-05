@@ -5,12 +5,13 @@
 add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\line }</description>
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
-  <category name="Scripts">
+<category name="Script">
     <reapack name="bobobo_knobs.eel" type="script" desc="a little knobfield">
       <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
         <source main="bobobo_knobs.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_knobs.eel</source>
       </version>
     </reapack>
+</category>
 <category name="Synth">
   <reapack name="OwnSynth" type="effect">
     <metadata>
