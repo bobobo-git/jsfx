@@ -38,7 +38,8 @@ gfx_y=2*h;
 gfx_char = gfx_getchar();
 gfx_char >0 ?(
   gfx_char_old != gfx_char ?(
-    gfx_char==100 ? ( gfx_dock(1););
+  //dockstat bitfiled $~1  without spec $~12  second is a docker index .. try it
+    gfx_char==100 ? ( gfx_dock($~12););
     gfx_char==68 ? ( gfx_dock(0););
     gfx_char_old=gfx_char;
     gfx_drawnumber(gfx_char_old,0);
@@ -52,4 +53,3 @@ defer("main()");
 );
 );
 main();
-
