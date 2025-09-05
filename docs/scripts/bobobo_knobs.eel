@@ -37,14 +37,17 @@ gfx_x=0;
 gfx_y=2*h;
 gfx_char = gfx_getchar();
 gfx_char >0 ?(
-  gfx_char_old != gfx_char ?(
-  //dockstat bitfiled $~1  without spec $~12  second is a docker index .. try it
+  
+  //dockstat bitfiled $~1  without spec $~12  second is a docker index .. try it 3841 is $~12
     gfx_char==100 ? ( gfx_dock($~12););
+    gfx_char==116 ? dockstate=gfx_dock(-1);
     gfx_char==68 ? ( gfx_dock(0););
-    gfx_char_old=gfx_char;
+    
     gfx_drawnumber(gfx_char_old,0);
-    );
+    gfx_char_last=gfx_char;
+    
 );
+gfx_drawnumber(gfx_char_last,0);
 gfx_char == 27 ? (
   close=1;
 );
