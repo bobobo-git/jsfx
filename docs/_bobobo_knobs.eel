@@ -1,0 +1,47 @@
+gfx_init("d - shft d",100,100,0,20,20);
+gfx_clear=128+255*256+255*65536;
+gfx_clear = 0x141414;
+
+function main()
+local(b,h)
+(
+//gfx_update();
+gfx_clear= 0xadedff;
+b=20;
+h=10;
+m=100/b;
+i=0;
+gfx_set(0.5);
+while( (i*b)< m*b )
+(
+  gfx_rect(i*b,h,b,h,0);
+  i+=1;
+);
+
+gfx_x=0;
+gfx_y=0;
+gfx_drawnumber(mouse_x,0);
+gfx_drawstr(":");
+gfx_drawnumber(mouse_y,0);
+gfx_drawstr(":");
+gfx_drawnumber(mouse_cap,0);
+gfx_x=0;
+gfx_y=2*h;
+gfx_char = gfx_getchar();
+gfx_char >0 ?(
+  gfx_char_old != gfx_char ?(
+    gfx_char==100 ? ( gfx_dock(1););
+    gfx_char==68 ? ( gfx_dock(0););
+    gfx_char_old=gfx_char;
+    gfx_drawnumber(gfx_char_old,0);
+    );
+);
+gfx_char == 27 ? (
+  close=1;
+);
+close == 0 ?(
+defer("main()");
+);
+);
+main();
+
