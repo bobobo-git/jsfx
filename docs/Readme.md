@@ -20,6 +20,15 @@ more info [here](https://www.bobobo.de/reaper/JSFX/)
 ownchorus I and ownchorus II  
 two fixed value choruses as JSFX effects   
 
+dub stuff
+i use AKAI MIDI Mix devices
+and i made a layout to dub with it in REAPER
+look at
+[midimix_all](https://bobobo.de/reaper/midimix_all/)
+and 
+[midimix_special](https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4/)
+to get more info and a reaper config including the stuff.
+the scripts are also in the reapack, but you have to set it up your own.
 
 
 get it with reapack  
