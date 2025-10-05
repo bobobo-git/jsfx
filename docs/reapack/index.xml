@@ -18,11 +18,13 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
 <!--functions and helper-->    
     <reapack name="dub_functions.lua" type="script" desc="dub_functions.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source></version> </reapack>
-    <reapack name="dub_playstop_right.luav" type="script" desc="dub_playstop_right.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
+    <reapack name="dub_playstop_right.lua" type="script" desc="dub_playstop_right.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source></version> </reapack>
     <reapack name="dub_recarm_setversion.lua" type="script" desc="dub_recarm_setversion.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source></version> </reapack>
-<!--mute-->    
+    <reapack name="dub_info.lua" type="script" desc="dub_info.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
+        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_info.lua</source></version> </reapack>
+    <!--mute-->    
     <reapack name="dub_mute_1.lua" type="script" desc="dub_mute_1.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source></version> </reapack>
     <reapack name="dub_mute_2.lua" type="script" desc="dub_mute_2.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
