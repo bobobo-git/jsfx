@@ -6,7 +6,50 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
 <category name="Script">
-        <metadata>
+    <metadata>
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
+        {\fldrslt website}} / \line\line {\fs48\b dub stuff with AKAI Midi Mix\b}\line\line
+        if you have an AKAI MIDI Mix and want to do some thing with it you can use these scripts\line
+        to get things done\line
+        you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\line
+        you'll find hopefulkly some explanations and templates 
+      </description>
+    </metadata>
+    <reapack name="DUB" type="script" desc="dub like tubby">
+      <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
+        <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
+        <source file="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
+        <source file="dub_recarm_setversion.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source>
+        <source file="dub_mute_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
+        <source file="dub_mute_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_2.lua</source>
+        <source file="dub_mute_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_3.lua</source>
+        <source file="dub_mute_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_4.lua</source>
+        <source file="dub_mute_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_5.lua</source>
+        <source file="dub_mute_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_6.lua</source>
+        <source file="dub_mute_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_7.lua</source>
+        <source file="dub_mute_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source>
+        <source file="dub_recarm_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_1.lua</source>
+        <source file="dub_recarm_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_2.lua</source>
+        <source file="dub_recarm_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_3.lua</source>
+        <source file="dub_recarm_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_4.lua</source>
+        <source file="dub_recarm_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_5.lua</source>
+        <source file="dub_recarm_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_6.lua</source>
+        <source file="dub_recarm_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_7.lua</source>
+        <source file="dub_recarm_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_8.lua</source>
+        <source file="dub_solo_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_1.lua</source>
+        <source file="dub_solo_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_2.lua</source>
+        <source file="dub_solo_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_3.lua</source>
+        <source file="dub_solo_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_4.lua</source>
+        <source file="dub_solo_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_5.lua</source>
+        <source file="dub_solo_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_6.lua</source>
+        <source file="dub_solo_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_7.lua</source>
+        <source file="dub_solo_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_8.lua</source>
+      </version>
+    </reapack>
+</category>
+
+<category name="Script">
+    <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b little knobs\b}\line\line a field of knobs to start other things\line
         i try to compensate the search field in actions\line
