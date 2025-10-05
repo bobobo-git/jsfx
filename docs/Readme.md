@@ -1,5 +1,5 @@
 
-made with JSFX in [REAPER](https://reaper.fm/)  
+made with JSFX and lua in [REAPER](https://reaper.fm/)  
 
 ownsynth , a simple synth made with JSFX  
 - using additive synthese creating a mix of sine, saw, square and triangle wave  
