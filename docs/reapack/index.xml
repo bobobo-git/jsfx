@@ -5,7 +5,7 @@
 add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\line }</description>
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
-<category name="Script">
+<category name="Dub">
     <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b dub stuff with AKAI Midi Mix\b}\line\line
@@ -48,7 +48,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     </reapack>
 </category>
 
-<category name="Script">
+<category name="knobfield">
     <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b little knobs\b}\line\line a field of knobs to start other things\line
