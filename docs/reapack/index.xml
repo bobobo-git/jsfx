@@ -2,7 +2,10 @@
 <index version="1" name="bobobo's JSFX" generated-by="https://www.npmjs.com/package/reapack">
 <metadata>
 <description>{\rtf1\ansi\fs24{\fs48\b bobobo's JSFX repository\b}\line\line This is a collection of stuff\line\line
-add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\line }</description>
+add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\line 
+if you need more info for the dub stuff (AKAI MIDI Mix as Dub.Mixer) you can run the dub_info.lua\line
+you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\line
+}</description>
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
 <category name="Dub">
