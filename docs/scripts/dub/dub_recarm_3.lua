@@ -17,13 +17,31 @@ index = full_path:match(".*_(.-)%.lua$")
 trackno=index-1-- track ofrecarmbutton, 0 is the first
 mm=trackno*3+3 
 fxcount=0 -- posotion of fx to switch, 0 is the first
-trackfxno=2 -- track of the affected fx
+trackfxno=0 -- track of the affected fx
 
 --version=1
 version=reaper.GetExtState("recarms","version")  -- wird aus ExtState geladen
 
+if version=="9" then
+track = reaper.GetTrack(0, trackno)
+id=({reaper.get_action_context()})[4]
+onoff=reaper.GetMediaTrackInfo_Value(track, 'I_RECARM')
+if onoff == 1 then
+ reaper.SetMediaTrackInfo_Value(track, "I_RECARM",0)
+ reaper.SetToggleCommandState(1,id,1)
+ reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
+ 
+else
+ reaper.SetMediaTrackInfo_Value(track, "I_RECARM",1)
+  reaper.SetToggleCommandState(1,id,0)
+   reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x7F)
+end
+reaper.UpdateArrange()
+end
+
 
 if version=="1" then
+
 
 -- track mute
 track = reaper.GetTrack(0, trackno)
@@ -64,7 +82,6 @@ else
 end
 reaper.UpdateArrange()
 end
-
 
 if version=="3" then
 
@@ -113,4 +130,5 @@ if version=="4" then
         reaper.SetToggleCommandState(1,id,0)
   end
 end
+
 
