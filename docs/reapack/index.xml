@@ -18,32 +18,32 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
     <reapack name="DUB" type="script" desc="dub like tubby">
       <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
-        <source file="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
-        <source file="dub_recarm_setversion.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source>
-        <source file="dub_mute_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
-        <source file="dub_mute_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_2.lua</source>
-        <source file="dub_mute_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_3.lua</source>
-        <source file="dub_mute_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_4.lua</source>
-        <source file="dub_mute_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_5.lua</source>
-        <source file="dub_mute_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_6.lua</source>
-        <source file="dub_mute_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_7.lua</source>
-        <source file="dub_mute_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source>
-        <source file="dub_recarm_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_1.lua</source>
-        <source file="dub_recarm_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_2.lua</source>
-        <source file="dub_recarm_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_3.lua</source>
-        <source file="dub_recarm_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_4.lua</source>
-        <source file="dub_recarm_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_5.lua</source>
-        <source file="dub_recarm_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_6.lua</source>
-        <source file="dub_recarm_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_7.lua</source>
-        <source file="dub_recarm_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_8.lua</source>
-        <source file="dub_solo_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_1.lua</source>
-        <source file="dub_solo_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_2.lua</source>
-        <source file="dub_solo_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_3.lua</source>
-        <source file="dub_solo_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_4.lua</source>
-        <source file="dub_solo_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_5.lua</source>
-        <source file="dub_solo_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_6.lua</source>
-        <source file="dub_solo_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_7.lua</source>
-        <source file="dub_solo_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_8.lua</source>
+        <source main="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
+        <source main="dub_recarm_setversion.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source>
+        <source main="dub_mute_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
+        <source main="dub_mute_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_2.lua</source>
+        <source main="dub_mute_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_3.lua</source>
+        <source main="dub_mute_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_4.lua</source>
+        <source main="dub_mute_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_5.lua</source>
+        <source main="dub_mute_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_6.lua</source>
+        <source main="dub_mute_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_7.lua</source>
+        <source main="dub_mute_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source>
+        <source main="dub_recarm_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_1.lua</source>
+        <source main="dub_recarm_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_2.lua</source>
+        <source main="dub_recarm_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_3.lua</source>
+        <source main="dub_recarm_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_4.lua</source>
+        <source main="dub_recarm_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_5.lua</source>
+        <source main="dub_recarm_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_6.lua</source>
+        <source main="dub_recarm_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_7.lua</source>
+        <source main="dub_recarm_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_8.lua</source>
+        <source main="dub_solo_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_1.lua</source>
+        <source main="dub_solo_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_2.lua</source>
+        <source main="dub_solo_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_3.lua</source>
+        <source main="dub_solo_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_4.lua</source>
+        <source main="dub_solo_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_5.lua</source>
+        <source main="dub_solo_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_6.lua</source>
+        <source main="dub_solo_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_7.lua</source>
+        <source main="dub_solo_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_8.lua</source>
       </version>
     </reapack>
 </category>
@@ -57,7 +57,7 @@ add the repository: https://bobobo-git.github.io/jsfx/reapack/index.xml\line\lin
         and for test purposes}
     </description>
     </metadata>
-    <reapack name="bobobo_knobs.eel" type="script" desc="a little knobfield">
+    <reapack name="bobobo_knobs" type="script" desc="a little knobfield">
       <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_knobs.eel</source>
       </version>
