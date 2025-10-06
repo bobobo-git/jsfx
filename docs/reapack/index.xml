@@ -44,8 +44,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_7.lua</source></version> </reapack>
     <reapack name="dub_mute_8.lua" type="script" desc="dub_mute_8.lua">  <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source> </version> </reapack>
-    <reapack name="dub_mute_8.lua" type="script" desc="dub_mute_8.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source></version> </reapack>
+
 <!--recarm-->    
     <reapack name="dub_recarm_1.lua" type="script" desc="dub_recarm_1.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_1.lua</source></version> </reapack>
