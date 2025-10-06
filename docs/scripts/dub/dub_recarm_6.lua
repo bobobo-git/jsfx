@@ -118,17 +118,22 @@ if version=="4" then
   -- select next lane on track .. to do
   id=({reaper.get_action_context()})[4]
   track = reaper.GetTrack(0, trackno)
-  
+  onoff=reaper.GetExtState("recarms",trackno)
+
   if reaper.GetMediaTrackInfo_Value(track, "C_LANEPLAYS:0", 1) ==1 then
       reaper.SetMediaTrackInfo_Value(track, "C_LANEPLAYS:1", 1)
       reaper.SetToggleCommandState(1,id,1)
+      reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x7F)
     else
       reaper.SetMediaTrackInfo_Value(track, "C_LANEPLAYS:0", 1)
       reaper.SetToggleCommandState(1,id,0)
+      reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
   end
   if reaper.GetMediaTrackInfo_Value(track, "I_NUMFIXEDLANES", 1)== 1 then
         reaper.SetToggleCommandState(1,id,0)
+        reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
   end
+ 
 end
 
 
