@@ -20,7 +20,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         you'll find hopefulkly some explanations and templates }
       </description>
     </metadata>
-    <version name="1.0" author="bobobo" time="2025-10.098T00:00:00Z">
+    <version name="1.01" author="bobobo" time="2025-10.098T00:00:00Z">
 <!--functions and helper-->  
     <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
     <source main="main" file="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
@@ -29,7 +29,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     <!--mute-->    
     <source main="main" file="dub_mute_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
     <source main="main" file="dub_mute_2.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_2.lua</source>
-    <source main="main" file="dub_mute_1.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
+    <source main="main" file="dub_mute_3.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_3.lua</source>
     <source main="main" file="dub_mute_4.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_4.lua</source>
     <source main="main" file="dub_mute_5.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_5.lua</source>
     <source main="main" file="dub_mute_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_6.lua</source>
