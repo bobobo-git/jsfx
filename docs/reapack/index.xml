@@ -82,15 +82,15 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 </category>
 
 <category name="knobfield">
+    <reapack name="bobobo_knobs.eel" type="script" desc="a little knobfield">
     <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b little knobs\b}\line\line a field of knobs to start other things\line
         i try to compensate the search field in actions\line
         a row of knobs to kick on to load actions and or scripts \line
         and for test purposes}
-    </description>
+      </description>
     </metadata>
-    <reapack name="bobobo_knobs.eel" type="script" desc="a little knobfield">
       <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_knobs.eel</source>
       </version>
