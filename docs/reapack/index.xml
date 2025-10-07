@@ -9,7 +9,9 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
 <category name="Dub">
-    <metadata>
+    
+    <reapack name="dub_info.lua" type="script" desc="DUB AKAI MIDI Mix"> 
+        <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
         {\fldrslt website}} / \line\line {\fs48\b dub stuff with AKAI Midi Mix\b}\line\line
         if you have an AKAI MIDI Mix and want to do some thing with it you can use these scripts\line
@@ -18,67 +20,41 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         you'll find hopefulkly some explanations and templates 
       </description>
     </metadata>
+    <version name="1.0" author="bobobo" time="2025-10.098T00:00:00Z">
 <!--functions and helper-->    
-    <reapack name="dub_functions.lua" type="script" desc="dub_functions.lua"> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source></version> </reapack>
-    <reapack name="dub_playstop_right.lua" type="script" desc="dub_playstop_right.lua"><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source></version> </reapack>
-    <reapack name="dub_recarm_setversion.lua" type="script" desc="dub_recarm_setversion.lua">  <description> Setr Version</description>  <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source></version> </reapack>
-    <reapack name="dub_info.lua" type="script" desc="dub_info.lua">  <description> MIDI Mix Info about the dub stuff</description>  <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_info.lua</source></version> </reapack>
+    <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_info.lua</source>
     <!--mute-->    
-    <reapack name="dub_mute_1.lua" type="script" desc="dub_mute_1.lua">  <description> MIDI Mix Mute Track 1</description>  <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source></version> </reapack>
-    <reapack name="dub_mute_2.lua" type="script" desc="dub_mute_2.lua"> <description> MIDI Mix Mute Track 2</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_2.lua</source> </version> </reapack>
-    <reapack name="dub_mute_3.lua" type="script" desc="dub_mute_3.lua"> <description> MIDI Mix Mute Track 3</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source> </version> </reapack>
-    <reapack name="dub_mute_4.lua" type="script" desc="dub_mute_4.lua">  <description> MIDI Mix Mute Track41</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_4.lua</source> </version> </reapack>
-    <reapack name="dub_mute_5.lua" type="script" desc="dub_mute_5.lua"> <description> MIDI Mix Mute Track 5</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_5.lua</source> </version> </reapack>
-    <reapack name="dub_mute_6.lua" type="script" desc="dub_mute_6.lua"> <description> MIDI Mix Mute Track 6</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_6.lua</source> </version> </reapack>
-    <reapack name="dub_mute_7.lua" type="script" desc="dub_mute_7.lua"> <description> MIDI Mix Mute Track 7</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_7.lua</source></version> </reapack>
-    <reapack name="dub_mute_8.lua" type="script" desc="dub_mute_8.lua">  <description> MIDI Mix Mute Track 8</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source> </version> </reapack>
-
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_2.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_1.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_4.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_5.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_6.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_7.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_mute_8.lua</source>
 <!--recarm-->    
-    <reapack name="dub_recarm_1.lua" type="script" desc="dub_recarm_1.lua"> <description> MIDI Mix Recarm Track 1</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_1.lua</source></version> </reapack>
-    <reapack name="dub_recarm_2.lua" type="script" desc="dub_recarm_2.lua"> <description> MIDI Mix Recarm Track 2</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_2.lua</source></version> </reapack>
-    <reapack name="dub_recarm_3.lua" type="script" desc="dub_recarm_3.lua"> <description> MIDI Mix Recarm Track 3</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_3.lua</source></version> </reapack>
-    <reapack name="dub_recarm_4.lua" type="script" desc="dub_recarm_4.lua"> <description> MIDI Mix Recarm Track 4</description> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_4.lua</source></version> </reapack>
-    <reapack name="dub_recarm_5.lua" type="script" desc="dub_recarm_5.lua"> <description> MIDI Mix Recarm Track 5</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_5.lua</source></version> </reapack>
-    <reapack name="dub_recarm_6.lua" type="script" desc="dub_recarm_6.lua"> <description> MIDI Mix Recarm Track 6</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_6.lua</source></version> </reapack>
-    <reapack name="dub_recarm_7.lua" type="script" desc="dub_recarm_7.lua"> <description> MIDI Mix Recarm Track 7</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_7.lua</source></version> </reapack>
-    <reapack name="dub_recarm_8.lua" type="script" desc="dub_recarm_8.lua"><description> MIDI Mix Recarm Track 8</description> <version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_8.lua</source></version> </reapack>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_1.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_2.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_3.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_4.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_5.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_6.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_7.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_8.lua</source>
 <!--solo-->    
-    <reapack name="dub_solo_1.lua" type="script" desc="dub_solo_1.lua"> <description> MIDI Mix Solo Track 1</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_1.lua</source></version> </reapack>
-    <reapack name="dub_solo_2.lua" type="script" desc="dub_solo_2.lua"> <description> MIDI Mix Solo Track 2</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_2.lua</source></version> </reapack>
-    <reapack name="dub_solo_3.lua" type="script" desc="dub_solo_3.lua"> <description> MIDI Mix Solo Track 3</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_3.lua</source></version> </reapack>
-    <reapack name="dub_solo_4.lua" type="script" desc="dub_solo_4.lua"> <description> MIDI Mix Solo Track 4</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_4.lua</source></version> </reapack>
-    <reapack name="dub_solo_5.lua" type="script" desc="dub_solo_5.lua"> <description> MIDI Mix Solo Track 5</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_5.lua</source></version> </reapack>
-    <reapack name="dub_solo_6.lua" type="script" desc="dub_solo_6.lua"> <description> MIDI Mix Solo Track 6</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_6.lua</source></version> </reapack>
-    <reapack name="dub_solo_7.lua" type="script" desc="dub_solo_7.lua"> <description> MIDI Mix Solo Track 7</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_7.lua</source></version> </reapack>
-    <reapack name="dub_solo_8.lua" type="script" desc="dub_solo_8.lua"> <description> MIDI Mix Solo Track 8</description><version name="1.0.0" author="bobobo" time="2025-10-05T00:00:00Z">
-        <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_8.lua</source></version> </reapack>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_1.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_2.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_3.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_4.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_5.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_6.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_7.lua</source>
+    <source main="main">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_8.lua</source>
+    </version>
+    </reapack>
 </category>
 
 <category name="knobfield">
