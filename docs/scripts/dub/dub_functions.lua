@@ -10,3 +10,10 @@ while i<ii do
   return mout
 end
 getnummidioutnumber()
+
+if reaper.GetExtState("recarms","Version")=='' then  -- wird aus ExtState geladen, wenn nichts da ist wird 9 gesetzt
+  reaper.SetExtState("recarms", "Version","9",1)
+end
+
+ 
+
