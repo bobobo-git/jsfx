@@ -19,22 +19,23 @@ mm=trackno*3+3
 fxcount=0 -- posotion of fx to switch, 0 is the first
 trackfxno=0 -- track of the affected fx
 
+track = reaper.GetTrack(0, trackno)
+if track then
 --version=1
 version=reaper.GetExtState("recarms","version")  -- wird aus ExtState geladen
 
 if version=="9" then
-track = reaper.GetTrack(0, trackno)
 id=({reaper.get_action_context()})[4]
 onoff=reaper.GetMediaTrackInfo_Value(track, 'I_RECARM')
 if onoff == 1 then
  reaper.SetMediaTrackInfo_Value(track, "I_RECARM",0)
- reaper.SetToggleCommandState(1,id,1)
- reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
+ reaper.SetToggleCommandState(1,id,0)
+ reaper.StuffMIDIMessage(mout,0x90 ,mm, 0xF7)
  
 else
  reaper.SetMediaTrackInfo_Value(track, "I_RECARM",1)
-  reaper.SetToggleCommandState(1,id,0)
-   reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x7F)
+  reaper.SetToggleCommandState(1,id,1)
+   reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
 end
 reaper.UpdateArrange()
 end
@@ -42,43 +43,42 @@ end
 
 if version=="1" then
 
-
+yes=1
 -- track mute
-track = reaper.GetTrack(0, trackno)
+
 id=({reaper.get_action_context()})[4]
 
-
-onoff=reaper.GetTrackSendInfo_Value(track, 0, 4, "B_MUTE")
+onoff=reaper.GetTrackSendInfo_Value(track, 0, 3, "B_MUTE")
 if onoff == 1 then
- reaper.SetTrackSendInfo_Value(track, 0, 4, "B_MUTE",0)
- reaper.SetToggleCommandState(1,id,1)
- reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x7F)
+ reaper.SetTrackSendInfo_Value(track, 0, 3, "B_MUTE",0)
+ reaper.SetToggleCommandState(1,id,0)
+ reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
  
 else
-  reaper.SetTrackSendInfo_Value(track, 0, 4, "B_MUTE",1)
-  reaper.SetToggleCommandState(1,id,0)
-   reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
+  reaper.SetTrackSendInfo_Value(track, 0, 3, "B_MUTE",1)
+  reaper.SetToggleCommandState(1,id,1)
+   reaper.StuffMIDIMessage(mout,0x90 ,mm, 0xF7)
 end
 reaper.UpdateArrange()
 end
 
 if version=="2" then
 --mute fxontrack
-track = reaper.GetTrack(0, trackno)
-trackfx=reaper.GetTrack(0, trackfxno)
+
+
 id=({reaper.get_action_context()})[4]
 
 onoff=reaper.GetExtState("recarms",trackno)
 if onoff == "1" then
- reaper.TrackFX_SetOffline(trackfx, fxcount, false)
+ reaper.TrackFX_SetOffline(track, fxcount, false)
  reaper.SetExtState("recarms",trackno,"0",1)
- reaper.SetToggleCommandState(1,id,1)
- reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x7F)
+ reaper.SetToggleCommandState(1,id,0)
+ reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
 else
-  reaper.TrackFX_SetOffline(trackfx, fxcount, true)
+  reaper.TrackFX_SetOffline(track, fxcount, true)
   reaper.SetExtState("recarms",trackno,"1",1)
-  reaper.SetToggleCommandState(1,id,0)
-  reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
+  reaper.SetToggleCommandState(1,id,1)
+  reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x7F)
 end
 reaper.UpdateArrange()
 end
@@ -87,8 +87,6 @@ if version=="3" then
 
 --trackitemmute
 
-
-track = reaper.GetTrack(0, trackno)
 
 id=({reaper.get_action_context()})[4]
 
@@ -117,7 +115,7 @@ end
 if version=="4" then
   -- select next lane on track .. to do
   id=({reaper.get_action_context()})[4]
-  track = reaper.GetTrack(0, trackno)
+  
   onoff=reaper.GetExtState("recarms",trackno)
 
   if reaper.GetMediaTrackInfo_Value(track, "C_LANEPLAYS:0", 1) ==1 then
@@ -134,5 +132,6 @@ if version=="4" then
         reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
   end
  
+end
 end
 

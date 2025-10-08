@@ -10,7 +10,7 @@ index = full_path:match(".*_(.-)%.lua$")
 t=index-1
 led=1+t*3
 track = reaper.GetTrack(0, t)
-
+if track then
 id=({reaper.get_action_context()})[4]
 
 onoff= reaper.GetMediaTrackInfo_Value(track,"B_MUTE")
@@ -23,6 +23,7 @@ else
  reaper.SetMediaTrackInfo_Value(track, "B_MUTE",0)
  reaper.SetToggleCommandState(1,id,0)
  reaper.StuffMIDIMessage(mout,0x90 ,led, 0x00)
+end
 end
 
 

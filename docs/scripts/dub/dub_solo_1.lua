@@ -12,6 +12,7 @@ t=index-1
 mm=t*3+2
 
 track = reaper.GetTrack(0, t)
+if track then
 id=({reaper.get_action_context()})[4]
 
 onoff= reaper.GetMediaTrackInfo_Value(track,"I_SOLO")
@@ -25,5 +26,5 @@ else
  reaper.SetToggleCommandState(1,id,0)
  reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
 end
-
+end
 
