@@ -1,18 +1,20 @@
-full_path = debug.getinfo(1, "S").source:sub(2) --path of running lua
-curr_dir = full_path:match("(.*[/\\])") --durrent directory of running lua
-package.path = package.path .. ";" .. curr_dir .. "?.lua" --enhance searchpath for require
-require("dub_functions") -- requirements
-
+function getnummidioutnumber()
+--midi outputnanmedetection
+i=0 retval=0 nameout="" mout=0
+ii=reaper.GetNumMIDIOutputs()
+while i<ii do
+  retval, nameout = reaper.GetMIDIOutputNameNoAlias(i, "")
+  if nameout=="MIDI Mix" then mout=i+16 break  end
+  i= i + 1
+end
+return mout
+end
+ 
 getnummidioutnumber()
-
-full_path = debug.getinfo(1, "S").source:sub(2)
-index = full_path:match(".*_(.-)%.lua$")
-
-t=index-1
+t=2
 mm=t*3+2
 
 track = reaper.GetTrack(0, t)
-if track then
 id=({reaper.get_action_context()})[4]
 
 onoff= reaper.GetMediaTrackInfo_Value(track,"I_SOLO")
@@ -25,6 +27,5 @@ else
  reaper.SetMediaTrackInfo_Value(track, "I_SOLO",0)
  reaper.SetToggleCommandState(1,id,0)
  reaper.StuffMIDIMessage(mout,0x90 ,mm, 0x00)
-end
 end
 

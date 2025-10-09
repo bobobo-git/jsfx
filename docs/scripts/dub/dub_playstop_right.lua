@@ -1,3 +1,4 @@
+
 function getnummidioutnumber()
 --midi outputnanmedetection
 i=0 retval=0 nameout="" mout=0
@@ -6,11 +7,11 @@ while i<ii do
   retval, nameout = reaper.GetMIDIOutputNameNoAlias(i, "")
   if nameout=="MIDI Mix" then mout=i+16 break  end
   i= i + 1
-  end
-  return mout
 end
+return mout
+end
+ 
 getnummidioutnumber()
-
 id=({reaper.get_action_context()})[4]
 reaper.Main_OnCommand(40769,1)
 onoff=reaper.GetPlayState(1)
