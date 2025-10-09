@@ -20,7 +20,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         you'll find hopefulkly some explanations and templates }
       </description>
     </metadata>
-    <version name="1.02" author="bobobo" time="2025-10.098T00:00:00Z">
+    <version name="1.03" author="bobobo" time="2025-10.098T00:00:00Z">
 <!--functions and helper-->  
     <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
     <source main="main" file="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
