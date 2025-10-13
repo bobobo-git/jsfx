@@ -23,6 +23,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     <version name="1.04" author="bobobo" time="2025-10.098T00:00:00Z">
 <!--functions and helper-->  
     <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
+    <source main="main" file="dub_watchdog.eel">https://bobobo-git.github.io/jsfx/scripts/dub/dub_watchdog.eel</source>
     <source main="main" file="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
     <source main="main" file="dub_recarm_setversion.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_recarm_setversion.lua</source>
     <source main="main" file="dub_info.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_info.lua</source>
