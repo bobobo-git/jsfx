@@ -14,6 +14,9 @@ function main()
   gfx_rect(0,0,ww,wh,0);
   gfx_set(1,0.7,0.5);
   gfx_rect(ww-50,2,48,48,1);
+  gfx_set(0,0,0);
+  gfx_line(ww-50,2,ww,48);
+  gfx_line(ww-50,48,ww,2);
   gfx_set(0.25);
   h=10;
   gfx_x=10;
@@ -63,6 +66,7 @@ function main()
   strcmp(status,"b0")==0 ? (
     gfx_drawstr(sprintf(#,"\n\n\FADER %d %d %d\n",data1,data2,data3));
   );
+  
   (mouse_cap==1)&(mouse_x>ww-50)&(mouse_x<ww)&(mouse_y<50)?quit=1;
   quit==0?(
     defer("main()");
