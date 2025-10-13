@@ -1,26 +1,19 @@
 gfx_init("AKAI MIDI Mixer",600,100,0,200,0);
-gfx_clear= 0xADDEFF;
-function getmdevice(devIdx)
-(
-  GetMIDIInputName(devIdx,mdevice);
-  mdevice;
-);
+
+gfx_clear= 0xADDEff;
+
 function main()
 (
   gfx_update();
   //grafic
-  gfx_set(0.5);
+  gfx_set(0.25);
   gfx_rect(0,0,600,100,0);
   h=10;
-  gfx_x=0;
-  gfx_y=5;
-  gfx_drawstr("AKAI MIDI Mixer");
-  gfx_x=0;gfx_y+=h;
-  gfx_drawnumber(mouse_x,0);
-  gfx_drawstr(":");
-  gfx_drawnumber(mouse_y,0);
-  gfx_drawstr(":");
-  gfx_drawnumber(mouse_cap,0);
+  gfx_x=10;
+  gfx_y=10;
+  gfx_drawstr("AKAI MIDI Mixer\n\n");
+  
+  gfx_drawstr(sprintf(#,"mouse:x:%g, y:%g, cap%g,wheel%g \n",mouse_x,mouse_y ,mouse_cap,mouse_wheel));
   //the main code
  // int MIDI_GetRecentInputEvent(int idx, #buf, int &ts, int &devIdx, &projPos, int &projLoopCnt)
   
@@ -32,60 +25,39 @@ function main()
 // projPosOut will be set to project position in seconds if project was playing back at time of event, otherwise -1.//
 // Large SysEx events will not be included in this event list.
 //while this script is running you have to toggle any fader,button,knob
- //getit= MIDI_GetRecentInputEvent(idx,buf,ts,devIdx,projPos,projLoopCnt);
   getit= MIDI_GetRecentInputEvent(idx,buf,ts,devIdx,projPos,projLoopCnt);
-  //gfx_x=0;gfx_y+=h;
-  //gfx_drawstr("getit:");
-  //gfx_drawnumber(getit,0);
   getit>0 ?(
-    //gfx_x=0;gfx_y+=h;
-    //gfx_drawstr("devIdx:");
-    //gfx_drawnumber(devIdx,0);
- 
-    gfx_x=0;gfx_y+=h;
-   //str_getchar("str",offset[,type])
     status=sprintf(#,"%x",str_getchar(buf,0));
     data1=str_getchar(buf,1);
     data2=str_getchar(buf,2);
     data3=str_getchar(buf,3);
-
-   
-    //gfx_drawstr(sprintf(#,"buf: %s\nstatus: %s, data1: %d, data2:%d, data3:%d  ",buf, status,data1,data2,data3));
-   //  gfx_drawstr(sprintf(#,"buf: %s\nstatus: %s, data1: %d, data2:%d, data3:%d  ",buf, status,data1,data2,data3));
-    
-    //aaa=sprintf(#,"%%", mdevice);
-    //gfx_drawstr(" -- ");gfx_drawnumber(notenum,0);
-
-    //gfx_drawstr(sprintf(#,"buf: %s,  notenum:%d, status: %x, data2:%d, data3:%d  ",buf, notenum,status,data2,data3));
-    //
-  
     
   
   ):(
-    gfx_x=0;gfx_y+=h;
-    gfx_drawstr("das hat nicht geklappt");
+    
+    gfx_drawstr("das hat nicht geklappt\n");
   );
 
-  
- GetMIDIInputName(devIdx,mdevice);
-  gfx_drawstr(sprintf(#,"devIdx:%d , device:%s",devIdx,mdevice));
+  GetMIDIInputName(devIdx,mdevice); //get name
+
+  gfx_drawstr(sprintf(#,"devIdx:%d , device:%s\n",devIdx,mdevice));
   strcmp(mdevice,"MIDI Mix")==0?(
-  gfx_x=0;gfx_y+=h; 
-  gfx_drawstr("MIDI Mix gefunden\n");
-  gfx_drawstr(sprintf(#,"buf: %s\nstatus: %s, data1: %d, data2:%d, data3:%d\n",buf, status,data1,data2,data3));
+
+    gfx_drawstr("MIDI Mix gefunden\n");
+  );
+
+  gfx_drawstr(sprintf(#,"status: %s, data1: %d, data2:%d, data3:%d\n",status,data1,data2,data3));
 
   strcmp(status,"90")==0 ? (
-  gfx_drawstr(sprintf(#,"NOTEON %d %d %d ",data1,data2,data3));
+    gfx_drawstr(sprintf(#,"NOTEON %d %d %d\n",data1,data2,data3));
   );
   strcmp(status,"80")==0 ? (
-    gfx_drawstr(sprintf(#,"NOTEOFF %d %d %d ",data1,data2,data3));
+    gfx_drawstr(sprintf(#,"\nNOTEOFF %d %d %d\n",data1,data2,data3));
   );
   strcmp(status,"b0")==0 ? (
-    gfx_drawstr(sprintf(#,"FADER %d %d %d ",data1,data2,data3));
+    gfx_drawstr(sprintf(#,"\n\n\FADER %d %d %d\n",data1,data2,data3));
   );
 
-
-  );
   quit==0?(
     defer("main()");
   );
