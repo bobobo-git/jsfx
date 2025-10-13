@@ -1,4 +1,7 @@
-gfx_init("AKAI MIDI Mixer",600,100,0,200,0);
+ww=400;
+wh=200;
+wb=200;
+gfx_init("AKAI MIDI Mixer",ww,wh,0,wb,0);
 
 gfx_clear= 0xADDEff;
 
@@ -6,8 +9,12 @@ function main()
 (
   gfx_update();
   //grafic
+  
   gfx_set(0.25);
-  gfx_rect(0,0,600,100,0);
+  gfx_rect(0,0,ww,wh,0);
+  gfx_set(1,0.7,0.5);
+  gfx_rect(ww-50,2,48,48,1);
+  gfx_set(0.25);
   h=10;
   gfx_x=10;
   gfx_y=10;
@@ -31,7 +38,6 @@ function main()
     data1=str_getchar(buf,1);
     data2=str_getchar(buf,2);
     data3=str_getchar(buf,3);
-    
   
   ):(
     
@@ -57,7 +63,7 @@ function main()
   strcmp(status,"b0")==0 ? (
     gfx_drawstr(sprintf(#,"\n\n\FADER %d %d %d\n",data1,data2,data3));
   );
-
+  (mouse_cap==1)&(mouse_x>ww-50)&(mouse_x<ww)&(mouse_y<50)?quit=1;
   quit==0?(
     defer("main()");
   );
