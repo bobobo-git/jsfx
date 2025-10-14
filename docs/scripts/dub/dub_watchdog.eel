@@ -59,6 +59,37 @@ function main()
 
   strcmp(status,"90")==0 ? (
     gfx_drawstr(sprintf(#,"NOTEON %d %d %d\n",data1,data2,data3));
+    //TRack1 Mute and knob and led  , da das solange ausdgeführt wird wie der knof gedrückt wird schaltet das ständig hin ujnd her ..
+    //aktuell unbrauchbar, aber es zeigt vernutlich dass so mehrere evengts mehjr ode weniger gleichzeitg behandelt werden können..
+    //schaumerma  achso ja ,, track ist hier fix track 1 , das muss noch besser werden
+    mo=GetNumMIDIOutputs();
+    while (mot<mo)(
+      GetMIDIOutputName(mot,nameoutput);
+      strcmp(nameoutput,"MIDI Mix")==0?(
+        mout=mot+16;
+      );
+      mot=mot + 1;
+    );
+    track = GetTrack(0, 0);
+    get_action_context(filename,sectionID,cmdID,mode,resolution,vak,contextstr);
+    id=cmdID;
+    //get_action_context(#filename,sectionID,cmdID,mode,resolution,val,contextstr)
+    onoff= GetMediaTrackInfo_Value(track,"B_MUTE");
+    //144=0x90  127  0x7f  
+    onoff == 0 ?(
+    
+     SetMediaTrackInfo_Value(track, "B_MUTE",1);
+     SetToggleCommandState(1,id,1);
+     StuffMIDIMessage(mout,144 ,1, 127);
+     ):(
+     SetMediaTrackInfo_Value(track, "B_MUTE",0);
+     SetToggleCommandState(1,id,0);
+     StuffMIDIMessage(mout,144 ,1, 0);
+    );
+    
+    
+    
+    
   );
   strcmp(status,"80")==0 ? (
     gfx_drawstr(sprintf(#,"\nNOTEOFF %d %d %d\n",data1,data2,data3));

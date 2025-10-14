@@ -1,0 +1,12 @@
+
+
+mo=GetNumMIDIOutputs();
+while (mot<mo)(
+  GetMIDIOutputName(mot,nameoutput);
+  strcmp(nameoutput,"MIDI Mix")==0?(
+    mout=mot+16;
+  );
+  mot=mot + 1;
+);
+  
+stuffMIDIMessage(mout,144 ,1, 0);
