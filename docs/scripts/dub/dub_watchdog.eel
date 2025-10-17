@@ -1,104 +1,88 @@
-ww=400;
-wh=200;
-wb=200;
-gfx_init("AKAI MIDI Mixer",ww,wh,0,wb,0);
+//get midi input from a device named MIDI Mix, the MIDI Mix has to be mint
+//get the notes and set states accordingly on existing track from 1 to 8
+//note 1 toggles mute on track 1,  note 2 toggles solo on track 1, note 3 toggles recarm for track 1 
+//note 4 toggles mute on track 1,  note 5 toggles solo on track 1, note 6 toggles recarm for track 1 
+//note 7 toggles mute on track 1,  note 8 toggles solo on track 1, note 9 toggles recarm for track 1 
+//note 10 toggles mute on track 1,  note 11 toggles solo on track 1, note 12 toggles recarm for track 1 
+//note 13 toggles mute on track 1,  note 14 toggles solo on track 1, note 15 toggles recarm for track 1 
+//note 16 toggles mute on track 1,  note 17 toggles solo on track 1, note 18 toggles recarm for track 1 
+//note 19 toggles mute on track 1,  note 20 toggles solo on track 1, note 21 toggles recarm for track 1 
+//note 22 toggles mute on track 1,  note 23 toggles solo on track 1, note 24 toggles recarm for track 1 
+//faders and other knobs maybe later
+//if you toggle recarm on a track and the inht is set to All MIDI Inputs those notes will be played
+//eel can't chew the midi stuff as it sits behind REAPER's MIDI Input, maybe a JSFX per track feeded with
+//results from here could chew the note..
+log=0;
+log?ClearConsole();
 
-gfx_clear= 0xADDEff;
-
-function main()
-(
-  gfx_update();
-  //grafic
-  
-  gfx_set(0.25);
-  gfx_rect(0,0,ww,wh,0);
-  gfx_set(1,0.7,0.5);
-  gfx_rect(ww-50,2,48,48,1);
-  gfx_set(0,0,0);
-  gfx_line(ww-50,2,ww,48);
-  gfx_line(ww-50,48,ww,2);
-  gfx_set(0.25);
-  h=10;
-  gfx_x=10;
-  gfx_y=10;
-  gfx_drawstr("AKAI MIDI Mixer\n\n");
-  
-  gfx_drawstr(sprintf(#,"mouse:x:%g, y:%g, cap%g,wheel%g \n",mouse_x,mouse_y ,mouse_cap,mouse_wheel));
-  //the main code
- // int MIDI_GetRecentInputEvent(int idx, #buf, int &ts, int &devIdx, &projPos, int &projLoopCnt)
-  
-//  Gets a recent MIDI input event from the global history. idx=0 for the most recent event, which also
-//  latches to the latest MIDI event state (to get a more recent list, calling with idx=0 is necessary).//
-//  idx=1 next most recent event, returns a non-zero sequence number for the event, or zero if no more events.//
-//  tsOut will be set to the timestamp in samples relative to the current position (0 is current, -48000 is one second ago, etc).//
-// devIdxOut will have the low 16 bits set to the input device index, and 0x10000 will be set if device was enabled only for control.//
-// projPosOut will be set to project position in seconds if project was playing back at time of event, otherwise -1.//
-// Large SysEx events will not be included in this event list.
-//while this script is running you have to toggle any fader,button,knob
+function main()(
   getit= MIDI_GetRecentInputEvent(idx,buf,ts,devIdx,projPos,projLoopCnt);
-  getit>0 ?(
+  getit != getitold ? (    //new events only
     status=sprintf(#,"%x",str_getchar(buf,0));
     data1=str_getchar(buf,1);
     data2=str_getchar(buf,2);
     data3=str_getchar(buf,3);
-  
-  ):(
-    
-    gfx_drawstr("das hat nicht geklappt\n");
-  );
+    log?ClearConsole();
+    log?ShowConsoleMsg(sprintf(#,"neues event %d data1 %d data2 %d data3 %d\n",getit,data1,data2,data3));
+    GetMIDIInputName(devIdx,midiin); //get name
 
-  GetMIDIInputName(devIdx,mdevice); //get name
-
-  gfx_drawstr(sprintf(#,"devIdx:%d , device:%s\n",devIdx,mdevice));
-  strcmp(mdevice,"MIDI Mix")==0?(
-
-    gfx_drawstr("MIDI Mix gefunden\n");
-  );
-
-  gfx_drawstr(sprintf(#,"status: %s, data1: %d, data2:%d, data3:%d\n",status,data1,data2,data3));
-
-  strcmp(status,"90")==0 ? (
-    gfx_drawstr(sprintf(#,"NOTEON %d %d %d\n",data1,data2,data3));
-    //TRack1 Mute and knob and led  , da das solange ausdgeführt wird wie der knof gedrückt wird schaltet das ständig hin ujnd her ..
-    //aktuell unbrauchbar, aber es zeigt vernutlich dass so mehrere evengts mehjr ode weniger gleichzeitg behandelt werden können..
-    //schaumerma  achso ja ,, track ist hier fix track 1 , das muss noch besser werden
-    mo=GetNumMIDIOutputs();
-    while (mot<mo)(
-      GetMIDIOutputName(mot,nameoutput);
-      strcmp(nameoutput,"MIDI Mix")==0?(
+    strcmp(midiin,"MIDI Mix")==0?(
+      mo=GetNumMIDIOutputs();
+      while (mot<mo)(
+        GetMIDIOutputName(mot,nameoutput);
+        strcmp(nameoutput,"MIDI Mix")==0?(
         mout=mot+16;
       );
       mot=mot + 1;
     );
-    track = GetTrack(0, 0);
-    get_action_context(filename,sectionID,cmdID,mode,resolution,vak,contextstr);
-    id=cmdID;
-    //get_action_context(#filename,sectionID,cmdID,mode,resolution,val,contextstr)
-    onoff= GetMediaTrackInfo_Value(track,"B_MUTE");
-    //144=0x90  127  0x7f  
-    onoff == 0 ?(
-    
-     SetMediaTrackInfo_Value(track, "B_MUTE",1);
-     SetToggleCommandState(1,id,1);
-     StuffMIDIMessage(mout,144 ,1, 127);
-     ):(
-     SetMediaTrackInfo_Value(track, "B_MUTE",0);
-     SetToggleCommandState(1,id,0);
-     StuffMIDIMessage(mout,144 ,1, 0);
+    log?ShowConsoleMsg(sprintf(#,"Midi Mix found (in) %s\n",midiin));
+    log?ShowConsoleMsg(sprintf(#,"Midi Mix found (out) %s index %d\n\n",nameoutput,mout));
+    strcmp(status,"90")==0 ? (
+      log?ShowConsoleMsg("NOTEON\n");
+      //MUTE     
+      ((data1==1)|(data1==4)|(data1==7)|(data1==10)|(data1==13)|(data1==16)|(data1==19)|(data1==22))?(
+        track = GetTrack(0, ((data1-1)/3));
+        track?GetMediaTrackInfo_Value(track,"B_MUTE")==0?(
+          SetMediaTrackInfo_Value(track, "B_MUTE",1);
+          StuffMIDIMessage(mout,144 ,data1, 127);
+        ):(
+          SetMediaTrackInfo_Value(track, "B_MUTE",0);
+          StuffMIDIMessage(mout,144 ,data1, 0);
+        );
+      );
+      //SOLO
+      ((data1==2)|(data1==5)|(data1==8)|(data1==11)|(data1==14)|(data1==17)|(data1==20)|(data1==23))?(
+        track = GetTrack(0, ((data1-1)/3));
+        track?GetMediaTrackInfo_Value(track,"I_SOLO")==0?(
+          SetMediaTrackInfo_Value(track, "I_SOLO",1);
+          StuffMIDIMessage(mout,144 ,data1, 127);
+        ):(
+          SetMediaTrackInfo_Value(track, "I_SOLO",0);
+          StuffMIDIMessage(mout,144 ,data1, 0);
+        );
+      );
+      //RECARM
+      ((data1==3)|(data1==6)|(data1==9)|(data1==12)|(data1==15)|(data1==18)|(data1==21)|(data1==24))?(
+        track = GetTrack(0, ((data1-1)/3));
+        track?GetMediaTrackInfo_Value(track,"I_RECARM")==0?(
+          SetMediaTrackInfo_Value(track, "I_RECARM",1);
+          StuffMIDIMessage(mout,144 ,data1, 127);
+        ):(
+          SetMediaTrackInfo_Value(track, "I_RECARM",0);
+          StuffMIDIMessage(mout,144 ,data1, 0);
+        );
+      );
+      
     );
-    
-    
-    
-    
+    strcmp(status,"80")==0 ? (
+      log?ShowConsoleMsg("NOTEOFF\n");
+    );
+    strcmp(status,"b0")==0 ? (
+      log?ShowConsoleMsg("FADER\n");
+    );
   );
-  strcmp(status,"80")==0 ? (
-    gfx_drawstr(sprintf(#,"\nNOTEOFF %d %d %d\n",data1,data2,data3));
-  );
-  strcmp(status,"b0")==0 ? (
-    gfx_drawstr(sprintf(#,"\n\n\FADER %d %d %d\n",data1,data2,data3));
-  );
-  
-  (mouse_cap==1)&(mouse_x>ww-50)&(mouse_x<ww)&(mouse_y<50)?quit=1;
+  getitold=getit;
+  );//  );
   quit==0?(
     defer("main()");
   );
