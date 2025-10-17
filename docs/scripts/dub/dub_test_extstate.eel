@@ -1,0 +1,45 @@
+section="test";
+
+keyi=104+i;
+valuei=789;
+key=sprintf(#,"%d",keyi); // Zahl in String umwandeln
+value=sprintf(#,"%d",valuei);// Zahl in String umwandeln
+ClearConsole();
+ShowConsoleMsg(sprintf(#," nach extstate schreiben key %d value %d\n",keyi,valuei));
+
+
+
+setextstate(section,key,value,1);  //es werden die mit sprintf umgewandelten zahlan in extstate gespeichert
+
+//extstate in memory geht serh viel schneller
+
+
+res=GetExtState(value,section,key);  //es wird so ausgelesen
+
+
+ShowConsoleMsg(sprintf(#,"und %s aua %s gelesen\n\n",value,key));  //ausgabe kann man so machen
+//wenn man das wieder al Zahl braucht geht das wohl auch  hier mal mit etwas mathe
+//val=sprintf(#,"%s",value);
+mein_string = "465";
+zz=str_getchar("465",1,'i');
+
+zzz=match("%d", mein_string);
+
+
+
+i=10;
+while ( i>0 )(
+  k=sprintf(#,"%d",i);
+  v=sprintf(#,"%d",(i+40));
+  setextstate("section",k,v,1);  //äbnder das mal ab in ...k,v,1);  und staune
+  ShowConsoleMsg(sprintf(#,"und in key %d value %d geschrieben\n",i,i+40));
+  i -= 1;
+);
+
+i=0;
+while (i < 10)(
+  getextstate(value,"section",i);
+  ShowConsoleMsg(sprintf(#,"%s aus %s\n",sprintf(#,"%d",value),sprintf(#,"%d",i)));
+  i += 1;
+);
+
