@@ -57,6 +57,11 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     <source main="main" file="dub_solo_6.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_6.lua</source>
     <source main="main" file="dub_solo_7.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_7.lua</source>
     <source main="main" file="dub_solo_8.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_solo_8.lua</source>
+    <changelog>
+    <![CDATA[           
+        ++ scripta that change REAPER states und MIDI Mix states and some for the MIDI Mix itself
+    ]]>
+    </changelog>
     </version>
     </reapack>
 </category>
