@@ -12,7 +12,7 @@
 //if you toggle recarm on a track and the inht is set to All MIDI Inputs those notes will be played
 //eel can't chew the midi stuff as it sits behind REAPER's MIDI Input, maybe a JSFX per track feeded with
 //results from here could chew the note..
-log=1;
+log=0;
 log?ClearConsole();
 
 function main()(
@@ -40,50 +40,18 @@ function main()(
     strcmp(status,"90")==0 ? (
       log?ShowConsoleMsg("NOTEON\n");
       //MUTE     
-      ((data1==1)|(data1==4)|(data1==7)|(data1==10)|(data1==13)|(data1==16)|(data1==19)|(data1==22))?(
-        trackno=1+((data1-1)/3);
-        track = GetTrack(0, trackno);
-        k=sprintf(#,"Trackm%d",trackno);
-        //d=sprintf(#,"%d",data1+64);
-        
-        ShowConsoleMsg(sprintf(#,"juhuuu %s %d\n",d,data1));
-        //getextstate(state,"mmlo",k);
-        GetExtState(#result,"mmlo",k);
-        ShowConsoleMsg(sprintf(#,"result %s \n",#result));
-        strcmp(#result,"0")?(
-          StuffMIDIMessage(mout,144 ,data1, 127);
-          ShowConsoleMsg(sprintf(#,"result %s \n",#result));
-          setextstate("mmlo",k,"1",1);
-          ):(
-          StuffMIDIMessage(mout,144 ,data1, 0);
-          setextstate("mmlo",k,"0",1);
-        );
+      k=sprintf(#,"knob%d",data1);
+      log?ShowConsoleMsg(sprintf(#,"juhuuu %s %d\n",d,data1));
+      //getextstate(state,"mmlo",k);
+      r=GetExtState(#result,"mmlo",k);
+      (r!=1)|(strcmp(#result,"0")==0)?(
+        StuffMIDIMessage(mout,144 ,data1, 127);
+        log?ShowConsoleMsg(sprintf(#,"result %s \n",#result));
+        setextstate("mmlo",k,"1",1);
+      ):(
+        StuffMIDIMessage(mout,144 ,data1, 0);
+        setextstate("mmlo",k,"0",1);
       );
-          
-        
-      //SOLO
-      ((data1==2)|(data1==5)|(data1==8)|(data1==11)|(data1==14)|(data1==17)|(data1==20)|(data1==23))?(
-        track = GetTrack(0, ((data1-1)/3));
-        track?GetMediaTrackInfo_Value(track,"I_SOLO")==0?(
-          SetMediaTrackInfo_Value(track, "I_SOLO",1);
-          StuffMIDIMessage(mout,144 ,data1, 127);
-        ):(
-          SetMediaTrackInfo_Value(track, "I_SOLO",0);
-          StuffMIDIMessage(mout,144 ,data1, 0);
-        );
-      );
-      //RECARM
-      ((data1==3)|(data1==6)|(data1==9)|(data1==12)|(data1==15)|(data1==18)|(data1==21)|(data1==24))?(
-        track = GetTrack(0, ((data1-1)/3));
-        track?GetMediaTrackInfo_Value(track,"I_RECARM")==0?(
-          SetMediaTrackInfo_Value(track, "I_RECARM",1);
-          StuffMIDIMessage(mout,144 ,data1, 127);
-        ):(
-          SetMediaTrackInfo_Value(track, "I_RECARM",0);
-          StuffMIDIMessage(mout,144 ,data1, 0);
-        );
-      );
-      
     );
     strcmp(status,"80")==0 ? (
       log?ShowConsoleMsg("NOTEOFF\n");
