@@ -1,45 +1,37 @@
 section="test";
+tstart=time_precise(); //holt eien exakten wert .. 
+i=1; //indexanfang
+m=8; //indexende .. extstate permanent mit hohen werten
+                  // steht einer schneller ausführungszeit
+                  // im weg
+                  // ein wert größer als 10 ist hier shcn relevant
+                  // jeder wert wird in eine datei geschrieben
+                  // und das dauert ..ca braucht 700 msec für 100 ,für 1000 
+                  // GANZ ANDERS SIEHT DAS AUS WENN MAN DAS NICHT PERMANENT MACHT
+                  // 10000 sind hier kein Problem 
+while(i<m)(
+valuei=rand(100);
+  k=sprintf(#,"Trackm%d",i);  //Key bauen , Track plus index
 
-keyi=104+i;
-valuei=789;
-key=sprintf(#,"%d",keyi); // Zahl in String umwandeln
-value=sprintf(#,"%d",valuei);// Zahl in String umwandeln
-ClearConsole();
-ShowConsoleMsg(sprintf(#," nach extstate schreiben key %d value %d\n",keyi,valuei));
-
-
-
-setextstate(section,key,value,1);  //es werden die mit sprintf umgewandelten zahlan in extstate gespeichert
-
-//extstate in memory geht serh viel schneller
-
-
-res=GetExtState(value,section,key);  //es wird so ausgelesen
-
-
-ShowConsoleMsg(sprintf(#,"und %s aua %s gelesen\n\n",value,key));  //ausgabe kann man so machen
-//wenn man das wieder al Zahl braucht geht das wohl auch  hier mal mit etwas mathe
-//val=sprintf(#,"%s",value);
-mein_string = "465";
-zz=str_getchar("465",1,'i');
-
-zzz=match("%d", mein_string);
-
-
-
-i=10;
-while ( i>0 )(
-  k=sprintf(#,"%d",i);
-  v=sprintf(#,"%d",(i+40));
-  setextstate("section",k,v,1);  //äbnder das mal ab in ...k,v,1);  und staune
-  ShowConsoleMsg(sprintf(#,"und in key %d value %d geschrieben\n",i,i+40));
-  i -= 1;
-);
-
-i=0;
-while (i < 10)(
-  getextstate(value,"section",i);
-  ShowConsoleMsg(sprintf(#,"%s aus %s\n",sprintf(#,"%d",value),sprintf(#,"%d",i)));
+  value=sprintf(#,"%d",valuei);// Zahl in String umwandeln  als value setzen
+  ClearConsole();
+  ShowConsoleMsg(sprintf(#," nach extstate schreiben key %d value %d\n",keyi,valuei));
+  setextstate(section,k,value,0);  //es werden die oben gebauten saches in extstate gespeichert
   i += 1;
 );
+
+GetExtState(#result,"test","A");
+i=1;
+while(i<m)(
+  #k=sprintf(#,"Trackm%d",i); //k setzen . hier mal gleich in sowas setzen das bei der ausgabe gleich den inhalt hier eiene string anzeigt 
+  
+  //str_setchar(k,0,i+65,'i'); //index to Char 0=A,1=B,...
+  GetExtState(sprintf(#res,"%d",#result),"test",#k);
+  strlen(#sum)<100? #sum += #k;  //strings addieren , !! DA HAT GRENZEN !! deshalb unter 100 bleiben
+  ShowConsoleMsg(sprintf(#,"aus %s gelesen %s\n",#k,#res));
+  i += 1;
+);
+
+
+tend=time_precise(); //holt eien exakten wert .. 
 
