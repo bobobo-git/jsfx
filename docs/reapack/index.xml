@@ -24,6 +24,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 <!--functions and helper-->  
     <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
     <source main="main" file="dub_watchdog.eel">https://bobobo-git.github.io/jsfx/scripts/dub/dub_watchdog.eel</source>
+    <source main="main" file="dub_watchdog_lightsonly.eel">https://bobobo-git.github.io/jsfx/scripts/dub/dub_watchdog_lightsonly.eel</source>
     <source main="main" file="dub_test.eel">https://bobobo-git.github.io/jsfx/scripts/dub/dub_test.eel</source>
     <source main="main" file="dub_test_extstate.eel">https://bobobo-git.github.io/jsfx/scripts/dub/dub_test_extstate.eel</source>
     <source main="main" file="dub_playstop_right.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_playstop_right.lua</source>
