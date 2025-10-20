@@ -60,6 +60,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     <changelog>
     <![CDATA[           
         ++ scripta that change REAPER states und MIDI Mix states and some for the MIDI Mix itself
+        ++ dub_watchdog_lightsonly stores exstate in memory
     ]]>
     </changelog>
     </version>
