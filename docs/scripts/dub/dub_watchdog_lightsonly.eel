@@ -47,10 +47,10 @@ function main()(
       (r!=1)|(strcmp(#result,"0")==0)?(
         StuffMIDIMessage(mout,144 ,data1, 127);
         log?ShowConsoleMsg(sprintf(#,"result %s \n",#result));
-        setextstate("mmlo",k,"1",1);
+        setextstate("mmlo",k,"1",0); //store in memory
       ):(
         StuffMIDIMessage(mout,144 ,data1, 0);
-        setextstate("mmlo",k,"0",1);
+        setextstate("mmlo",k,"0",0); //store in memory
       );
     );
     strcmp(status,"80")==0 ? (
