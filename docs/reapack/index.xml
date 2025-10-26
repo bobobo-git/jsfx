@@ -78,9 +78,9 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </metadata>
       <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler.eel</source>
-          <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_II.eel</source>
-          <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_C.eel</source>
-          <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_F.eel</source>
+          <source main="main" file="bobobo_reaeq_scaler_II.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_II.eel</source>
+          <source main="main" file="bobobo_reaeq_scaler_C.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_C.eel</source>
+          <source main="main" file="bobobo_reaeq_scaler_F.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_F.eel</source>
           
       </version>
     </reapack>
