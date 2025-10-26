@@ -66,8 +66,22 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </version>
     </reapack>
 </category>
-
-<category name="knobfield">
+<category name="FX-specific">
+    <reapack name="bobobo_reaeq_scaler.eel" type="script" desc="tool to set rea-eq-freqs">
+    <metadata>
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
+        {\fldrslt website}} / \line\line {\fs48\b little knobs\b}\line\line a tool to set some reaeq freqs to chords\line
+        \line
+        you have to set the chords in the script itself \line
+        }
+      </description>
+    </metadata>
+      <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
+        <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler.eel</source>
+      </version>
+    </reapack>
+</category>
+<category name="Tools">
     <reapack name="bobobo_knobs.eel" type="script" desc="a little knobfield">
     <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
