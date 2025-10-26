@@ -1,0 +1,47 @@
+//should create or tune a reaeq with some bands to a chord
+//create or get reaeq on the first track
+track = GetTrack(0, 0);
+trackfxcount= TrackFX_GetCount(track);
+myeq= TrackFX_GetEQ(track, 1);
+paramidx=0;
+c=4 ;  //nodes count the lower the next 
+startf=4  ; //quotient for the freq  
+freq1=523.251/startf; //C
+freq1=freq1* pow (2,(0/12));
+freq2=freq1 * pow(2,(4/12));
+freq3=freq1 * pow(2,(7/12));
+freq4=freq1 * pow(2,(10/12));
+
+freq1?(
+  while (ii<c)(
+    freq1=freq1*2;
+    TrackFX_SetEQParam(track, myeq, 7, ii, 0,freq1, eq_norm);
+    TrackFX_SetEQParam(track, myeq, 7, ii, 2,0.02 , eq_norm);
+    ii+=1;
+  );
+);
+freq2?(
+  while (ii<c*2)(
+    freq2=freq2*2;
+    TrackFX_SetEQParam(track, myeq, 7, ii, 0,freq2, eq_norm);
+    TrackFX_SetEQParam(track, myeq, 7, ii, 2,0.02 , eq_norm);
+    ii+=1;
+  );
+);
+freq3?(
+  while (ii<c*3)(
+    freq3=freq3*2;
+    TrackFX_SetEQParam(track, myeq, 7, ii, 0,freq3, eq_norm);
+    TrackFX_SetEQParam(track, myeq, 7, ii, 2,0.02 , eq_norm);
+    ii+=1;
+  );
+);
+freq4?(
+  while (ii<c*4)(
+    freq4=freq4*2;
+    TrackFX_SetEQParam(track, myeq, 7, ii, 0,freq4, eq_norm);
+    TrackFX_SetEQParam(track, myeq, 7, ii, 2,0.02 , eq_norm);
+    ii+=1;
+  );
+);
+
