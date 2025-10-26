@@ -66,7 +66,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </version>
     </reapack>
 </category>
-<category name="FX-specific">
+<category name="Tools">
     <reapack name="bobobo_reaeq_scaler.eel" type="script" desc="tool to set rea-eq-freqs">
     <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
