@@ -1,0 +1,24 @@
+freq1=27.5; //A0
+ClearConsole();
+//freq1=349.228/startf; //F
+notenum=0;
+while (notenum<88)(
+  freq=freq1* pow (2,(notenum/12));
+  step=ceil(notenum/12);
+  notechck=step-(notenum/12);
+  (notechck==0.000000)?(ncn="A");
+  (notechck==0.916667)?(ncn="A#");
+  (notechck==0.833333)?(ncn="B");
+  (notechck==0.750000)?(ncn="C");
+  (notechck==0.666667)?(ncn="C#");
+  (notechck==0.583333)?(ncn="D");
+  (notechck==0.500000)?(ncn="D#");
+  (notechck==0.416667)?(ncn="E");
+  (notechck==0.333333)?(ncn="F");
+  (notechck==0.250000)?(ncn="F#");
+  (notechck==0.166667)?(ncn="G");
+  (notechck==0.083333)?(ncn="G#");
+  
+  ShowConsoleMsg(sprintf(#,"%s %d num %d freq %f\n",ncn,step,notenum+33,freq));
+  notenum +=1;
+);
