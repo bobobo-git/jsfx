@@ -95,8 +95,9 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         and for test purposes}
       </description>
     </metadata>
-      <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
+      <version name="1.0.1" author="bobobo" time="2025-09-04T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_knobs.eel</source>
+        <source main="main" file="bobobo_notes.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_notes.eel</source>
       </version>
     </reapack>
 </category>
