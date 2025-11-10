@@ -10,7 +10,7 @@ freq1=523.251/startf; //C
 freq1=freq1* pow (2,(0/12));
 freq2=freq1 * pow(2,(4/12));
 freq3=freq1 * pow(2,(7/12));
-freq4=freq1 * pow(2,(10/12));
+freq4=freq1 * pow(2,(12/12));
 
 freq1?(
   while (ii<c)(

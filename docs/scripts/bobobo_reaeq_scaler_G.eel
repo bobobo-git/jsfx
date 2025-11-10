@@ -29,7 +29,7 @@ faktor=1.05946360943593;
 c=4 ;  //nodes count the lower the next 
 startf=4  ; //quotient for the freq  
 //freq1=523.251/startf; //C
-freq1=349.228/startf; //F
+freq1=195.997718/startf; //G
 freq1=freq1* pow (2,(0/12));
 //notestep 4
 //440 * pow(2,(4/12))
