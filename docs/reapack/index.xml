@@ -76,11 +76,12 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         }
       </description>
     </metadata>
-      <version name="1.0.0" author="bobobo" time="2025-09-04T00:00:00Z">
+      <version name="1.0.1" author="bobobo" time="2025-09-04T00:00:00Z">
         <source main="main">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler.eel</source>
           <source main="main" file="bobobo_reaeq_scaler_II.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_II.eel</source>
           <source main="main" file="bobobo_reaeq_scaler_C.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_C.eel</source>
           <source main="main" file="bobobo_reaeq_scaler_F.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_F.eel</source>
+          <source main="main" file="bobobo_reaeq_scaler_G.eel">https://bobobo-git.github.io/jsfx/scripts/bobobo_reaeq_scaler_G.eel</source>
           
       </version>
     </reapack>
@@ -268,7 +269,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         \line
         }</description>
     </metadata>
-    <version name="1.0.9" author="bobobo" time="2025-08-26T10:00:00.000Z">
+    <version name="1.1.0" author="bobobo" time="2025-08-26T10:00:00.000Z">
               <changelog><![CDATA[+ hipass values below 1000 raisea a lowpassfilter 
                                   + samplevalues goes from -0.99 to 0.99 (very hard limiter)
                                   + 
