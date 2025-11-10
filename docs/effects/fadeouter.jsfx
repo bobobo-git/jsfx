@@ -32,7 +32,7 @@ tags: filter
 
 
 //slider1:0<0,1000,10>-HPF
-slider2:22000<0,22000,0.1:log=1000>LPF
+slider2:22000<0,22000,0.1:log=200>LPF
 //slider3:0<-20,20,0.1>Gain
 
 in_pin:left input
@@ -93,7 +93,9 @@ out_pin:right output
 @slider
   
   freq3 = slider2;
- freq1 =1000-freq3;
+  freq3<100? freq3=freq3*0.9;
+  freq1 =1000-freq3;
+  
   freq1 < 0 ? freq1=0;
 
 //  slider1 == 0 ? hpf = 0 : hpf = 1;
