@@ -29,7 +29,7 @@ desc:FadeOuter_II
 //author: bobobo stripped this a little
 
 // slider1 :0<0,1000,10>HPF
-slider2:22000<0,22000,0.1:log=10000>LPF
+slider2:22000<0,22000,0.1:log=1000>LPF
 
 //slider3:0<-20,20,0.1>Gain
 
@@ -93,11 +93,14 @@ out_pin:right output
   
   freq3 = slider2;
   //gain = 10^(slider3/20);
+  freq3>21999 ? hpf=0:hpf=1; 
+  
   gain = freq3/22000;
-  freq1  = 1100-(freq3/20);
+  freq1  = 550-(freq3/40);
+  //freq1=0;
   //slider1 == 0 ? hpf = 0 : hpf = 1;
   slider2 == 22000 ? lpf = 0 : lpf = 1;
-
+  
   a1 = 1;
   s1 = 1;
   q1 = 1 / (sqrt((a1 + 1/a1)*(1/s1 - 1) + 2));
@@ -174,6 +177,12 @@ out_pin:right output
 
   spl0 *= gain;
   spl1 *= gain;
+  spl0<-1 ? (spl0=-1);
+  spl0>1  ? (spl0=1);
+  spl1<-1 ? (spl1=-1);
+  spl1>1  ? (spl1=1);
+  
+  
 @gfx 500 20
   //bg=gfx_getsyscol();
   //gfx_clear=bg;
