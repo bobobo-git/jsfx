@@ -270,13 +270,14 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         }</description>
     </metadata>
     <version name="1.1.0" author="bobobo" time="2025-08-26T10:00:00.000Z">
-              <changelog><![CDATA[+ hipass values below 1000 raisea a lowpassfilter 
-                                  + samplevalues goes from -0.99 to 0.99 (very hard limiter)
+              <changelog><![CDATA[+ fadeouter_II hipass raises from 0 to 1100 while lowpass falls from 22000 to 0
+                                  + fadeouter hipass raises if lowpass gets under 1000 samplevalues goes from -0.99 to 0.99 (very hard limiter)
                                   + 
                                   + a bunch more things
                           ]]>
               </changelog>
       <source file="fadeouter.jsfx">https://bobobo-git.github.io/jsfx/effects/fadeouter.jsfx</source>
+        <source file="fadeouter_II.jsfx">https://bobobo-git.github.io/jsfx/effects/fadeouter_II.jsfx</source>
     </version>
   </reapack>
 </category> 
