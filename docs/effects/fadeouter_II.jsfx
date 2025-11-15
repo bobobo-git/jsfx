@@ -95,7 +95,9 @@ out_pin:right output
   //gain = 10^(slider3/20);
   freq3>21999 ? hpf=0:hpf=1; 
   
-  gain = freq3/22000;
+  //gain = freq3/22000;
+  freq3<666?gain = freq3/666:gain=1;
+  
   freq1  = 550-(freq3/40);
   //freq1=0;
   //slider1 == 0 ? hpf = 0 : hpf = 1;
