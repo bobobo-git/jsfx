@@ -9,18 +9,20 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
 <category name="Controller">
-    <reapack name="apc_test.eel" type="script" desc"APC Mini mk2 observer">
+   <!-- <reapack name="apc_test.eel" type="script" desc"APC Mini mk2 observer">
         <metadata>
-      <description>{\rtf1\ansi:
-        if you have an AKAI PBC Mkinik mk2 and dont know about those leds and the lighting\line
-        here you got it\line
-         }
+            <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
+      {\fldrslt website}} / \line\line {\fs48\b apc mini mk2\b}\line\line you have it and the leds doesn't light up?\line
+      here you go \line
+         \line
+        }
       </description>
     </metadata>
     <version name="1.00" author="bobobo" time="2026-02-21T00:00:00Z">
        <source main="main" file="apc_test.eel">https://bobobo-git.github.io/jsfx/scripts/apc_mini_mk2/apc_test.eel</source>
     </version>
     </reapack>
+    -->
     <reapack name="dub_info.lua" type="script" desc="DUB AKAI MIDI Mix"> 
         <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
