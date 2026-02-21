@@ -19,6 +19,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </metadata>
     <version name="1.00" author="bobobo" time="2026-02-21T00:00:00Z">
        <source main="main" file="apc_test.eel">https://bobobo-git.github.io/jsfx/scripts/apc_mini_mk2/apc_test.eel</source>
+    </version>
     </reapack>
     <reapack name="dub_info.lua" type="script" desc="DUB AKAI MIDI Mix"> 
         <metadata>
