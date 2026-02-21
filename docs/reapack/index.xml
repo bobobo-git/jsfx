@@ -9,7 +9,17 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
 <category name="Controller">
-    
+    <reapck name="apc_test.eel" type="script" desc"APC Mini mk2 observer">
+        <metadata>
+      <description>{\rtf1\ansi:
+        if you have an AKAI PBC Mkinik mk2 and dont know about those leds and the lighting\line
+        here you got it\line
+         }
+      </description>
+    </metadata>
+    <version name="1.00" author="bobobo" time="2026-02-21T00:00:00Z">
+       <source main="main" file="apc_test.eel">https://bobobo-git.github.io/jsfx/scripts/apc_mini_mk2/apc_test.eel</source>
+    </reapack>
     <reapack name="dub_info.lua" type="script" desc="DUB AKAI MIDI Mix"> 
         <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
@@ -21,6 +31,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
       </description>
     </metadata>
     <version name="1.13" author="bobobo" time="2025-10.13T00:00:00Z">
+
 <!--functions and helper-->  
     <source file="dub_functions.lua">https://bobobo-git.github.io/jsfx/scripts/dub/dub_functions.lua</source>
     <source main="main" file="dub_watchdog.eel">https://bobobo-git.github.io/jsfx/scripts/dub/dub_watchdog.eel</source>

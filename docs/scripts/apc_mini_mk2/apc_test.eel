@@ -1,0 +1,66 @@
+//es ist gar nicht so wichig das device hier automatisch zu erkennen.
+//der anwender muss halt nur das korrekte device ein uind ausgehend über die id definieren.
+//dann ist auch das soundsystem alsa, jack oder on windows linux whatever egal
+devin=13;
+devout=3;
+
+log=1;
+log?ClearConsole();
+function main()(//ouputdevice?
+
+  getit= MIDI_GetRecentInputEvent(idx,buf,ts,devIdx,projPos,projLoopCnt);
+  (devIDX==devin)&&(getit != getitold) ? (  
+    status=sprintf(#,"%x",str_getchar(buf,0));
+    data0=str_getchar(buf,0);
+    data1=str_getchar(buf,1);
+    data2=str_getchar(buf,2);
+    data3=str_getchar(buf,3);
+    data4=str_getchar(buf,4);
+    //data1==56?(quit=1);
+    log?ClearConsole();
+    log?ShowConsoleMsg(sprintf(#,"neues event %d data0 %x %d data1(hex) %x %d data2(hex) %x %d data3(hex) %x %d\n",getit,data0,data0,data1,data1,data2,data2,data3,data3));
+    //inputdevice?
+    GetMIDIInputName(devIdx,midiin); //get name
+    log?ShowConsoleMsg(sprintf(#,"aus neugier devidx %d   midiin %s\n",devIdx,midiin));
+    //msg1=146; //pad  lu 0 ro 64
+    //msg2=48;
+    //msg3=5;
+    //StuffMIDIMessage(mout,msg1 ,msg2, msg3);
+    status_on  = 146; 
+    status_off = 130; // Note Off auf Kanal 3 (128 + 2)
+    
+    c_element_id  = data1;   // Der unterste linke Button in der Matrix
+
+
+    //c_element_id  pads gehen von 0 bis 63 pads senden noteon noteoff
+    //untere reihe knöpfe von 100 bis 107 senden noteon noteoff
+    //rechte reihe von oben nach unten 112 bis 119  senden noteon noteoff
+    //der rechte untere ist 122  (Shift)
+    //die fader 30 bis 38 , die sind identisch mit der zweiten pad reihe, senden aber keine noteon sondern b0 und cc werte
+    color_code = color_code+1;   // Velocity 5 ist beim APC Mini Mk2 meist ein mattes Bernstein/Gelb
+    color_code>127?(color_code=0);
+    // LED EINSCHALTEN
+    StuffMIDIMessage(devout+16, status_on, c_element_id, color_code);
+    
+    log?ShowConsoleMsg(sprintf(#,"devout %d, status_on %d, controller element %d, color_code %d",devout,status_on,c_element_id,color_code));
+    getitold=getit;
+  );
+  quit==0?(
+    defer("main()");
+  );
+);
+main();
+      
+//mout=17;
+//ata1=96;
+//data2=00;
+//data3=05;
+//StuffMIDIMessage(int mode, int msg1, int msg2, int msg3)
+
+//Stuffs a 3 byte MIDI message into either the Virtual MIDI Keyboard
+//queue, or the MIDI-as-control input queue, or sends to a
+//MIDI hardware output. mode=0 for VKB, 1 for control (actions map etc),
+//2 for VKB-on-current-channel; 16 for external MIDI device 0, 
+//17 for external MIDI device 1, etc; see GetNumMIDIOutputs, GetMIDIOutputName.
+
+//StuffMIDIMessage(mout,data1 ,data2, data3);
