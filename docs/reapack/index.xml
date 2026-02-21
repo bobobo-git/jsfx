@@ -9,7 +9,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 <link rel="website">https://bobobo-git.github.io/jsfx/</link>
 </metadata>
 <category name="Controller">
-    <reapck name="apc_test.eel" type="script" desc"APC Mini mk2 observer">
+    <reapack name="apc_test.eel" type="script" desc"APC Mini mk2 observer">
         <metadata>
       <description>{\rtf1\ansi:
         if you have an AKAI PBC Mkinik mk2 and dont know about those leds and the lighting\line
