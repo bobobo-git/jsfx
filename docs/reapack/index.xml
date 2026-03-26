@@ -245,6 +245,18 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
   </reapack>
 </category> 
 <category name="Filter">
+  <reapack name="TheLittleGuyFromTibet" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b VocalMorpher I\b}\line\line
+        rem delay lama\line
+        this stuff makes things mono\line\line
+        }</description>
+    </metadata>
+    <version name="1.0.0" authos="bobobo" tme="2026-03-26T10:00:00.000Z">
+      <source file="Vocal-Morpher.jsfx">https://bobobo-git.github.io/jsfx/effects/Vocal-Morpher.jsfx</source>
+      <source file="VocalMorpher.jpg">https://bobobo-git.github.io/jsfx/effects/VocalMorpher.jpg</source>
+    </version>
+  </reapack>
   <reapack name="OwnHiLo" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b OwnHiLo I\b}\line\line
