@@ -118,9 +118,22 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </reapack>
 </category>
 <category name="Synth">
+    <reapack name="TheVibeWhale" type="effect">
+    <metadata>
+    <description>{\rtf1\ansi\fs24   {\fs48\b The VibeWhale I\b}\line\line
+        underwater fun \line
+        Due to the current situation\line\line
+        }
+    </description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2026-03-27T00:00:00.000Z">
+      <source file="TheVibeWhale.jsfx">https://bobobo-git.github.io/jsfx/synth/TheVibeWhale.jsfx</source>
+      <source file="TheVibeWhale.jpg">https://bobobo-git.github.io/jsfx/synth/TheVibeWhale.jpg</source>
+    </version>
+  </reapack>
   <reapack name="VocalMorpher-PolySynth" type="effect">
     <metadata>
-    <description>{\rtf1\ansi\fs24   {\fs48\b VocalMorpher I\b}\line\line
+    <description>{\rtf1\ansi\fs24   {\fs48\b VocalMorpher \b}\line\line
         rem delay lama \line
         this stuff createsthings in mono\line\line
         a sawtooth polysynth with adsr and formatmorpher
