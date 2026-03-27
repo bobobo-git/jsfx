@@ -132,7 +132,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
       <source file="VocalMorpher0.jpg">https://bobobo-git.github.io/jsfx/synth/VocalMorpher0.jpg</source>
       <source file="VocalMorpher1.jpg">https://bobobo-git.github.io/jsfx/synth/VocalMorpher1.jpg</source>
       <source file="VocalMorpher2.jpg">https://bobobo-git.github.io/jsfx/synth/VocalMorpher2.jpg</source>
-    </version
+    </version>
   </reapack>
   <reapack name="OwnSynth" type="effect">
     <metadata>
