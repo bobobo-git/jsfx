@@ -128,7 +128,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </metadata>
     <version name="1.0.0" author="bobobo" time="2026-03-27T00:00:00.000Z">
       <source file="TheVibeWhale.jsfx">https://bobobo-git.github.io/jsfx/synth/TheVibeWhale.jsfx</source>
-      <source file="TheVibeWhale.jpg">https://bobobo-git.github.io/jsfx/synth/TheVibeWhale.jpg</source>
+      <source file="TheVibeWhale.png">https://bobobo-git.github.io/jsfx/synth/TheVibeWhale.png</source>
     </version>
   </reapack>
   <reapack name="VocalMorpher-PolySynth" type="effect">
