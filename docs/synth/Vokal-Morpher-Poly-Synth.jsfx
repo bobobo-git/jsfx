@@ -1,0 +1,156 @@
+desc: Vokal-Morpher-Poly-Synth
+aka: the little guy from tibet or some more of them
+author:bobobo with a little help from ai
+
+slider1:0<0,8,1{i,I,E,ae,a,O,U,u,V}>Ecke 1 (UL)
+slider2:4<0,8,1{i,I,E,ae,a,O,U,u,V}>Ecke 2 (UR)
+slider3:7<0,8,1{i,I,E,ae,a,O,U,u,V}>Ecke 3 (LL)
+slider4:5<0,8,1{i,I,E,ae,a,O,U,u,V}>Ecke 4 (LR)
+slider5:0.5<0,1,0.01>X-Achse
+slider6:0.5<0,1,0.01>Y-Achse
+slider7:15<0.1,50,0.5>Resonanz (Q)
+slider8:0.4<0.1,2,0.1>Output Drive
+
+slider10:0.05<0.001,2,0.001>Attack (s)
+slider11:0.1<0.001,0.2,0.001>Decay (s)
+slider12:0.5<0,1,0.001>Sustain (Lvl)
+slider13:0.001<0.001,0.75,0.001>Release (s)
+
+@init
+MAX_VOICES = 16;
+v_freq = 0; v_phase = 20; v_gate = 40; v_env = 60; v_note = 80;
+f_tab = 100;
+
+// Vokal-Tabelle
+f_tab[0]=136; f_tab[1]=270; f_tab[2]=2290; f_tab[3]=3010; // i
+f_tab[4]=135; f_tab[5]=390; f_tab[6]=1990; f_tab[7]=2550; // I
+f_tab[8]=130; f_tab[9]=530; f_tab[10]=1840; f_tab[11]=2480; // E
+f_tab[12]=127; f_tab[13]=660; f_tab[14]=1720; f_tab[15]=2410; // ae
+f_tab[16]=124; f_tab[17]=730; f_tab[18]=1090; f_tab[19]=2440; // a
+f_tab[20]=129; f_tab[21]=570; f_tab[22]=840; f_tab[23]=2410; // O
+f_tab[24]=137; f_tab[25]=440; f_tab[26]=1020; f_tab[27]=2240; // U
+f_tab[28]=141; f_tab[29]=300; f_tab[30]=870; f_tab[31]=2240; // u
+f_tab[32]=130; f_tab[33]=640; f_tab[34]=1190; f_tab[35]=2390; // V
+
+function setup_bp(f, q) instance(a1, a2, b0, b1, b2) (
+  f = min(max(f, 20), srate*0.45); 
+  w0 = 2 * $pi * f / srate;
+  sw0 = sin(w0); cw0 = cos(w0);
+  alpha = sw0 / (2 * q);
+  a0 = 1 + alpha;
+  this.b0 = (sw0/2)/a0; this.b1 = 0; this.b2 = (-sw0/2)/a0;
+  this.a1 = (-2*cw0)/a0; this.a2 = (1-alpha)/a0;
+);
+
+function process_bp(in) instance(x1, x2, y1, y2, b0, b1, b2, a1, a2) (
+  out = b0*in - a1*y1 - a2*y2 - b0*x2;
+  x2 = x1; x1 = in; y2 = y1; y1 = out;
+  out;
+);
+
+function update_params() (
+  s_att = 1 / (max(slider10, 0.001) * srate);
+  s_dec = (1 - slider12) / (max(slider11, 0.001) * srate);
+  s_rel = max(slider12, 0.001) / (max(slider13, 0.001) * srate);
+  mX = slider5; mY = slider6;
+  i1=floor(slider1)*4; i2=floor(slider2)*4; i3=floor(slider3)*4; i4=floor(slider4)*4;
+  f0_c = (f_tab[i1+0]*(1-mX) + f_tab[i2+0]*mX)*(1-mY) + (f_tab[i3+0]*(1-mX) + f_tab[i4+0]*mX)*mY;
+  f1_c = (f_tab[i1+1]*(1-mX) + f_tab[i2+1]*mX)*(1-mY) + (f_tab[i3+1]*(1-mX) + f_tab[i4+1]*mX)*mY;
+  f2_c = (f_tab[i1+2]*(1-mX) + f_tab[i2+2]*mX)*(1-mY) + (f_tab[i3+2]*(1-mX) + f_tab[i4+2]*mX)*mY;
+  f3_c = (f_tab[i1+3]*(1-mX) + f_tab[i2+3]*mX)*(1-mY) + (f_tab[i3+3]*(1-mX) + f_tab[i4+3]*mX)*mY;
+  f0.setup_bp(f0_c, slider7); f1.setup_bp(f1_c, slider7);
+  f2.setup_bp(f2_c, slider7); f3.setup_bp(f3_c, slider7);
+);
+
+@slider
+update_params();
+
+@block
+while (midirecv(offset, m1, m2, m3)) (
+  s = m1 & $xF0;
+  s == $x90 && m3 > 0 ? (
+    i=0; found=-1; while(i<MAX_VOICES && found<0)( v_gate[i]==0 ? found=i; i+=1; );
+    found>=0 ? ( v_note[found]=m2; v_freq[found]=440*2^((m2-69)/12); v_gate[found]=1; v_env[found]=0; v_phase[found]=0; );
+  );
+  s == $x80 || (s == $x90 && m3 == 0) ? (
+    i=0; loop(MAX_VOICES, v_note[i]==m2 && v_gate[i]!=0 ? v_gate[i]=4; i+=1; );
+  );
+  midisend(offset, m1, m2, m3);
+);
+
+@sample
+sum_sig = 0;
+active_voices = 0; // Zähler zurücksetzen
+i = 0;
+loop(MAX_VOICES,
+  v_gate[i] > 0 ? (
+    v_gate[i] == 1 ? ( v_env[i] += s_att; v_env[i] >= 1 ? (v_env[i]=1; v_gate[i]=2;); );
+    v_gate[i] == 2 ? ( v_env[i] -= s_dec; v_env[i] <= slider12 ? (v_env[i]=slider12; v_gate[i]=3;); );
+    v_gate[i] == 4 ? ( v_env[i] -= s_rel; v_env[i] <= 0 ? (v_env[i]=0; v_gate[i]=0;); );
+    
+    v_phase[i] += v_freq[i] / srate;
+    v_phase[i] > 1 ? v_phase[i] -= 2;
+    sum_sig += v_phase[i] * v_env[i] * 0.25; 
+    active_voices += 1; // Stimme ist aktiv (spielt)
+  );
+  i += 1;
+);
+
+sig = (f0.process_bp(sum_sig) + f1.process_bp(sum_sig) + f2.process_bp(sum_sig) + f3.process_bp(sum_sig)) * slider8;
+a_s = abs(sig);
+a_s > 0.7 ? ( ov = a_s - 0.7; sig = (sig > 0 ? 1 : -1) * (0.7 + (ov / (1 + ov*ov))); );
+spl0 = spl1 = sig;
+
+@gfx 400 400
+// --- Bilder laden ---
+@gfx 400 400
+// --- Bilder laden ---
+img_status <= 0 ? (
+  gfx_loadimg(0, "VocalMorpher0.jpg"); // Mund zu (0 Töne)
+  gfx_loadimg(1, "VocalMorpher1.jpg"); // Mund offen (1-2 Töne)
+  gfx_loadimg(2, "VocalMorpher2.jpg"); // "O"-Mund oder Extra-Aktion (> 2 Töne)
+  img_status = 1;
+);
+// Hintergrund
+gfx_r=0.05; gfx_g=0.05; gfx_b=0.08; gfx_a=1; gfx_rect(0,0,gfx_w,gfx_h);
+
+// --- Bild-Auswahl Logik ---
+show_img = 0; // Standard: Mund zu
+active_voices > 0 ? show_img = 1; // 1 oder 2 Stimmen
+active_voices > 1  ? show_img = 2; // Mehr als 2 Stimmen
+
+// Das gewählte Bild zeichnen
+gfx_getimgdim(show_img, iw, ih);
+gfx_blit(show_img, 1, 0, 0,0,iw,ih, 0,0,gfx_w,gfx_h);
+
+// Interaktion
+(mouse_cap & 1) ? (
+  slider5 = min(max(mouse_x / gfx_w, 0), 1);
+  slider6 = min(max(mouse_y / gfx_h, 0), 1);
+  update_params();
+  slider_automate(slider5); slider_automate(slider6);
+);
+
+mouse_wheel != 0 ? (
+  step = (mouse_cap & 8) ? 0.1 : 1.0; 
+  slider7 = min(max(slider7 + (mouse_wheel > 0 ? step : -step), 0.1), 50);
+  update_params();
+  slider_automate(slider7);
+  mouse_wheel = 0;
+);
+
+// Overlay & Hilfslinien
+gfx_r=0.2; gfx_g=0.2; gfx_b=0.3; gfx_a=0.5;
+gfx_line(gfx_w/2, 0, gfx_w/2, gfx_h);
+gfx_line(0, gfx_h/2, gfx_w, gfx_h/2);
+
+px = slider5 * gfx_w; py = slider6 * gfx_h;
+gfx_r=1; gfx_g=0.8; gfx_b=0; gfx_a=1;
+gfx_circle(px, py, 6, 1);
+gfx_line(px, 0, px, gfx_h); gfx_line(0, py, gfx_w, py);
+
+// Text
+gfx_r=1; gfx_g=1; gfx_b=1; gfx_x=10; gfx_y=10;
+gfx_printf("F0: %d Hz\nF1: %d Hz\nF2: %d Hz\nF3: %d Hz", f0_c, f1_c, f2_c, f3_c);
+gfx_x=10; gfx_y = gfx_h - 30;
+gfx_printf("Please consider donating at: www.savetibet.org");
