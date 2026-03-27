@@ -129,10 +129,10 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </metadata>
     <version name="1.0.0" author="bobobo" time="2026-03-27T00:00:00.000Z">
       <source file="Vokal-Morpher-Poly-Synth.jsfx">https://bobobo-git.github.io/jsfx/synth/Vokal-Morpher-Poly-Synth.jsfx</source>
-      <source file="VokalMorpher0.jpg">https://bobobo-git.github.io/jsfx/synth/VokalMorpher0.jpg</source>
-      <source file="VokalMorpher1.jpg">https://bobobo-git.github.io/jsfx/synth/VokalMorpher1.jpg</source>
-      <source file="VokalMorpher2.jpg">https://bobobo-git.github.io/jsfx/synth/VokalMorpher2.jpg</source>
-    </version>
+      <source file="VocalMorpher0.jpg">https://bobobo-git.github.io/jsfx/synth/VocalMorpher0.jpg</source>
+      <source file="VocalMorpher1.jpg">https://bobobo-git.github.io/jsfx/synth/VocalMorpher1.jpg</source>
+      <source file="VocalMorpher2.jpg">https://bobobo-git.github.io/jsfx/synth/VocalMorpher2.jpg</source>
+    </version
   </reapack>
   <reapack name="OwnSynth" type="effect">
     <metadata>
