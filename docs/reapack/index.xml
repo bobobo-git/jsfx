@@ -118,6 +118,22 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </reapack>
 </category>
 <category name="Synth">
+  <reapack name="VocalMorpher-PolySynth" type="effect">
+    <metadata>
+    <description>{\rtf1\ansi\fs24   {\fs48\b VocalMorpher I\b}\line\line
+        rem delay lama \line
+        this stuff createsthings in mono\line\line
+        a sawtooth polysynth with adsr and formatmorpher
+        }
+    </description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2026-03-27T00:00:00.000Z">
+      <source file="Vokal-Morpher-Poly-Synth.jsfx">https://bobobo-git.github.io/jsfx/synth/Vokal-Morpher-Poly-Synth.jsfx</source>
+      <source file="VokalMorpher0.jpg">https://bobobo-git.github.io/jsfx/synth/VokalMorpher0.jpg</source>
+      <source file="VokalMorpher1.jpg">https://bobobo-git.github.io/jsfx/synth/VokalMorpher1.jpg</source>
+      <source file="VokalMorpher2.jpg">https://bobobo-git.github.io/jsfx/synth/VokalMorpher2.jpg</source>
+    </version>
+  </reapack>
   <reapack name="OwnSynth" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo.de/reaper/J--sat
