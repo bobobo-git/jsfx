@@ -118,6 +118,18 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
     </reapack>
 </category>
 <category name="Synth">
+   <reapack name="See Ess 160" type="effect">
+    <metadata>
+    <description>{\rtf1\ansi\fs24   {\fs48\b See Ess 160 \b}\line\line
+        10 Voice 3 Osc  Lfo with delay and PingPongDelay\line
+        has a gui \line\line
+        }
+    </description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2026-03-29T00:00:00.000Z">
+      <source file="SeeEssOneHundredSixty.jsfx">https://bobobo-git.github.io/jsfx/synth/SeeEssOneHundredSixty.jsfx</source>
+    </version>
+  </reapack>
     <reapack name="TheVibeWhale" type="effect">
     <metadata>
     <description>{\rtf1\ansi\fs24   {\fs48\b The VibeWhale \b}\line\line
