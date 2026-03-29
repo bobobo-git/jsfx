@@ -121,7 +121,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
    <reapack name="See Ess 160" type="effect">
     <metadata>
     <description>{\rtf1\ansi\fs24   {\fs48\b See Ess 160 \b}\line\line
-        10 Voice 3 Osc  Lfo with delay and PingPongDelay\line
+        10 Voice 3 Osc  Lfo with delay and PingPongDelay with eq \line
         has a gui \line\line
         }
     </description>
