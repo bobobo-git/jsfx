@@ -1,4 +1,4 @@
-desc:SeeEssOneHundredSixty (V59 - Refined LFO)
+desc:SeeEssOneHundredSixty (V60 - With Smooth Pitchbend & GUI)
 options:no_menu
 
 // --- SLIDERS ---
@@ -45,7 +45,6 @@ slider40:s_sqr_fd=0.5<0,2,0.01:sqr=2>-Flt D
 slider41:s_sqr_fs=0.1<0,1>-Flt S
 slider42:s_sqr_fr=0.6<0,2,0.01:sqr=2>-Flt R
 
-// LFO (REAPER 6.74+ Features)
 slider45:s_lfo_spd=0<0,100,0.1:sqr=0.5>-LFO Speed (Hz)
 slider46:s_lfo_del=1.0<0,10,0.01:sqr=2>-LFO Delay (s)
 slider47:s_lfo_fad=1.0<0.01,10,0.01:sqr=2>-LFO Fade (s)
@@ -58,6 +57,7 @@ slider53:s_del_lvl=0<0,1>-Delay Level
 slider54:s_del_hpf=0.1<0,0.8>-Delay HPF
 slider55:s_del_lpf=0.5<0,1>-Delay LPF
 slider56:s_mst_v=0.5<0,1>-Master
+slider57:s_pb_range=2<0,12,1>-PB Range (ST)
 
 @init
 MAX_VOICES = 10;
@@ -65,6 +65,8 @@ buf_l = 10000; buf_r = 60000;
 ptr_l = 0; ptr_r = 0;
 _s_old = 100000; i = 0; loop(64, _s_old[i] = -1; i += 1;);
 gui_init = 0;
+pb_target = 1.0;
+pb_current = 1.0;
 
 function run_adsr(v_off, val_idx, st_idx, a, d, s, r, gate) local(st, val) (
   st = v_off[st_idx]; val = v_off[val_idx];
@@ -80,30 +82,24 @@ function run_adsr(v_off, val_idx, st_idx, a, d, s, r, gate) local(st, val) (
   v_off[st_idx] = st; v_off[val_idx] = val; val;
 );
 
-function run_osc_pure(v_off, p_idx, fl_idx, fb_idx, v_idx, vol, cut, res, env_amt, aa, ad, as, ar, fa, fd, fs, fr, type, freq, gate, pwm) 
+function run_osc_pure(v_off, p_idx, fl_idx, fb_idx, v_idx, vol, cut, res, env_amt, aa, ad, as, ar, fa, fd, fs, fr, type, freq, gate, pwm, pb) 
 local(amp_v, flt_v, sig, f, q, voice_vel, vib, vib_fade, mod_freq) (
   voice_vel = v_off[3];
   amp_v = run_adsr(v_off, v_idx, v_idx+1, aa, ad, as, ar, gate) * voice_vel;
   flt_v = run_adsr(v_off, v_idx+2, v_idx+3, fa, fd, fs, fr, gate);
-  
   amp_v > 0 ? (
     s_lfo_spd > 0 ? (
       v_off[40] += s_lfo_spd / srate; 
       v_off[41] += 1 / srate; 
       vib_fade = max(0, min(1, (v_off[41] - s_lfo_del) / max(0.01, s_lfo_fad) ));
       vib = sin(v_off[40] * 2 * 3.14159265);
-      mod_freq = freq * (2 ^ (vib * s_lfo_dep * 3 * vib_fade)); 
-    ) : (
-      mod_freq = freq;
-    );
-    
+      mod_freq = freq * pb * (2 ^ (vib * s_lfo_dep * 3 * vib_fade)); 
+    ) : ( mod_freq = freq * pb; );
     v_off[p_idx] += mod_freq / srate; 
     v_off[p_idx] >= 1.0 ? v_off[p_idx] -= 1.0;
-    
     type == 0 ? sig = 1-2*v_off[p_idx] : 
     type == 1 ? sig = abs(v_off[p_idx]*2-1)*2-1 :
     sig = (v_off[p_idx]>pwm?1:-1);
-    
     f = max(0.005, min(0.85, 1.3 * (cut + (flt_v * env_amt)) )); 
     q = 1.0 - (res * 0.9);
     v_off[fl_idx] += f * v_off[fb_idx];
@@ -115,6 +111,10 @@ local(amp_v, flt_v, sig, f, q, voice_vel, vib, vib_fade, mod_freq) (
 @block
 while (midirecv(ts, m1, m2, m3)) (
   s = m1 & $xF0; n = m2; vel = m3 / 127;
+  s == $xE0 ? (
+    pb_val = (m2 + m3*128) - 8192;
+    pb_target = 2 ^ (pb_val / 8192 * s_pb_range / 12);
+  );
   s == $x90 && vel > 0 ? (
     found = 0; idx = -1; i = 0; 
     while(i < MAX_VOICES && found == 0) (
@@ -142,16 +142,28 @@ while (midirecv(ts, m1, m2, m3)) (
 );
 
 @sample
+pb_current = pb_current * 0.992 + pb_target * 0.008; // Glättung
 dry = 0; v_i = 0;
 loop(MAX_VOICES,
   v_p = v_i * 1000; g = v_p[0]; base_f = v_p[2];
-  dry += run_osc_pure(v_p, 10, 100, 101, 20, s_saw_v, s_saw_c, s_saw_res, s_saw_env, s_saw_a, s_saw_d, s_saw_s, s_saw_r, s_saw_fa, s_saw_fd, s_saw_fs, s_saw_fr, 0, base_f * 2^s_saw_oct, g, 0);
-  dry += run_osc_pure(v_p, 11, 110, 111, 24, s_tri_v, s_tri_c, s_tri_res, s_tri_env, s_tri_a, s_tri_d, s_tri_s, s_tri_r, s_tri_fa, s_tri_fd, s_tri_fs, s_tri_fr, 1, base_f * 2^s_tri_oct, g, 0);
-  dry += run_osc_pure(v_p, 12, 120, 121, 28, s_sqr_v, s_sqr_c, s_sqr_res, s_sqr_env, s_sqr_a, s_sqr_d, s_sqr_s, s_sqr_r, s_sqr_fa, s_sqr_fd, s_sqr_fs, s_sqr_fr, 2, base_f * 2^s_sqr_oct, g, s_sqr_pwm);
+  dry += run_osc_pure(v_p, 10, 100, 101, 20, s_saw_v, s_saw_c, s_saw_res, s_saw_env, s_saw_a, s_saw_d, s_saw_s, s_saw_r, s_saw_fa, s_saw_fd, s_saw_fs, s_saw_fr, 0, base_f * 2^s_saw_oct, g, 0, pb_current);
+  dry += run_osc_pure(v_p, 11, 110, 111, 24, s_tri_v, s_tri_c, s_tri_res, s_tri_env, s_tri_a, s_tri_d, s_tri_s, s_tri_r, s_tri_fa, s_tri_fd, s_tri_fs, s_tri_fr, 1, base_f * 2^s_tri_oct, g, 0, pb_current);
+  dry += run_osc_pure(v_p, 12, 120, 121, 28, s_sqr_v, s_sqr_c, s_sqr_res, s_sqr_env, s_sqr_a, s_sqr_d, s_sqr_s, s_sqr_r, s_sqr_fa, s_sqr_fd, s_sqr_fs, s_sqr_fr, 2, base_f * 2^s_sqr_oct, g, s_sqr_pwm, pb_current);
   v_i += 1;
 );
 dry *= 0.15;
-d_len = floor(s_del_time * 0.8 * srate); raw_l = buf_l[ptr_l]; raw_r = buf_r[ptr_r]; d_hp_l = d_hp_l * (1 - s_del_hpf) + raw_l * s_del_hpf; d_hp_r = d_hp_r * (1 - s_del_hpf) + raw_r * s_del_hpf; f_l = raw_l - d_hp_l; f_r = raw_r - d_hp_r; lpf_c = 1 - s_del_lpf; d_lp_l = d_lp_l * s_del_lpf + f_l * lpf_c; d_lp_r = d_lp_r * s_del_lpf + f_r * lpf_c; out_l = d_lp_l; out_r = d_lp_r; fb_l = out_l * s_del_feed; fb_r = out_r * s_del_feed; s_del_pp > 0.1 ? ( buf_l[ptr_l] = dry + fb_r; buf_r[ptr_r] = fb_l; ) : ( buf_l[ptr_l] = dry + fb_l; buf_r[ptr_r] = dry + fb_l; ); ptr_l = (ptr_l + 1) % d_len; ptr_r = (ptr_r + 1) % d_len;
+d_len = floor(s_del_time*0.8 * srate);
+raw_l = buf_l[ptr_l]; raw_r = buf_r[ptr_r];
+d_hp_l = d_hp_l * (1 - s_del_hpf) + raw_l * s_del_hpf;
+d_hp_r = d_hp_r * (1 - s_del_hpf) + raw_r * s_del_hpf;
+f_l = raw_l - d_hp_l; f_r = raw_r - d_hp_r;
+lpf_c = 1 - s_del_lpf;
+d_lp_l = d_lp_l * s_del_lpf + f_l * lpf_c;
+d_lp_r = d_lp_r * s_del_lpf + f_r * lpf_c;
+out_l = d_lp_l; out_r = d_lp_r;
+fb_l = out_l * s_del_feed; fb_r = out_r * s_del_feed;
+s_del_pp > 0.1 ? ( buf_l[ptr_l] = dry + fb_r; buf_r[ptr_r] = fb_l; ) : ( buf_l[ptr_l] = dry + fb_l; buf_r[ptr_r] = dry + fb_l; );
+ptr_l = (ptr_l + 1) % d_len; ptr_r = (ptr_r + 1) % d_len;
 spl0 = (dry + out_l * s_del_lvl) * s_mst_v; spl1 = (dry + out_r * s_del_lvl) * s_mst_v;
 
 @gfx 820 320
@@ -206,26 +218,26 @@ i = 1; loop(63, slider(i) != _s_old[i] ? (is_dirty = 1; _s_old[i] = slider(i););
 mouse_cap > 0 ? is_dirty = 1; 
 
 is_dirty ? (
-  
-
-  gfx_clear=0x1A1A1A;
-  gui_init = 1; last_w = gfx_w; last_h = gfx_h;
-  
+  gfx_clear=0x1A1A1A; gui_init = 1; last_w = gfx_w; last_h = gfx_h;
   draw_u(15,"SAW", 0, 0xF44, 0, 2); draw_u(170,"TRI", 14, 0xFFFF00FF, 0, 16); draw_u(325,"SQR", 28, 0xFFFFFF00, 1, 30);
   
-  gfx_set(1,0.5,0,1); gfx_x = 520*sc_x; gfx_y = 10*sc_y; gfx_drawstr("LFO / FM-MOD");
-  draw_s(520, 30, 45, "SPD", 0xFA0, 0, 100, 3, 1.2);
-  draw_s(555, 30, 46, "DEL", 0xFA0, 0, 10, 2, 1.2);
-  draw_s(590, 30, 47, "FAD", 0xFA0, 0.01, 10, 2, 1.2);
-  draw_s(625, 30, 48, "DEP", 0xFA0, 0, 1, 2, 1.2); // pwr=2 entspricht 'sqr'
+  gfx_set(1,0.5,0,1); gfx_x = 485*sc_x; gfx_y = 10*sc_y; gfx_drawstr("LFO / FM-MOD");
+  draw_s(485, 30, 45, "SPD", 0xFA0, 0, 100, 3, 1.2);
+  draw_s(520, 30, 46, "DEL", 0xFA0, 0, 10, 2, 1.2);
+  draw_s(555, 30, 47, "FAD", 0xFA0, 0.01, 10, 2, 1.2);
+  draw_s(590, 30, 48, "DEP", 0xFA0, 0, 1, 2, 1.2);
+
+  // --- NEUER PITCH BEND BEREICH ---
+  gfx_set(0,0.8,1,1); gfx_x = 645*sc_x; gfx_y = 10*sc_y; gfx_drawstr("PITCH");
+  draw_s(645, 30, 57, "RNG", 0x0CF, 0, 12, 1, 1.2); // Slider 57 (Range 0-12 ST)
   
-  gfx_set(1,1,1,1); gfx_x = 520*sc_x; gfx_y = 135*sc_y; gfx_drawstr("DELAY & MASTER");
+  gfx_set(1,1,1,1); gfx_x = 485*sc_x; gfx_y = 135*sc_y; gfx_drawstr("DELAY & MASTER");
   m_h = 2.3; 
-  draw_s(520, 155, 50, "TIME", 0xAAA, 0, 1, 1, m_h); 
-  draw_s(555, 155, 51, "FEED", 0xAAA, 0, 0.95, 1, m_h); 
-  draw_s(590, 155, 52, "P-P", 0x0FF, 0, 1, 1, m_h);
-  draw_s(625, 155, 53, "LVL", 0x0FF, 0, 1, 1, m_h); 
-  draw_s(660, 155, 54, "HPF", 0x5F5, 0, 0.8, 1, m_h); 
-  draw_s(695, 155, 55, "LPF", 0x5F5, 0, 1, 1, m_h);
-  draw_s(745, 155, 56, "MST", 0xFFF, 0, 1, 1, m_h);
+  draw_s(485, 155, 50, "TIME", 0xAAA, 0, 1, 1, m_h); 
+  draw_s(520, 155, 51, "FEED", 0xAAA, 0, 0.95, 1, m_h); 
+  draw_s(555, 155, 52, "P-P", 0x0FF, 0, 1, 1, m_h);
+  draw_s(590, 155, 53, "LVL", 0x0FF, 0, 1, 1, m_h); 
+  draw_s(625, 155, 54, "HPF", 0x5F5, 0, 0.8, 1, m_h); 
+  draw_s(660, 155, 55, "LPF", 0x5F5, 0, 1, 1, m_h);
+  draw_s(710, 155, 56, "MST", 0xFFF, 0, 1, 1, m_h);
 );
