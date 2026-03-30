@@ -130,6 +130,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
       <source file="SeeEssOneHundredSixty.jsfx">https://bobobo-git.github.io/jsfx/synth/SeeEssOneHundredSixty.jsfx</source>
        <source file="js3osc_pb.jsfx">https://bobobo-git.github.io/jsfx/synth/js3osc_pb.jsfx</source>
        <source file="JSAdditiv_pb.jsfx">https://bobobo-git.github.io/jsfx/synth/JSAdditiv_pb.jsfx</source>
+             <source file="Jjsmodulator_pb.jsfx">https://bobobo-git.github.io/jsfx/synth/jsmodulator_pb.jsfx</source>
     </version>
   </reapack>
     <reapack name="TheVibeWhale" type="effect">
