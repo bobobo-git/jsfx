@@ -2,6 +2,8 @@ desc: JS3Osc (with Pitchbend Support)
 author: tilr / modified
 version: 1.2.3
 author :bobobo for the pitchbend
+
+tags: synth, instrument
 options:gfx_hz=60 no_meter
 
 // --- SLIDERS ---

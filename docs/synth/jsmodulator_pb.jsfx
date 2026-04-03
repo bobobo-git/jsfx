@@ -3,6 +3,7 @@ author: tilr / mod
 version: 1.4.2
 bobobo for the pitchbend
 
+tags: synth, instrument
 slider1:_vol=80<0, 100, 0.1>-Master Volume
 slider2:_vel=100<0, 100, 0.1>-Velocity
 slider3:_att=1<1, 5000, 1:log>-Attack

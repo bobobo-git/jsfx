@@ -1,6 +1,7 @@
 desc:SeeEssOneHundredSixty (V60 - With Smooth Pitchbend & GUI)
 options:no_menu
 
+tags: synth, instrument
 // --- SLIDERS ---
 slider1:s_saw_v=0.4<0,1>-Saw Vol
 slider2:s_saw_oct=0<-1,1,1>-Saw Oct

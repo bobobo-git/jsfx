@@ -3,6 +3,7 @@ author: tilr / modified
 auhor bobobo for the pitchbend
 version: 1.5.6
 
+tags: synth, instrument
 slider1:/tilr8_JSAdditiv:none:Wave
 slider2:vol=80<0, 100, .01>-Volume
 slider4:_uni_voices=1<1, 8, 1>-Unison voices

@@ -2,13 +2,14 @@ desc: TheVibeWhale
 author bobobo , at least i said what i like to have :) 
 
 
+tags: drone, synth, instrument
 slider1:0.2<0.01,1,0.01>-Attack (s)
 slider2:0.5<0.1,5,0.01>-Release (s)
-slider3:3.0<0.5,5,0.1>Singing Duration (s)
+slider3:3.0<0.1,5,0.01>Singing Duration (s)
 slider4:48<24,72,1>-Split Point (MIDI Note)
 slider5:0< -24,24,1>-Pivot Center (ST)
 slider6:14< 0,24,1>-Singing Chaos Spread (ST)
-slider7:2.5<0.1,5,0.1>Creak Duration (s)
+slider7:2.5<0.1,5,0.01>Creak Duration (s)
 slider8:1.0<0.1,4.0,0.01>-Creak Freq Multiplier
 slider9:88<0,500,1>-Creak Chaos Spread (Hz)
 slider10:0.1<0.1,1,0.01>Whale Position (Distance/Wet)
