@@ -239,7 +239,7 @@ mouse.left_click && mouse_in_rect(80, 90-2, 60, 14) ? ( mono = !mono; on_slider(
 mono ? ( draw_knob(90, 110, 29, "Glide", 1, 1, 2000, 1, 0, sprintf(#, "%i ms", slider(29))); );
 
 // --- PB-R KNOB ---
-draw_knob(20, 170, 31, "PB-R", 2, 0, 48, 0, 1, sprintf(#, "%i ST", slider(31)));
+draw_knob(20, 170, 31, "PB-R", 2, 0, 48, 0, 0, sprintf(#, "%i ST", slider(31)));
 
 set_color(0x666666);
 gfx_x = 160; gfx_y = 20+70;

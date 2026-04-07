@@ -58,7 +58,7 @@ slider50:_rand_phase=0<0,100,1>-Rand phase
 
 slider60:mono=0<0,1,1>-Mono
 slider61:glide=1<1,2000,1:log>-Glide
-slider62:pb_range=2<0, 12, 1>-PB Range (ST)
+slider62:pb_range=2<0, 48, 1>-PB Range (ST)
 
 import 3o.adsr.jsfx-inc
 import 3o.array.jsfx-inc
@@ -283,7 +283,7 @@ mouse.left_click && mouse_in_rect(380, 110-2, 40, 14) ? ( mono = !mono; on_slide
 mono ? ( draw_knob(380, 130, 61, "Glide", 1, 1, 2000, 1, 0, sprintf(#, "%i ms", slider(61))); );
 
 // --- NEW PB KNOB ---
-draw_knob(380, 200, 62, "PB-R", 2, 0, 12, 0, 1, sprintf(#, "%i ST", slider(62)));
+draw_knob(380, 200, 62, "PB-R", 2, 0, 48, 0,0, sprintf(#, "%i ST", slider(62)));
 
 function on_knob_move (nslider, slider_min, slider_max, slider_is_log, factor) (
   factor *= mouse.control ? 0.05 : 1;
