@@ -126,7 +126,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         }
     </description>
     </metadata>
-    <version name="1.0.3" author="bobobo" time="2026-04-06T00:00:00.000Z">
+    <version name="1.0.4" author="bobobo" time="2026-04-06T00:00:00.000Z">
       <source file="SeeEssOneHundredSixty.jsfx">https://bobobo-git.github.io/jsfx/synth/SeeEssOneHundredSixty.jsfx</source>
        <source file="js3osc_pb.jsfx">https://bobobo-git.github.io/jsfx/synth/js3osc_pb.jsfx</source>e>
        <source file="js3osc_pb.jsfx.RPL">https://bobobo-git.github.io/jsfx/synth/js3osc_pb.jsfx.RPL</source>
