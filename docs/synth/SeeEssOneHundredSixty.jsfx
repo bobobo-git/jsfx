@@ -1,7 +1,8 @@
-desc:SeeEssOneHundredSixty (V60 - With Smooth Pitchbend & GUI)
+desc:SeeEssOneHundredSixty (V60 - Value Display Fix)
 options:no_menu
 
 tags: synth, instrument
+
 // --- SLIDERS ---
 slider1:s_saw_v=0.4<0,1>-Saw Vol
 slider2:s_saw_oct=0<-1,1,1>-Saw Oct
@@ -68,6 +69,7 @@ _s_old = 100000; i = 0; loop(64, _s_old[i] = -1; i += 1;);
 gui_init = 0;
 pb_target = 1.0;
 pb_current = 1.0;
+last_idx = -1; // Initialisierung für Slider-Tracking
 
 function run_adsr(v_off, val_idx, st_idx, a, d, s, r, gate) local(st, val) (
   st = v_off[st_idx]; val = v_off[val_idx];
@@ -143,7 +145,7 @@ while (midirecv(ts, m1, m2, m3)) (
 );
 
 @sample
-pb_current = pb_current * 0.992 + pb_target * 0.008; // Glättung
+pb_current = pb_current * 0.992 + pb_target * 0.008; 
 dry = 0; v_i = 0;
 loop(MAX_VOICES,
   v_p = v_i * 1000; g = v_p[0]; base_f = v_p[2];
@@ -181,20 +183,42 @@ function draw_oct(x, y, idx, col) (
   );
 );
 
-function draw_s(x, y, idx, lbl, col, min_v, max_v, pwr, h_fact) local(norm, sx, sy, sw, sh, knob_y) (
+function draw_s(x, y, idx, lbl, col, min_v, max_v, pwr, h_fact) local(norm, sx, sy, sw, sh, knob_y, is_hover, val_str, tw, th) (
   norm = ((slider(idx) - min_v) / (max_v - min_v)) ^ (1/pwr);
   sx = x * sc_x; sy = y * sc_y; sw = 22 * sc_x; sh = 60 * sc_y * h_fact;
+  
+  //
+  is_hover = (mouse_x >= sx && mouse_x <= sx+sw && mouse_y >= sy && mouse_y <= sy+sh);
+
   gfx_set(0,0,0,1); gfx_rect(sx, sy, sw, sh);
   gfx_set(0.12,0.12,0.12,1); gfx_rect(sx + 2*sc_x, sy + 2*sc_y, sw - 4*sc_x, sh - 4*sc_y);
   knob_y = sy + 4*sc_y + (1-norm) * (sh - 13*sc_y);
   gfx_set(col>>16&255/255, col>>8&255/255, col&255/255, 0.3);
   gfx_rect(sx + 3*sc_x, knob_y - 2*sc_y, sw - 6*sc_x, 9*sc_y);
   gfx_set(0.9,0.9,0.9,1); gfx_rect(sx + 4*sc_x, knob_y, sw - 8*sc_x, 5*sc_y);
-  gfx_set(0.7,0.7,0.7,1); gfx_setfont(1,"Arial", 10 * min(sc_x, sc_y));
-  gfx_x = sx - 2*sc_x; gfx_y = sy + sh + 3*sc_y; gfx_drawstr(lbl);
-  mouse_cap&1 && mouse_x >= sx && mouse_x <= sx+sw && mouse_y >= sy && mouse_y <= sy+sh ? (
+  
+  gfx_setfont(1,"Arial", 10 * min(sc_x, sc_y));
+  
+  // 
+  (is_hover || (mouse_cap&1 && last_idx == idx)) ? (
+    val_str = #; sprintf(val_str, "%.2f", slider(idx));
+    gfx_measurestr(val_str, tw, th);
+    gfx_set(1,1,1,1); // Weiss für Werte
+    gfx_x = sx + (sw*0.5) - (tw*0.5); gfx_y = sy + sh + 3*sc_y;
+    gfx_drawstr(val_str);
+  ) : (
+    gfx_measurestr(lbl, tw, th);
+    gfx_set(0.7,0.7,0.7,1); // Grau für Labels
+    gfx_x = sx + (sw*0.5) - (tw*0.5); gfx_y = sy + sh + 3*sc_y;
+    gfx_drawstr(lbl);
+  );
+
+  // Mouse Interaction
+  mouse_cap&1 && is_hover ? (
     m_norm = max(0, min(1, 1 - (mouse_y - sy - 4*sc_y) / (sh - 13*sc_y) ));
-    slider(idx) = min_v + (max_v - min_v) * (m_norm ^ pwr); slider_automate(idx);
+    slider(idx) = min_v + (max_v - min_v) * (m_norm ^ pwr); 
+    slider_automate(idx);
+    last_idx = idx; // Merken, dass wir diesen Slider bewegen
   );
 );
 
@@ -214,9 +238,14 @@ function draw_u(x, t, off, col, pwm, oct_idx) (
 );
 
 sc_x = gfx_w / 820; sc_y = gfx_h / 320;
+
+//
 is_dirty = (gui_init == 0) || (gfx_w != last_w) || (gfx_h != last_h); 
 i = 1; loop(63, slider(i) != _s_old[i] ? (is_dirty = 1; _s_old[i] = slider(i);); i += 1;);
 mouse_cap > 0 ? is_dirty = 1; 
+
+// 
+(mouse_cap == 0 && last_idx > -1) ? ( is_dirty = 1; last_idx = -1; );
 
 is_dirty ? (
   gfx_clear=0x1A1A1A; gui_init = 1; last_w = gfx_w; last_h = gfx_h;
@@ -228,9 +257,8 @@ is_dirty ? (
   draw_s(555, 30, 47, "FAD", 0xFA0, 0.01, 10, 2, 1.2);
   draw_s(590, 30, 48, "DEP", 0xFA0, 0, 1, 2, 1.2);
 
-  // --- NEUER PITCH BEND BEREICH ---
   gfx_set(0,0.8,1,1); gfx_x = 645*sc_x; gfx_y = 10*sc_y; gfx_drawstr("PITCH");
-  draw_s(645, 30, 57, "RNG", 0x0CF, 0, 12, 1, 1.2); // Slider 57 (Range 0-12 ST)
+  draw_s(645, 30, 57, "RNG", 0x0CF, 0, 12, 1, 1.2); 
   
   gfx_set(1,1,1,1); gfx_x = 485*sc_x; gfx_y = 135*sc_y; gfx_drawstr("DELAY & MASTER");
   m_h = 2.3; 
