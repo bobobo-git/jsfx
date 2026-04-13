@@ -1,0 +1,34 @@
+desc:bobobo_fadeouter
+EffectName:FaderOuter
+author: bobobo with a little help, all credits goe to the REAPER's forum especially SonixAxiom
+version:1
+
+slider1:1<0,1,0.01>target level
+slider2:7.5<1,11,0.1>fade time (s)
+
+@init
+shape = 6;
+dt = 1/srate;
+adj_s = 1;
+s = 0.2;
+lp_out0 = lp_out1 = 0;
+hp_out0 = hp_out1 = 0;
+
+@slider
+sldr2 = slider2 * 1000;
+adj = slider1 <= 0 ? 0 : exp(shape * log10(slider1));
+rc = s * max(sldr2 * 0.001, samplesblock / srate);
+a = dt / (rc + dt);
+@sample
+adj_s += a * (adj - adj_s);
+!adj && !adj_s ? adj_s = adj;
+lp_coeff = adj_s * adj_s; 
+target_hp_freq = 400;
+hp_limit = 2 * $pi * target_hp_freq / srate;
+hp_coeff = (1 - adj_s) * hp_limit;
+lp_out0 += lp_coeff * (spl0 - lp_out0); 
+hp_out0 += hp_coeff * (lp_out0 - hp_out0); 
+spl0 = (lp_out0 - hp_out0) * adj_s;
+lp_out1 += lp_coeff * (spl1 - lp_out1); 
+hp_out1 += hp_coeff * (lp_out1 - hp_out1);
+spl1 = (lp_out1 - hp_out1) * adj_s;
