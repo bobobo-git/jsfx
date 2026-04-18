@@ -4,7 +4,7 @@ author: bobobo with a little help, all credits goes to the REAPER's forum especi
 version:1.b
 
 slider1:1<0,1,0.01>target level
-slider2:7.5<1,30,0.1>fade time (s)
+slider2:7.5<0.1,30,0.1:log=2>fade time (s)
 slider3:900<0,8000,10:log=1000>targetfreq
 slider4:6<1,6,0.01:log=3  >shape(should be 6)
 @init
