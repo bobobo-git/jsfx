@@ -332,7 +332,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         diable in and output\line
         }</description>
     </metadata>
-    <version name="1.0.1" author="bobobo" time="2024-11-21T10:00:00.000Z">
+    <version name="1.0.2" author="bobobo" time="2024-11-21T10:00:00.000Z">
       <source file="sat_atan_with_input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_atan_with_input_output.jsfx</source>
       <source file="sat_with_input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_with_input_output.jsfx</source>
     </version>
