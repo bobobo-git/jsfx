@@ -337,6 +337,18 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
       <source file="sat_with_input_output.jsfx">https://bobobo-git.github.io/jsfx/effects/sat_with_input_output.jsfx</source>
     </version>
   </reapack>
+  <reapack name="bobobo_ThreeEQ" type="effect">
+    <metadata>
+      <description>{\rtf1\ansi\fs24   {\fs48\b eq lowshelf highshelf peak and autogain\b}\line\line
+        \line
+        }</description>
+    </metadata>
+    <version name="1.0.0" author="bobobo" time="2026-04-20T00:00:00.000Z">
+              <changelog>
+              </changelog>
+      <source file="bobobo_ThreeEQ.jsfx">https://bobobo-git.github.io/jsfx/effects/bobobo_ThreeEQ.jsfx</source>
+    </version>
+  </reapack>
   <reapack name="bobobo_fadeouter" type="effect">
     <metadata>
       <description>{\rtf1\ansi\fs24   {\fs48\b Fadeout using a low and high pass\b}\line\line
