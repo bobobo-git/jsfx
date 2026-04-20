@@ -1,0 +1,116 @@
+desc:bobobo_Three_EQ_Shelf_Visualizer
+EffectName:Resonant Shelf EQ + Curve
+author: bobobo & assistant
+version: 1.7
+pdc_delay: 512
+pdc_botch: 1
+
+slider1:200<20,2000,1:log>Lowshelf Freq (Hz)
+slider2:0<-15,15,0.1>Lowshelf Gain (dB)
+slider3:0.7<0.1,2,0.01>Lowshelf Q
+slider4:1000<20,20000,1:log>Peak Freq (Hz)
+slider5:0<-15,15,0.1>Peak Gain (dB)
+slider6:1<0.1,5,0.01>Peak Q
+slider7:8000<1000,20000,1:log>Highshelf Freq (Hz)
+slider8:0<-15,15,0.1>Highshelf Gain (dB)
+slider9:0.7<0.1,2,0.01>Highshelf Q
+slider10:1<0,1,1{Off,On}>Auto-Gain
+slider11:0<-24,24,0.1>Manual Trim (dB)
+
+@init
+buf_size = 512;
+buf0 = 0; buf1 = buf_size + 1;
+ptr = 0;
+rms_coeff = 1 - exp(-1 / (srate * 0.1));
+rms_in = rms_out = 0;
+auto_g = 1;
+
+// SVF Status
+ls_s1_0=ls_s2_0=ls_s1_1=ls_s2_1=0;
+pk_s1_0=pk_s2_0=pk_s1_1=pk_s2_1=0;
+hs_s1_0=hs_s2_0=hs_s1_1=hs_s2_1=0;
+
+@slider
+// Koeffizienten für Audio
+A_ls = 10^(slider2 / 40); g_ls = tan($pi * slider1 / srate) / sqrt(A_ls); k_ls = 1 / slider3;
+A_pk = 10^(slider5 / 40); g_pk = tan($pi * slider4 / srate); k_pk = 1 / (slider6 * A_pk);
+A_hs = 10^(slider8 / 40); g_hs = tan($pi * slider7 / srate) * sqrt(A_hs); k_hs = 1 / slider9;
+
+manual_g = 10^(slider11 / 20);
+limit_thr = 10^(-0.1 / 20);
+
+@sample
+input_sum = (spl0*spl0 + spl1*spl1) * 0.5;
+rms_in += rms_coeff * (input_sum - rms_in);
+d0 = buf0[ptr]; d1 = buf1[ptr];
+buf0[ptr] = spl0; buf1[ptr] = spl1;
+ptr += 1; ptr >= buf_size ? ptr = 0;
+
+// Links
+v0=d0; 
+v1=(ls_s1_0+g_ls*(v0-ls_s2_0))/(1+g_ls*(g_ls+k_ls)); v2=ls_s2_0+g_ls*v1; ls_s1_0=2*v1-ls_s1_0; ls_s2_0=2*v2-ls_s2_0;
+sig=v0+k_ls*(A_ls-1)*v1+(A_ls*A_ls-1)*v2;
+v0=sig; 
+v1=(pk_s1_0+g_pk*(v0-pk_s2_0))/(1+g_pk*(g_pk+k_pk)); v2=pk_s2_0+g_pk*v1; pk_s1_0=2*v1-pk_s1_0; pk_s2_0=2*v2-pk_s2_0;
+sig=v0+k_pk*(A_pk*A_pk-1)*v1;
+v0=sig; 
+v1=(hs_s1_0+g_hs*(v0-hs_s2_0))/(1+g_hs*(g_hs+k_hs)); v2=hs_s2_0+g_hs*v1; hs_s1_0=2*v1-hs_s1_0; hs_s2_0=2*v2-hs_s2_0;
+out0 = A_hs*A_hs*v0 + k_hs*A_hs*(1-A_hs)*v1 + (1-A_hs*A_hs)*v2;
+
+// Rechts (identisch)
+v0=d1; 
+v1=(ls_s1_1+g_ls*(v0-ls_s2_1))/(1+g_ls*(g_ls+k_ls)); v2=ls_s2_1+g_ls*v1; ls_s1_1=2*v1-ls_s1_1; ls_s2_1=2*v2-ls_s2_1;
+sig=v0+k_ls*(A_ls-1)*v1+(A_ls*A_ls-1)*v2;
+v0=sig; 
+v1=(pk_s1_1+g_pk*(v0-pk_s2_1))/(1+g_pk*(g_pk+k_pk)); v2=pk_s2_1+g_pk*v1; pk_s1_1=2*v1-pk_s1_1; pk_s2_1=2*v2-pk_s2_1;
+sig=v0+k_pk*(A_pk*A_pk-1)*v1;
+v0=sig; 
+v1=(hs_s1_1+g_hs*(v0-hs_s2_1))/(1+g_hs*(g_hs+k_hs)); v2=hs_s2_1+g_hs*v1; hs_s1_1=2*v1-hs_s1_1; hs_s2_1=2*v2-hs_s2_1;
+out1 = A_hs*A_hs*v0 + k_hs*A_hs*(1-A_hs)*v1 + (1-A_hs*A_hs)*v2;
+
+output_sum = (out0*out0 + out1*out1) * 0.5;
+rms_out += rms_coeff * (output_sum - rms_out);
+slider10 ? (target_g = rms_out > 0.000001 ? sqrt(rms_in / rms_out) : 1; auto_g += 0.002 * (target_g - auto_g); ) : auto_g = 1;
+spl0 = out0 * auto_g * manual_g; spl1 = out1 * auto_g * manual_g;
+spl0 = max(-limit_thr, min(limit_thr, spl0)); spl1 = max(-limit_thr, min(limit_thr, spl1));
+
+@gfx 400 200
+// --- GRAFIK SEKTION ---
+gfx_r=0.2; gfx_g=0.2; gfx_b=0.25; gfx_a=1;
+gfx_rect(0,0,gfx_w,gfx_h); // Hintergrund
+
+// Raster zeichnen
+gfx_r=0.4; gfx_g=0.4; gfx_b=0.5; gfx_a=0.3;
+gfx_line(0, gfx_h/2, gfx_w, gfx_h/2); // 0dB Linie
+
+// Kurve berechnen
+gfx_r=0.5; gfx_g=1; gfx_b=0.5; gfx_a=0.8;
+x = 0;
+while(x < gfx_w)(
+  // Frequenz für diesen Pixel (logarithmisch)
+  freq = 20 * (20000/20)^(x/gfx_w);
+  w = 2 * $pi * freq / srate;
+  cw = cos(w); sw = sin(w);
+  
+  // Da die exakte SVF-Antwort komplex ist, nutzen wir eine visuelle Approximation
+  // für die Kurve (basierend auf den Slider-Werten)
+  gain_ls = slider2 * (1 / (1 + (freq/slider1)^(2*slider3)));
+  
+  dist_pk = log(freq/slider4) / log(2);
+  gain_pk = slider5 * exp(-0.5 * (dist_pk / (1/slider6))^2);
+  
+  gain_hs = slider8 * (1 / (1 + (slider7/freq)^(2*slider9)));
+  
+  total_gain = gain_ls + gain_pk + gain_hs;
+  
+  // Y-Koordinate (10 Pixel pro 3dB)
+  y = gfx_h/2 - (total_gain * (gfx_h/40));
+  
+  x == 0 ? gfx_x=x : gfx_lineto(x, y);
+  gfx_y = y;
+  x += 2;
+);
+
+// Text-Infos
+gfx_x = 5; gfx_y = 5; gfx_r=1; gfx_g=1; gfx_b=1; gfx_a=0.6;
+gfx_drawstr("EQ Response (Approx)");
