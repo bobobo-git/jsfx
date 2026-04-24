@@ -73,7 +73,7 @@ hold.array_init(22000, 128, 1);
 envelope = 2000; pitch_env = 5000; filter_arr_l = 6000; filter_arr_r = 8000; filter_env = 10000;
 glide_freq = 1; glide_samples = 0; glide_mult = 0;
 
-// Pitchbend Init
+
 pb_target = 1.0;
 pb_current = 1.0;
 
@@ -177,7 +177,7 @@ while(ptr >= 0) (
   out_l = 0; out_r = 0; envbuf = mono ? envelope : envelope + ptr[0] * 7; env_state = adsr_process(envbuf);
   pitch_amt ? ( pitchbuf = mono ? pitch_env : pitch_env + ptr[0] * 7; adsr_process(pitchbuf); osc_pitch_det = pow(2, pitchbuf[0] * (pitch_amt | 0) / 12); ) : ( osc_pitch_det = 1; );
   
-  // Apply Pitchbend to all oscillators
+ 
   final_det = osc_pitch_det * pb_current;
 
   osc1_vol > -60 ? (
@@ -282,7 +282,7 @@ draw_button(380, 110, 40, "Mono", mono == 1);
 mouse.left_click && mouse_in_rect(380, 110-2, 40, 14) ? ( mono = !mono; on_slider(); );
 mono ? ( draw_knob(380, 130, 61, "Glide", 1, 1, 2000, 1, 0, sprintf(#, "%i ms", slider(61))); );
 
-// --- NEW PB KNOB ---
+
 draw_knob(380, 200, 62, "PB-R", 2, 0, 48, 0,0, sprintf(#, "%i ST", slider(62)));
 
 function on_knob_move (nslider, slider_min, slider_max, slider_is_log, factor) (
