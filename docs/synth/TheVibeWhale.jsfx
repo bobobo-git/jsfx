@@ -20,17 +20,17 @@ v_mem = 0; next_v = 0;
 i = 0; loop(4, mem[v_mem + i*10] = -1; i+=1; );
 k_pos = -1; k_fadeout = 1; k_active = 0;
 
-// Reverb Memory
+
 rb_ptr0=200; rb_len0=1511; 
 rb_ptr1=1800; rb_len1=1249;
 rb_ptr2=3100; rb_len2=1103;
 rb_ptr3=4300; rb_len3=997;
 
-// Filter & Damping States
+
 dc_b = 0; 
 damp_0=0; damp_1=0; damp_2=0; damp_3=0;
 
-//for the background
+
 bg_buffer = 1; 
 bg_needs_paint = 1;
 
@@ -43,8 +43,7 @@ rev_wet = slider10; rev_fb = slider11;
 fade_speed = 1 / (0.02 * srate);
 damp_coeff = 0.4;
 
-// FORMULA: Maps x (0.2 to 1.0) to y (1.0 to 0.5)
-// y = 1.0 - ((x - 0.2) / 0.8) * 0.5
+
 
 @block
 while (midirecv(offset, msg1, msg2, msg3)) (
@@ -82,7 +81,7 @@ while (midirecv(offset, msg1, msg2, msg3)) (
 @sample
 dry = 0;
 rev_wet = slider10;dist_gain = 1.0 - ((rev_wet - 0.1) / 0.5) * 0.5;
-// --- SINGING ---
+
 i = 0; loop(4,
   idx = v_mem + i * 10; pos = mem[idx + 0];
   pos >= 0 ? (
@@ -96,7 +95,7 @@ i = 0; loop(4,
   ); i += 1;
 );
 
-// --- CREAK ENGINE ---
+
 k_active ? (
   k_must_fade ? ( k_fadeout -= fade_speed; k_fadeout <= 0 ? ( k_fadeout = 0; k_must_fade = 0; k_pos = 0; k_ph = 0; k_len = kn_len; k_f_start = kn_f_s; k_f_end = kn_f_e; k_v_vel = kn_vel; ); ) : ( k_fadeout < 1 ? k_fadeout += fade_speed; );
   k_pos >= 0 ? (
@@ -110,7 +109,7 @@ k_active ? (
   );
 );
 
-// --- REVERB ---
+
 rev_in = dry - dc_b;
 dc_b = dc_b * 0.995 + dry * 0.005;
 
@@ -132,11 +131,10 @@ rb_ptr3 += 1; rb_ptr3 >= 4300 + rb_len3 ? rb_ptr3 = 4300;
 
 wet = (buf0 + buf1 + buf2 + buf3) * 0.25;
 
-// --- OUTPUT ---
-// The distance-based gain is applied here at the very end
+
 spl0 = spl1 = (dry * (1 - rev_wet * 0.5) + wet * rev_wet) * 0.5 * dist_gain;
 @gfx 400 400
-//for the background 
+
 bg_needs_paint ? (
   gfx_dest = bg_buffer; 
   gfx_setimgdim(bg_buffer, 400, 400);
@@ -149,7 +147,7 @@ bg_needs_paint ? (
      gfx_line(0, y, 400, y);
      y += 1;
    );
-   rr=gfx_r;gg=gfx_g;bb=gfx_b; //save it
+   rr=gfx_r;gg=gfx_g;bb=gfx_b; 
    gfx_x=0;
    gfx_y=0;
    
