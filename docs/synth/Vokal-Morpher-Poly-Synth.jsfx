@@ -21,7 +21,7 @@ MAX_VOICES = 16;
 v_freq = 0; v_phase = 20; v_gate = 40; v_env = 60; v_note = 80;
 f_tab = 100;
 
-// Vokal-Tabelle
+
 f_tab[0]=136; f_tab[1]=270; f_tab[2]=2290; f_tab[3]=3010; // i
 f_tab[4]=135; f_tab[5]=390; f_tab[6]=1990; f_tab[7]=2550; // I
 f_tab[8]=130; f_tab[9]=530; f_tab[10]=1840; f_tab[11]=2480; // E
@@ -80,7 +80,7 @@ while (midirecv(offset, m1, m2, m3)) (
 
 @sample
 sum_sig = 0;
-active_voices = 0; // Zähler zurücksetzen
+active_voices = 0; 
 i = 0;
 loop(MAX_VOICES,
   v_gate[i] > 0 ? (
@@ -91,7 +91,7 @@ loop(MAX_VOICES,
     v_phase[i] += v_freq[i] / srate;
     v_phase[i] > 1 ? v_phase[i] -= 2;
     sum_sig += v_phase[i] * v_env[i] * 0.25; 
-    active_voices += 1; // Stimme ist aktiv (spielt)
+    active_voices += 1; 
   );
   i += 1;
 );
@@ -102,28 +102,28 @@ a_s > 0.7 ? ( ov = a_s - 0.7; sig = (sig > 0 ? 1 : -1) * (0.7 + (ov / (1 + ov*ov
 spl0 = spl1 = sig;
 
 @gfx 400 400
-// --- Bilder laden ---
+
 @gfx 400 400
-// --- Bilder laden ---
+
 img_status <= 0 ? (
-  gfx_loadimg(0, "VocalMorpher0.jpg"); // Mund zu (0 Töne)
-  gfx_loadimg(1, "VocalMorpher1.jpg"); // Mund offen (1-2 Töne)
-  gfx_loadimg(2, "VocalMorpher2.jpg"); // "O"-Mund oder Extra-Aktion (> 2 Töne)
+  gfx_loadimg(0, "VocalMorpher0.jpg"); 
+  gfx_loadimg(1, "VocalMorpher1.jpg");
+  gfx_loadimg(2, "VocalMorpher2.jpg"); 
   img_status = 1;
 );
-// Hintergrund
+
 gfx_r=0.05; gfx_g=0.05; gfx_b=0.08; gfx_a=1; gfx_rect(0,0,gfx_w,gfx_h);
 
-// --- Bild-Auswahl Logik ---
-show_img = 0; // Standard: Mund zu
-active_voices > 0 ? show_img = 1; // 1 oder 2 Stimmen
-active_voices > 1  ? show_img = 2; // Mehr als 2 Stimmen
 
-// Das gewählte Bild zeichnen
+show_img = 0;
+active_voices > 0 ? show_img = 1; 
+active_voices > 1  ? show_img = 2; 
+
+
 gfx_getimgdim(show_img, iw, ih);
 gfx_blit(show_img, 1, 0, 0,0,iw,ih, 0,0,gfx_w,gfx_h);
 
-// Interaktion
+
 (mouse_cap & 1) ? (
   slider5 = min(max(mouse_x / gfx_w, 0), 1);
   slider6 = min(max(mouse_y / gfx_h, 0), 1);
@@ -139,7 +139,7 @@ mouse_wheel != 0 ? (
   mouse_wheel = 0;
 );
 
-// Overlay & Hilfslinien
+
 gfx_r=0.2; gfx_g=0.2; gfx_b=0.3; gfx_a=0.5;
 gfx_line(gfx_w/2, 0, gfx_w/2, gfx_h);
 gfx_line(0, gfx_h/2, gfx_w, gfx_h/2);
@@ -149,7 +149,7 @@ gfx_r=1; gfx_g=0.8; gfx_b=0; gfx_a=1;
 gfx_circle(px, py, 6, 1);
 gfx_line(px, 0, px, gfx_h); gfx_line(0, py, gfx_w, py);
 
-// Text
+
 gfx_r=1; gfx_g=1; gfx_b=1; gfx_x=10; gfx_y=10;
 gfx_printf("F0: %d Hz\nF1: %d Hz\nF2: %d Hz\nF3: %d Hz", f0_c, f1_c, f2_c, f3_c);
 gfx_x=10; gfx_y = gfx_h - 30;
