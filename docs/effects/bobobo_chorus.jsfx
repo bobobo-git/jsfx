@@ -1,0 +1,77 @@
+desc: bobobo Chorus Effect
+slider1:0.5<0,1,0.01> Rate (Hz)
+slider2:5<1,20,0.1> Depth (ms)
+slider3:15<5,50,0.1> Base Delay (ms)
+slider4:0.5<0,1,0.01> Mix (Wet)
+
+@init
+// Sample-Rate ermitteln
+srate_ms = srate / 1000;
+
+// Buffer-Größe für das Delay festlegen (Maximal 200ms bei 96kHz)
+buffer_size = srate * 0.2;
+buffer_L = 0;
+buffer_R = buffer_size + 1;
+
+// Schreib-Zeiger zurücksetzen
+write_ptr = 0;
+lfo_phase = 0;
+
+@slider
+// Parameter aus den Slidern auslesen
+lfo_freq = slider1;
+depth_samples = slider2 * srate_ms;
+base_delay_samples = slider3 * srate_ms;
+wet_mix = slider4;
+dry_mix = 1 - wet_mix;
+
+@block
+// LFO Phasen-Inkrement pro Sample berechnen
+lfo_inc = (2 * $pi * lfo_freq) / srate;
+
+@sample
+// Aktuelle Samples in den Buffer schreiben
+buffer_L[write_ptr] = spl0;
+buffer_R[write_ptr] = spl1;
+
+// LFO berechnen (Sinus-Welle zwischen -1 und 1)
+lfo_val = sin(lfo_phase);
+lfo_phase += lfo_inc;
+lfo_phase > 2 * $pi ? lfo_phase -= 2 * $pi;
+
+// Aktuelle Verzögerungszeit in Samples berechnen
+current_delay = base_delay_samples + (lfo_val * depth_samples);
+
+// Lese-Position im zirkulären Buffer bestimmen
+read_ptr = write_ptr - current_delay;
+read_ptr < 0 ? read_ptr += buffer_size;
+
+// Lineare Interpolation für weiche Verzögerungen (Links)
+read_ptr_floor = floor(read_ptr);
+frac = read_ptr - read_ptr_floor;
+
+read_ptr_next = read_ptr_floor + 1;
+read_ptr_next >= buffer_size ? read_ptr_next -= buffer_size;
+
+wet_L = buffer_L[read_ptr_floor] * (1 - frac) + buffer_L[read_ptr_next] * frac;
+
+// Rechter Kanal mit invertiertem LFO für Stereo-Breite
+current_delay_R = base_delay_samples + (-lfo_val * depth_samples);
+read_ptr_R = write_ptr - current_delay_R;
+read_ptr_R < 0 ? read_ptr_R += buffer_size;
+
+read_ptr_floor_R = floor(read_ptr_R);
+frac_R = read_ptr_R - read_ptr_floor_R;
+
+read_ptr_next_R = read_ptr_floor_R + 1;
+read_ptr_next_R >= buffer_size ? read_ptr_next_R -= buffer_size;
+
+wet_R = buffer_R[read_ptr_floor_R] * (1 - frac_R) + buffer_R[read_ptr_next_R] * frac_R;
+
+// Mix aus Dry und Wet an die Ausgänge übergeben
+spl0 = (spl0 * dry_mix) + (wet_L * wet_mix);
+spl1 = (spl1 * dry_mix) + (wet_R * wet_mix);
+
+// Schreib-Zeiger weiterschalten
+write_ptr += 1;
+write_ptr >= buffer_size ? write_ptr = 0;

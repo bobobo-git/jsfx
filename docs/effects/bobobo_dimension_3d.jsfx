@@ -1,0 +1,119 @@
+desc: bobobo Dimension Spatial Enhancer (Chorus)
+slider1:0<0,3,1{Mode I (Subtle),Mode II (Medium),Mode III (Wide),Mode IV (Intense),manual}> Mode
+
+slider2:0.5<0,1,0.01> lfo_freq (Manual only)
+slider3:18<0,50,0.01> base_delay (Manual only)
+slider4:4<0,50,0.01> depth_ms (Manual only)
+slider5:0.5<0,1,0.1> wet_mix (Manual only)
+
+
+
+
+@init
+// Sample-Rate-Konstante für Millisekunden-Berechnung
+srate_ms = srate / 1000;
+
+// Großer Buffer für beide Kanäle (Maximal 200ms bei 96kHz)
+buffer_size = srate * 0.2;
+buffer_L = 0;
+buffer_R = buffer_size + 1;
+
+write_ptr = 0;
+lfo_phase = 0;
+
+@slider
+// Vordefinierte Presets basierend auf den klassischen Hardware-Knöpfen
+// Mode 0 bis 3 (entspricht Knopf 1 bis 4)
+slider1 == 0 ? (
+  lfo_freq = 0.25;      // Sehr langsam
+  base_delay = 10.0;    // Kurzes Delay
+  depth_ms = 1.5;       // Geringe Modulation
+  wet_mix = 0.40;       // Subtiler Mix
+) : 
+slider1 == 1 ? (
+  qsl=1;
+  lfo_freq = 0.35;
+  base_delay = 12.0;
+  depth_ms = 2.5;
+  wet_mix = 0.45;
+) : 
+slider1 == 2 ? (
+  qsl=2;
+  lfo_freq = 0.50;
+  base_delay = 15.0;
+  depth_ms = 3.5;
+  wet_mix = 0.50;
+) : 
+slider1 == 3?(  // Mode IV
+  qsl=3;
+  lfo_freq = 0.65;      // Schneller und tiefer
+  base_delay = 18.0;
+  depth_ms = 5.0;
+  wet_mix = 0.55;
+) : 
+slider1 == 4?(  // Mode manual
+  qsl=4;
+  lfo_freq   = slider2;
+  base_delay = slider3;
+  depth_ms   = slider4;
+  wet_mix    = slider5;
+  );
+
+// Umrechnung der Millisekunden in Samples
+base_delay_samples = base_delay * srate_ms;
+depth_samples = depth_ms * srate_ms;
+dry_mix = 1.0; // Das Originalsignal bleibt für die Stabilität voll erhalten
+
+@block
+// LFO Phasen-Inkrement pro Sample berechnen
+lfo_inc = (2 * $pi * lfo_freq) / srate;
+
+
+@sample
+// 1. Eingangs-Samples in den zirkulären Buffer schreiben
+buffer_L[write_ptr] = spl0;
+buffer_R[write_ptr] = spl1;
+
+// 2. LFO berechnen (Sinus-Welle zwischen -1 und 1)
+lfo_val = sin(lfo_phase);
+lfo_phase += lfo_inc;
+lfo_phase > 2 * $pi ? lfo_phase -= 2 * $pi;
+
+// 3. LINKER KANAL (Modulation mit positivem LFO)
+delay_L = base_delay_samples + (lfo_val * depth_samples);
+read_ptr_L = write_ptr - delay_L;
+read_ptr_L < 0 ? read_ptr_L += buffer_size;
+
+// Lineare Interpolation (Links)
+floor_L = floor(read_ptr_L);
+frac_L = read_ptr_L - floor_L;
+next_L = floor_L + 1;
+next_L >= buffer_size ? next_L -= buffer_size;
+wet_L = buffer_L[floor_L] * (1 - frac_L) + buffer_L[next_L] * frac_L;
+
+// 4. RECHTER KANAL (Exakt 180° phasenverschoben durch negatives lfo_val)
+delay_R = base_delay_samples + (-lfo_val * depth_samples);
+read_ptr_R = write_ptr - delay_R;
+read_ptr_R < 0 ? read_ptr_R += buffer_size;
+
+// Lineare Interpolation (Rechts)
+floor_R = floor(read_ptr_R);
+frac_R = read_ptr_R - floor_R;
+next_R = floor_R + 1;
+next_R >= buffer_size ? next_R -= buffer_size;
+wet_R = buffer_R[floor_R] * (1 - frac_R) + buffer_R[next_R] * frac_R;
+
+// 5. DAS DIMENSION-CROSS-MIXING (Die Magie des Effekts)
+// Jeder Ausgang bekommt: Original + eigenes Wet-Signal - Wet-Signal des ANDEREN Kanals
+// Das Minus-Zeichen sorgt für die 180° Phasendrehung des Kreuz-Signals.
+
+out_L = (spl0 * dry_mix) + (wet_L * wet_mix) - (wet_R * wet_mix * 0.8);
+out_1 = (spl1 * dry_mix) + (wet_R * wet_mix) - (wet_L * wet_mix * 0.8);
+
+// Ausgänge beschreiben
+spl0 = out_L;
+spl1 = out_1;
+
+// 6. Schreib-Zeiger für den Buffer weiterschalten
+write_ptr += 1;
+write_ptr >= buffer_size ? write_ptr = 0;
