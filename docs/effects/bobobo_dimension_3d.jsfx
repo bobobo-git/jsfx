@@ -145,21 +145,26 @@ gfx_clear = 0xaddeff;
   gfx_r=gfx_g=gfx_b=0.4;
   gfx_b=0;
   gfx_x=gfx_y=0;
- gfx_drawstr(sprintf(#,"mode:%d",qsl));
+ //gfx_drawstr(sprintf(#,"mode:%d",qsl));
  
  gfx_x=0;
  qsl==0?(
- gfx_y=50;
- gfx_drawstr("-v-");
+ gfx_y=10;
+ gfx_drawstr("lfo_freq = 0.25\n\nbase_delay = 10.0\n\ndepth_ms = 1.5\n\nwet_mix = 0.40"
+);
  ):qsl==1?(
- gfx_y=50;
- gfx_drawstr("-v0");
+ gfx_y=10;
+ gfx_drawstr("lfo_freq = 0.35\n\nbase_delay = 12.0\n\ndepth_ms = 2.5\n\nwet_mix = 0.45"
+  );
  ):qsl==2?(
- gfx_y=50;
- gfx_drawstr("0v-");
+ gfx_y=10;
+ gfx_drawstr("lfo_freq = 0.50\n\nbase_delay = 15.0\n\ndepth_ms = 3.5\n\nwet_mix = 0.50"
+  );
+
  ):qsl==3?(
- gfx_y=50;
- gfx_drawstr("0v0");
+ gfx_y=10;
+ gfx_drawstr("lfo_freq = 0.65\n\nbase_delay = 18.0\n\ndepth_ms = 5.0\n\nwet_mix = 0.55"
+  );
  ):qsl==4?(
  gfx_y=10;
  gfx_drawstr("XXX");
