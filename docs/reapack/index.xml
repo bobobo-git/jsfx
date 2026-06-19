@@ -308,7 +308,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         \line\line
       }</description>
     </metadata>
-    <version name="1.0.1" author="bobobo" time="2026-06-19T10:00:00.000Z">
+    <version name="1.0.2" author="bobobo" time="2026-06-19T10:00:00.000Z">
       <source file="bobobo_dimension_3d.jsfx">https://bobobo-git.github.io/jsfx/effects/bobobo_dimension_3d.jsfx</source>
     </version>
   </reapack>
