@@ -292,22 +292,23 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
   </reapack>
   <reapack name="bobobo Chorus" type="effect">
     <metadata>
-      <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
-        another stereo chorus with fixed values\line
-        THIS STUFF IS NOT MONO\line\line
+      <description>{\rtf1\ansi\fs24   {\fs48\b another Chorus\b}\line\line
+        \line
+        \line\line
       }</description>
     </metadata>
     <version name="1.0.0" author="bobobo" time="2026-06-19T10:00:00.000Z">
       <source file="bobobo_chorus.jsfx">https://bobobo-git.github.io/jsfx/effects/bobobo_chorus.jsfx</source>
     </version>
-  </reapack><reapack name="bobobo dimension 3d" type="effect">
+  </reapack>
+  <reapack name="bobobo dimension 3d" type="effect">
     <metadata>
-      <description>{\rtf1\ansi\fs24   {\fs48\b OwnChorus I\b}\line\line
-        another stereo chorus with fixed values\line
-        THIS STUFF IS NOT MONO\line\line
+      <description>{\rtf1\ansi\fs24   {\fs48\b Chourus Dimenions 3D\b}\line\line
+        \line
+        \line\line
       }</description>
     </metadata>
-    <version name="1.0.0" author="bobobo" time="2026-06-19T10:00:00.000Z">
+    <version name="1.0.1" author="bobobo" time="2026-06-19T10:00:00.000Z">
       <source file="bobobo_dimension_3d.jsfx">https://bobobo-git.github.io/jsfx/effects/bobobo_dimension_3d.jsfx</source>
     </version>
   </reapack>
