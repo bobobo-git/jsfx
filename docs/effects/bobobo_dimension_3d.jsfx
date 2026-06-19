@@ -4,12 +4,24 @@ slider1:0<0,3,1{Mode I (Subtle),Mode II (Medium),Mode III (Wide),Mode IV (Intens
 slider2:0.5<0,1,0.01> lfo_freq (Manual only)
 slider3:18<0,50,0.01> base_delay (Manual only)
 slider4:4<0,50,0.01> depth_ms (Manual only)
-slider5:0.5<0,1,0.1> wet_mix (Manual only)
+slider5:0.5<0,1,0.1> dwet_mix (Manual only)
 
 
 
 
 @init
+function update_visibility()
+(
+  // slider_show(slider_nummer, sichtbarkeit)
+  // 1 = sichtbar, 0 = versteckt
+  slider_show(slider2, slider1 == 4);
+   slider_show(slider3, slider1 == 4);
+    slider_show(slider4, slider1 == 4);
+     slider_show(slider5, slider1 == 4);
+  
+  // REAPER mitteilen, dass sich die GUI geändert hat
+  slider_chg = 1;
+);
 // Sample-Rate-Konstante für Millisekunden-Berechnung
 srate_ms = srate / 1000;
 
@@ -21,10 +33,13 @@ buffer_R = buffer_size + 1;
 write_ptr = 0;
 lfo_phase = 0;
 
+update_visibility();
 @slider
+update_visibility();
 // Vordefinierte Presets basierend auf den klassischen Hardware-Knöpfen
 // Mode 0 bis 3 (entspricht Knopf 1 bis 4)
 slider1 == 0 ? (
+  qsl=0;
   lfo_freq = 0.25;      // Sehr langsam
   base_delay = 10.0;    // Kurzes Delay
   depth_ms = 1.5;       // Geringe Modulation
@@ -58,11 +73,13 @@ slider1 == 4?(  // Mode manual
   depth_ms   = slider4;
   wet_mix    = slider5;
   );
-
+  
 // Umrechnung der Millisekunden in Samples
 base_delay_samples = base_delay * srate_ms;
 depth_samples = depth_ms * srate_ms;
 dry_mix = 1.0; // Das Originalsignal bleibt für die Stabilität voll erhalten
+@serialize
+update_visibility();
 
 @block
 // LFO Phasen-Inkrement pro Sample berechnen
@@ -117,3 +134,35 @@ spl1 = out_1;
 // 6. Schreib-Zeiger für den Buffer weiterschalten
 write_ptr += 1;
 write_ptr >= buffer_size ? write_ptr = 0;
+@gfx 400 100
+gfx_w = 400; // Gewünschte Standardbreite
+gfx_h = 100; // Gewünschte Standardhöhe (festgeschrieben)
+gfx_min_w = 400;
+gfx_min_h = 100;
+gfx_clear = 0xaddeff;
+
+ gfx_r=gfx_g=gfx_b=0.1;
+  gfx_r=gfx_g=gfx_b=0.4;
+  gfx_b=0;
+  gfx_x=gfx_y=0;
+ gfx_drawstr(sprintf(#,"mode:%d",qsl));
+ 
+ gfx_x=0;
+ qsl==0?(
+ gfx_y=50;
+ gfx_drawstr("-v-");
+ ):qsl==1?(
+ gfx_y=50;
+ gfx_drawstr("-v0");
+ ):qsl==2?(
+ gfx_y=50;
+ gfx_drawstr("0v-");
+ ):qsl==3?(
+ gfx_y=50;
+ gfx_drawstr("0v0");
+ ):qsl==4?(
+ gfx_y=10;
+ gfx_drawstr("XXX");
+ );
+ 
+ 
