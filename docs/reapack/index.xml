@@ -15,7 +15,7 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
         {\fldrslt website}} / \line\line {\fs48\b MIDI MOUSE CC22 via mousewheel\b}\line\line    }
       </description>
     </metadata>
-    <version name="1.00" author="bobobo" time="2026-07-01T00:00:00Z">
+    <version name="1.01" author="bobobo" time="2026-07-01T00:00:00Z">
        <source main="main" file="midimouse.lua">https://bobobo-git.github.io/jsfx/scripts/midimouse.lua</source>
     </version>
   </reapack>
