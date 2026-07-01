@@ -11,17 +11,14 @@ you may have a look at https://bobobo.de/reaper/midimix_3_knobs_recarm_all_in_4\
 <category name="Controller">
   <reapack name="midimouse.lua" type="script" desc="MIDI Mouse">
         <metadata>
-            <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
-      {\fldrslt website}} / \line\line {\fs48\b a midimouse \b}\line\line sends CC 22 whene wheeling and hovering over a field\line
-      have fun \line
-         \line
-        }
+      <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
+        {\fldrslt website}} / \line\line {\fs48\b MIDI MOUSE CC22 via mousewheel\b}\line\line    }
       </description>
     </metadata>
     <version name="1.00" author="bobobo" time="2026-07-01T00:00:00Z">
-       <source main="main" file="apc_test.eel">https://bobobo-git.github.io/jsfx/scripts/midimouse.lua</source>
+       <source main="main" file="midimouse.lua">https://bobobo-git.github.io/jsfx/scripts/midimouse.lua</source>
     </version>
-    </reapack>
+  </reapack>
   <reapack name="apc_test.eel" type="script" desc="APC Mini mk2 observer">
         <metadata>
             <description>{\rtf1\ansi\fs24Links: {\field{\*\fldinst{HYPERLINK &quot;https://bobobo-git.github.io/jsfx/reapack/index.xml&quot;}}
